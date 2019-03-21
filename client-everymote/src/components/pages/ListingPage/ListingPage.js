@@ -4,7 +4,7 @@ import WorkspaceListing from "../ListingPage/Listing/Listing.js";
 class ListingPage extends React.Component {
   render() {
     var style1 = {
-      background: "white"
+      background: "violet"
     };
     var style2 = {
       background: "pink"

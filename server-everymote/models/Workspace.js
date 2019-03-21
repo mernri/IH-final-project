@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const worksapceSchema = new Schema(
+const workspaceSchema = new Schema(
   {
     name: String,
     address: String,
@@ -9,6 +9,7 @@ const worksapceSchema = new Schema(
     city: String,
     phone: String,
     email: String,
+    pictures: [],
     // amenities: {
     //     highSpeedWifi: boolean,
     //     printers: boolean
@@ -22,5 +23,5 @@ const worksapceSchema = new Schema(
   }
 );
 
-const Workspace = mongoose.model("Workspace", worksapceSchema);
+const Workspace = mongoose.model("Workspace", workspaceSchema);
 module.exports = Workspace;
