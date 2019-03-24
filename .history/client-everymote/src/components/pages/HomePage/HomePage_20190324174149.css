@@ -1,0 +1,5 @@
+.home-hero-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+    url("https://zupimages.net/up/19/12/20yo.jpg");
+    background-repeat: no-repeat
+}

@@ -1,0 +1,8 @@
+
+
+.home-hero-background {
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+    url("../../media/examples/lizard.png");
+    /* background-image: url(https://zupimages.net/up/19/12/20yo.jpg); */
+    background-size: cover;
+}
