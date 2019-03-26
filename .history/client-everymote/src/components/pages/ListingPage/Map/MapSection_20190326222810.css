@@ -1,0 +1,11 @@
+.leaflet-container {
+    height: 800px;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .leaflet-container {
+
+      display: none;
+    }
+  }

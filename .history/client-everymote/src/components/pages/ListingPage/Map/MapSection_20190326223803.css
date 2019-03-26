@@ -1,0 +1,14 @@
+.leaflet-container {
+    height: 800px;
+    width: 100%;
+  }
+  
+
+/* Hide the map if we're on mobile */
+@media screen and (max-width: 600px) {
+  .eaflet-container {
+    height: 667px;
+    width: 100%
+
+  }
+}

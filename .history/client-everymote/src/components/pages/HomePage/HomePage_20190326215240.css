@@ -1,0 +1,12 @@
+.home-hero-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1553173385-682bfe958d31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80");
+    background-size: cover;
+    background-position: 20% 70%
+}
+
+
+#home-map {
+  height: 400px;
+  width: 100%;
+}

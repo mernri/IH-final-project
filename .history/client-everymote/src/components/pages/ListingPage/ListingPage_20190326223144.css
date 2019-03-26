@@ -1,0 +1,13 @@
+
+/* Hide the map if we're on mobile */
+@media screen and (max-width: 600px) {
+  .home-map {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .toggle-map {
+    display: none;
+  }
+}

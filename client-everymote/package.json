@@ -5,10 +5,12 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bulma": "^0.7.4",
+    "leaflet": "^1.4.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-image-gallery": "^0.8.14",
     "react-images": "^0.5.19",
+    "react-leaflet": "^2.2.1",
     "react-photo-gallery": "^6.3.2",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
