@@ -24,7 +24,7 @@ workspaceRoutes.post("/workspaces/add", (req, res, next) => {
     pictures: req.body.pictures,
     monthlyPrice: req.body.monthlyPrice,
     dailyPrice: req.body.dailyPrice,
-    annualPrice: req.body.annualPrice
+    annualPrice: req.body.annualPrice,
 
   })
     .then(response => {

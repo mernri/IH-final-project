@@ -12,6 +12,7 @@ import addWorkspace from "./components/pages/AddWorkspacePage/addWorkspace.js";
 
 import "bulma/css/bulma.css";
 import "./App.css";
+import addWorkspace from "./components/pages/AddWorkspacePage/addWorkspace.js";
 
 class App extends React.Component {
   render() {

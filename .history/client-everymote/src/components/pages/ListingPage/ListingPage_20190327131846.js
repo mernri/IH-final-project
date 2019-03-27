@@ -23,7 +23,8 @@ class ListingPage extends React.Component {
             {/* MAP TOGGLE FOR MOBILE */}
             <Link to="/workspaces-map" class="button is-info toggle-map">Map view</Link>
             {/* END OF MAP TOGGLE FOR MOBILE */}
-            <Link to="/add-workspace" class="button is-info">Add a new workspace</Link>
+            Add a new workspace :  
+            <Link to="/workspace/add" class="button is-info toggle-map">Map view</Link>
 
             <WorkspaceListing />
           </div>

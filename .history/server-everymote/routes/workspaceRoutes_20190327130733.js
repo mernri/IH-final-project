@@ -22,9 +22,10 @@ workspaceRoutes.post("/workspaces/add", (req, res, next) => {
     city: req.body.city,
     phone: req.body.phone,
     pictures: req.body.pictures,
-    monthlyPrice: req.body.monthlyPrice,
-    dailyPrice: req.body.dailyPrice,
-    annualPrice: req.body.annualPrice
+    monthlyprice: req.body,
+    dailyPrice: Number,
+    annualPrice: Number,
+
 
   })
     .then(response => {

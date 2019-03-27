@@ -21,11 +21,7 @@ workspaceRoutes.post("/workspaces/add", (req, res, next) => {
     zipcode: req.body.zipcode,
     city: req.body.city,
     phone: req.body.phone,
-    pictures: req.body.pictures,
-    monthlyPrice: req.body.monthlyPrice,
-    dailyPrice: req.body.dailyPrice,
-    annualPrice: req.body.annualPrice
-
+    email: req.body.email
   })
     .then(response => {
       res.json(response);

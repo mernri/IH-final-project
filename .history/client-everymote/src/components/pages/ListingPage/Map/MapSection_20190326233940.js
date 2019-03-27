@@ -5,16 +5,6 @@ import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Link } from "react-router-dom"
 
-// import marker icons
-delete L.Icon.Default.prototype._getIconUrl;
-
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png"
-});
-
 class MapSection extends React.Component {
   constructor() {
     super();
@@ -35,10 +25,11 @@ class MapSection extends React.Component {
       results.clearLayers();
       for (let i = data.results.length - 1; i >= 0; i--) {
         results.addLayer(L.marker(data.results[i].latlng));
-      }    
+      }
     });
-
   }
+
+
 
 
 
@@ -50,18 +41,16 @@ class MapSection extends React.Component {
         <Link to="/workspaces" class="button is-info toggle-map">List view</Link>
 
         {/* END OF MAP TOGGLE FOR MOBILE */}
-        <Map center={position} zoom={this.state.zoom} ref={m => {
-          this.leafletMap = m;
-        }}>
+        <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
           />
-          {/* <Marker position={position}>
+          <Marker position={position}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
-          </Marker> */}
+          </Marker>
         </Map>
       </div>
     );

@@ -7,11 +7,12 @@ import WorkspaceView from "./components/pages/WorkspaceView/WorkspaceView.js";
 import Signup from "./components/pages/AuthPages/SignupPage/Signup.js";
 import Onboarding from "./components/pages/AuthPages/SignupPage/Onboarding.js";
 import MapSection from "./components/pages/ListingPage/Map/MapSection.js";
-import addWorkspace from "./components/pages/AddWorkspacePage/addWorkspace.js";
+
 
 
 import "bulma/css/bulma.css";
 import "./App.css";
+import addWorkspace from "./components/pages/AddWorkspacePage/addWorkspace.js";
 
 class App extends React.Component {
   render() {

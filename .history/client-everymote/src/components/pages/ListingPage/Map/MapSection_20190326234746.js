@@ -30,14 +30,14 @@ class MapSection extends React.Component {
     const map = this.leafletMap.leafletElement;
     const searchControl = new ELG.Geosearch().addTo(map);
     const results = new L.LayerGroup().addTo(map);
+    console.log(results)
 
     searchControl.on("results", function(data) {
       results.clearLayers();
       for (let i = data.results.length - 1; i >= 0; i--) {
         results.addLayer(L.marker(data.results[i].latlng));
-      }    
+      }
     });
-
   }
 
 

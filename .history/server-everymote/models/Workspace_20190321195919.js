@@ -8,10 +8,12 @@ const workspaceSchema = new Schema(
     zipcode: Number,
     city: String,
     phone: String,
+    email: String,
     pictures: [],
-    monthlyPrice: Number,
-    dailyPrice: Number,
-    annualPrice: Number,
+    // amenities: {
+    //     highSpeedWifi: boolean,
+    //     printers: boolean
+    // }
   },
   {
     timestamps: {

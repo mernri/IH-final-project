@@ -22,8 +22,8 @@ class ListingPage extends React.Component {
           <div className="column is-three-fifths" style={style1}>
             {/* MAP TOGGLE FOR MOBILE */}
             <Link to="/workspaces-map" class="button is-info toggle-map">Map view</Link>
+
             {/* END OF MAP TOGGLE FOR MOBILE */}
-            <Link to="/add-workspace" class="button is-info">Add a new workspace</Link>
 
             <WorkspaceListing />
           </div>

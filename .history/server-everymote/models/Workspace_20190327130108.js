@@ -9,9 +9,9 @@ const workspaceSchema = new Schema(
     city: String,
     phone: String,
     pictures: [],
-    monthlyPrice: Number,
-    dailyPrice: Number,
-    annualPrice: Number,
+    Monthlyprice: Number,
+    DailyPrice: Number,
+    AnnualPrice: Number,
   },
   {
     timestamps: {

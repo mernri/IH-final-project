@@ -35,9 +35,8 @@ class MapSection extends React.Component {
       results.clearLayers();
       for (let i = data.results.length - 1; i >= 0; i--) {
         results.addLayer(L.marker(data.results[i].latlng));
-      }    
+      }
     });
-
   }
 
 
