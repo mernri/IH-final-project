@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+
 import axios from "axios";
 
 export default class addWorkspace extends Component {
@@ -15,8 +16,7 @@ export default class addWorkspace extends Component {
       monthlyPrice: "",
       dailyPrice: "",
       annualPrice: "",
-      redirectToListing: false,
-      
+      redirectToListing: false
     };
   }
 

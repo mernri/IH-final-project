@@ -10,8 +10,8 @@ const userSchema = new Schema(
     picture: String,
     occupation: String,
     city: String,
-    // owner: {type: Schema.Types.ObjectId, ref: 'User'},
-    // addedBy: {type: Schema.Types.ObjectId, ref: 'User'},
+    owner: {type: Schema.Types.ObjectId, ref: 'User'},
+    addedBy: {type: Schema.Types.ObjectId, ref: 'User'},
     // interests: {
     //   productManagement: boolean,
     //   programming: boolean,

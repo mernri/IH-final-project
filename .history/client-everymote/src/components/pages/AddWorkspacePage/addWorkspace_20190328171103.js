@@ -15,8 +15,7 @@ export default class addWorkspace extends Component {
       monthlyPrice: "",
       dailyPrice: "",
       annualPrice: "",
-      redirectToListing: false,
-      
+      redirectToListing: false
     };
   }
 

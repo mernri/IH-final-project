@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 export default class addWorkspace extends Component {
@@ -15,8 +14,7 @@ export default class addWorkspace extends Component {
       monthlyPrice: "",
       dailyPrice: "",
       annualPrice: "",
-      redirectToListing: false,
-      
+      redirectToListing: false
     };
   }
 
@@ -68,15 +66,13 @@ export default class addWorkspace extends Component {
           dailyPrice: "",
           annualPrice: "",
           redirectToOnboarding: true
+
         });
       })
       .catch(error => console.log(error));
   };
 
   render() {
-    if (this.state.redirectToOnboarding) {
-      return <Redirect to='/workspaces' />
-    }
     return (
       <div>
         <div className="hero-body">
