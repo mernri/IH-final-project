@@ -10,6 +10,7 @@
     "leaflet": "^1.4.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-geocode": "^0.1.2",
     "react-image-gallery": "^0.8.14",
     "react-images": "^0.5.19",
     "react-leaflet": "^2.2.1",
