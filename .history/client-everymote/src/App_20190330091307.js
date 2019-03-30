@@ -34,7 +34,7 @@ class App extends React.Component {
   updateUser = (data) => {
     this.setState({user: data});
   };
-
+  
   componentDidMount() {
     this.fetchUser();
   }
@@ -60,20 +60,12 @@ class App extends React.Component {
             )}
           />
 
-          <Route
-            exact
-            path="/onboarding"
-            render={props => (
-              <Onboarding updateUser={this.updateUser} history={props.history} />
-            )}
-          />
-
           <Route exact path="/" component={HomePage} />
           <Route exact path="/workspaces" component={ListingPage} />
           <Route exact path="/workspace/:id" component={WorkspaceView} />
+          <Route exact path="/onboarding" component={Onboarding} />
           <Route exact path="/workspaces-map" component={MapSection} />
           <Route exact path="/add-workspace" component={addWorkspace} />
-
         </Switch>
       </div>
     );

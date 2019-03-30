@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AuthService from "../Authservices.js";
-import { Redirect } from "react-router-dom";
 
 export default class Onboarding extends Component {
   constructor(props) {
@@ -10,7 +9,7 @@ export default class Onboarding extends Component {
       fullname: "",
       city: "",
       occupation: "",
-      redirectToListing: false
+      onboarded: false
     };
   }
 
@@ -25,48 +24,23 @@ export default class Onboarding extends Component {
     });
   };
 
-  // handleChange = event => {
-  //   this.service
-  //     .edit(
-  //       this.state.fullname,
-  //       this.state.city,
-  //       this.state.occupation
-  //     )
-  //     .then(() => {
-  //       this.setState({
-  //         onboarded: true
-  //       });
-  //     })
-  //     .catch(error => console.log(error));
-  // };
-
   handleChange = event => {
-    const { name, value } = event.target;
-    console.log({ name }, { value });
-    this.setState({ [name]: value });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-
     this.service
       .edit(
-        this.state.fullname,
         this.state.picture,
-        this.state.occupation,
-        this.state.city
+        this.state.fullname,
+        this.state.city,
+        this.state.occupation
       )
-      .then(response => {
-        this.props.updateUser(response);
-        this.props.history.push("/");
-      });
+      .then(() => {
+        this.setState({
+          onboarded: true
+        });
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
-    if (this.state.redirectToListing) {
-      return <Redirect to="/workspaces" />;
-    }
-
     return (
       <div>
         <div className="hero-body">

@@ -11,7 +11,6 @@ const bcryptSalt = 10;
 authRoutes.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-  
   if (!email || !password) {
     res.status(400).json({ message: "Provide email and password" });
     return;
@@ -145,7 +144,7 @@ authRoutes.post("/edit", (req, res, next) => {
       return;
     }
 
-    // 4. Validation ok, lets save it
+    // 4. Validation ok, let save it
     req.user.save(function(err) {
       if (err) {
         res.status(500).json({ message: "Error while saving user into DB." });

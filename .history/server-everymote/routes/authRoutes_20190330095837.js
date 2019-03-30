@@ -145,7 +145,7 @@ authRoutes.post("/edit", (req, res, next) => {
       return;
     }
 
-    // 4. Validation ok, lets save it
+    // 4. Validation ok, let save it
     req.user.save(function(err) {
       if (err) {
         res.status(500).json({ message: "Error while saving user into DB." });

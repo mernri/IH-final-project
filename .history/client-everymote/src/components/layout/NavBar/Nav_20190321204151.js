@@ -1,7 +1,5 @@
 import React from "react";
 import NavButton from "./NavButton.js";
-import { Link } from "react-router-dom";
-
 import "bulma/css/bulma.css";
 
 
@@ -26,9 +24,9 @@ export default class Nav extends React.Component {
 
         <div id="navbarExampleTransparentExample" className="navbar-menu">
           <div className="navbar-start">
-            <Link className="navbar-item" to="/workspaces">
+            <a className="navbar-item" href="#">
               Home
-            </Link>
+            </a>
           </div>
 
           <div className="navbar-end">
@@ -36,12 +34,12 @@ export default class Nav extends React.Component {
               <div className="field is-grouped">
                 <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
-                    <Link to="/login"> Login </Link>
+                    Login
                   </NavButton>
                 </div>
                 <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
-                  <Link to="/signup"> Signup </Link>
+                    Signup
                   </NavButton>
                 </div>
               </div>

@@ -64,7 +64,7 @@ class App extends React.Component {
             exact
             path="/onboarding"
             render={props => (
-              <Onboarding updateUser={this.updateUser} history={props.history} />
+              <Login updateUser={this.updateUser} history={props.history} />
             )}
           />
 

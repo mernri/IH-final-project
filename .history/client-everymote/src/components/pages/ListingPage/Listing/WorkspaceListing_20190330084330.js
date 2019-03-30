@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import ListingCard from "./ListingCard.js";
-import axios from "axios";
 import "bulma/css/bulma.css";
 
 class WorkspaceListing extends Component {

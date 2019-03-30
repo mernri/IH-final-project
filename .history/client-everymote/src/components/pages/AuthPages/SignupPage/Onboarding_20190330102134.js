@@ -46,16 +46,11 @@ export default class Onboarding extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
 
     this.service
-      .edit(
-        this.state.fullname,
-        this.state.picture,
-        this.state.occupation,
-        this.state.city
-      )
+      .edit(this.state.fullname, this.state.picture, this.state.occupation, this.state.city, )
       .then(response => {
         this.props.updateUser(response);
         this.props.history.push("/");

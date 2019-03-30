@@ -36,12 +36,12 @@ export default class Nav extends React.Component {
               <div className="field is-grouped">
                 <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
-                    <Link to="/login"> Login </Link>
+                    Login
                   </NavButton>
                 </div>
                 <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
-                  <Link to="/signup"> Signup </Link>
+                    Signup
                   </NavButton>
                 </div>
               </div>

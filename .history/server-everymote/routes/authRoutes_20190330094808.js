@@ -7,67 +7,6 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-// SIGNUP ROUTE
-authRoutes.post("/signup", (req, res, next) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  
-  if (!email || !password) {
-    res.status(400).json({ message: "Provide email and password" });
-    return;
-  }
-
-  if (password.length < 7) {
-    res.status(400).json({
-      message:
-        "Please make your password at least 7 characters long for security purposes."
-    });
-    return;
-  }
-
-  User.findOne({ email }, (err, foundUser) => {
-    if (err) {
-      res.status(500).json({ message: "Email check went bad." });
-      return;
-    }
-
-    if (foundUser) {
-      res.status(400).json({ message: "Email taken. Choose another one." });
-      return;
-    }
-
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-
-    const aNewUser = new User({
-      email: email,
-      password: hashPass
-    });
-
-    aNewUser.save(err => {
-      if (err) {
-        res
-          .status(400)
-          .json({ message: "Saving user to database went wrong." });
-        return;
-      }
-
-      // Automatically log in user after sign up
-      // .login() here is actually predefined passport method
-      req.login(aNewUser, err => {
-        if (err) {
-          res.status(500).json({ message: "Login after signup went bad." });
-          return;
-        }
-
-        // Send the user's information to the frontend
-        // We can use also: res.status(200).json(req.user);
-        res.status(200).json(aNewUser);
-      });
-    });
-  });
-});
-
 // LOGIN ROUTE
 authRoutes.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, theUser, failureDetails) => {
@@ -98,6 +37,72 @@ authRoutes.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+// SIGNUP ROUTE
+authRoutes.post("/signup", (req, res, next) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  if (!email || !password) {
+    res.status(400).json({ message: "Provide email and password" });
+    return;
+  }
+
+  if (password.length < 7) {
+    res.status(400).json({
+      message:
+        "Please make your password at least 7 characters long for security purposes."
+    });
+    return;
+  }
+
+  User.findOne({ email }, (err, foundUser) => {
+    if (err) {
+      res.status(500).json({ message: "Email check went bad." });
+      return;
+    }
+
+    if (foundUser) {
+      res.status(400).json({ message: "Email taken. Choose another one." });
+      return;
+    }
+
+    const salt = bcrypt.genSaltSync(bcryptSalt);
+    const hashPass = bcrypt.hashSync(password, salt);
+
+    const aNewUser = new User({
+      email: email,
+      password: hashPass,
+    });
+
+    aNewUser.save(err => {
+      if (err) {
+        res
+          .status(400)
+          .json({ message: "Saving user to database went wrong." });
+        return;
+      }
+
+      // Automatically log in user after sign up
+      // .login() here is actually predefined passport method
+      req.login(aNewUser, err => {
+        if (err) {
+          res.status(500).json({ message: "Login after signup went bad." });
+          return;
+        }
+
+        // Send the user's information to the frontend
+        // We can use also: res.status(200).json(req.user);
+        res.status(200).json(aNewUser);
+      });
+    });
+  });
+});
+
+// LOGOUT ROUTE
+authRoutes.post("/logout", (req, res, next) => {
+  // req.logout() is defined by passport
+  req.logout();
+  res.status(200).json({ message: "Log out success!" });
+});
 
 // LOGGED IN ROUTE => PERMET DE SAVOIR SI ON C'EST DEJA AUTHENTIFIÉ OU PAS.
 // Ex: l'utilisateur raffraichit la page => on ne va pas le relogé, on va vérifié s'il a toujours le cookie de connexion = vérifié s'il est connecté. ça va permettre par exemple de décider quels liens on va mettre dans la navbar (login ou logout links)
@@ -109,15 +114,6 @@ authRoutes.get("/loggedin", (req, res, next) => {
   }
   res.status(403).json({ message: "Unauthorized" });
 });
-
-
-// LOGOUT ROUTE
-authRoutes.post("/logout", (req, res, next) => {
-  // req.logout() is defined by passport
-  req.logout();
-  res.status(200).json({ message: "Log out success!" });
-});
-
 
 // EDIT PROFILE ROUTE
 authRoutes.post("/edit", (req, res, next) => {
@@ -145,7 +141,7 @@ authRoutes.post("/edit", (req, res, next) => {
       return;
     }
 
-    // 4. Validation ok, lets save it
+    // 4. Validation ok, let save it
     req.user.save(function(err) {
       if (err) {
         res.status(500).json({ message: "Error while saving user into DB." });

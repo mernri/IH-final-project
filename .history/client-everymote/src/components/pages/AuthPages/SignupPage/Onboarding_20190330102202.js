@@ -46,7 +46,7 @@ export default class Onboarding extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
 
     this.service
