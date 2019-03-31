@@ -31,23 +31,22 @@ class WorkspaceListing extends Component {
   render() {
     return (
       <div>
-        <div className="tile is-ancestor">
-          <div className="tile is-parent">
-            <div className="tile is-child">
+        
+        <div className="columns">
+          <div className="column is-on-third ">
             {this.state.listOfWorkspaces.map(workspace => {
-                return (
-                  <div key={workspace._id}>
-                    <Link to={`/workspace/${workspace._id}`}>
-                      <div
-                        style={{ width: "33%", float: "left", padding: "15px" }}
-                      >
-                        <ListingCard {...workspace} />
-                      </div>
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
+              return (
+                <div key={workspace._id}>
+                  <Link to={`/workspace/${workspace._id}`}>
+                    <div
+                      style={{ width: "33%", float: "left", padding: "15px" }}
+                    >
+                      <ListingCard {...workspace} />
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
 
           {console.log("this state list = " + this.state.listOfWorkspaces)}

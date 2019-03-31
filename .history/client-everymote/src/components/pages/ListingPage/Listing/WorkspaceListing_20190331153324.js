@@ -32,9 +32,9 @@ class WorkspaceListing extends Component {
     return (
       <div>
         <div className="tile is-ancestor">
-          <div className="tile is-parent">
-            <div className="tile is-child">
-            {this.state.listOfWorkspaces.map(workspace => {
+          <div className="tile is-vertical">
+            <div>
+              {this.state.listOfWorkspaces.map(workspace => {
                 return (
                   <div key={workspace._id}>
                     <Link to={`/workspace/${workspace._id}`}>

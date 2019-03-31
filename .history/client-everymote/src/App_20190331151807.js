@@ -71,7 +71,7 @@ class App extends React.Component {
             )}
           />
 
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={ResultsHeader} />
           <Route exact path="/workspaces" component={ListingPage} />
 
           <Route exact path="/workspace/:id" component={WorkspaceView} />

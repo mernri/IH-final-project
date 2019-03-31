@@ -27,7 +27,7 @@ class ListingPage extends React.Component {
 
         <div
           className="workspaces-view"
-          style={{ marginLeft: "5%", marginRight: "5%" }}
+          style={{ marginLeft: "100px", marginRight: "5%" }}
         >
           {this.state.view === "listing" ? 
           
