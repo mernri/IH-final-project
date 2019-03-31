@@ -6,7 +6,6 @@ import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
 // import WorkspaceGallery from "./WorspaceGallery/WorkspaceGallery.js";
 // import WorkspacePresentation from "./AdviewPresentation.js";
 // import WorkspaceAmenities from "./AdViewAmenities.js";
-// import WorkspaceMap from "./AdViewMap.js";
 
 class AdView extends React.Component {
   constructor(props) {

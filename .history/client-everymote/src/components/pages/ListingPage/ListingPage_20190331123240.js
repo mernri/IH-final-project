@@ -17,9 +17,8 @@ class ListingPage extends React.Component {
 
     return (
       <div>
-
         <div className="tomap-button">
-          <Link className="button is-info toggle-map">
+          <Link to="/workspaces-map" className="button is-info toggle-map">
             View on map
           </Link>
           <Link to="/add-workspace" className="button is-info toggle-map">
@@ -27,7 +26,7 @@ class ListingPage extends React.Component {
           </Link>
         </div>
 
-        <div className="workspaces-view" style={{ marginLeft: "100px", marginRight: "100px" }}>
+        <div className="listing">
           <WorkspaceListing />
         </div>
       </div>

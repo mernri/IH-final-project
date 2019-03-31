@@ -35,7 +35,7 @@ class WorkspaceListing extends Component {
             return (
               <div key={workspace._id}>
                 <Link to={`/workspace/${workspace._id}`}>
-                  <div style={{ width: "33%", float: "left", padding: "15px" }}>
+                  <div style={{ width: "50%", float: "left", padding: "15px" }}>
                     <ListingCard {...workspace} />
                   </div>
                 </Link>

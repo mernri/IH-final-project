@@ -12,7 +12,7 @@ class ListingCard extends React.Component {
         <div className="card">
           
           <div className="card-image">
-            <figure className="image is-3by2">
+            <figure className="image is-48x48">
               <img
                 src={this.props.pictures[0]}
                 alt="Placeholder"
@@ -24,6 +24,7 @@ class ListingCard extends React.Component {
             <div className="media">
               <div className="media-content">
                 <p className="title is-4">{this.props.name}</p>
+                <p className="subtitle is-6">{this.props.city}</p>
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ class ListingPage extends React.Component {
           </Link>
         </div>
 
-        <div className="workspaces-view" style={{ marginLeft: "100px", marginRight: "100px" }}>
+        <div className="workspaces-view" style={{ marginLeft: "50px" }}>
           <WorkspaceListing />
         </div>
       </div>

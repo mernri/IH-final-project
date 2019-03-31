@@ -24,6 +24,7 @@ class ListingCard extends React.Component {
             <div className="media">
               <div className="media-content">
                 <p className="title is-4">{this.props.name}</p>
+                <p className="subtitle is-6">{this.props.city}</p>
               </div>
             </div>
           </div>

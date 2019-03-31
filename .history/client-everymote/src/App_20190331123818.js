@@ -13,7 +13,6 @@ import AuthService from "./components/pages/AuthPages/Authservices.js";
 
 import "bulma/css/bulma.css";
 import "./App.css";
-import ResultsHeader from "./components/pages/ListingPage/ResultsHeader/ResultsHeader.js";
 
 class App extends React.Component {
   state = {
@@ -71,12 +70,12 @@ class App extends React.Component {
             )}
           />
 
-          <Route exact path="/" component={ResultsHeader} />
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/workspaces" component={ListingPage} />
 
           <Route exact path="/workspace/:id" component={WorkspaceView} />
 
-          <Route exact path="/workspaces-map" component={MapSection} />
+          {/* <Route exact path="/workspaces-map" component={MapSection} /> */}
           <Route exact path="/add-workspace" component={addWorkspace} />
         </Switch>
       </div>
