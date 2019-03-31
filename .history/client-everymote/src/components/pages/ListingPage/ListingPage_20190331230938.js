@@ -68,7 +68,7 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <WorkspaceListing workspacesCity={this.state.citySearched}/>
+              <WorkspaceListing workspaces={this.state.workspacesInCitySearched}/>
             </div>
           ) : (
             <div>

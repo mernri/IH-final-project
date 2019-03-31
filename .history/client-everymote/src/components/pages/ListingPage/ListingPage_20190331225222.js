@@ -29,6 +29,12 @@ class ListingPage extends React.Component {
     console.log(this.state.citySearched)
   };
 
+  getCityWorkspaces = workspaces => {
+    this.setState({
+      listOfWorkspaces: workspaces
+    });
+  };
+
   render() {
     return (
       <div>
@@ -53,7 +59,7 @@ class ListingPage extends React.Component {
             </div>
           </section>
         </div>
-        
+        {/* 
         <div
           className="workspaces-view"
           style={{ marginLeft: "5%", marginRight: "5%" }}
@@ -68,7 +74,7 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <WorkspaceListing workspacesCity={this.state.citySearched}/>
+              <WorkspaceListing workspaces={this.state.listOfWorkspaces}/>
             </div>
           ) : (
             <div>
@@ -83,7 +89,7 @@ class ListingPage extends React.Component {
               <MapSection />
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     );
   }

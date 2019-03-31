@@ -29,6 +29,22 @@ class ListingPage extends React.Component {
     console.log(this.state.citySearched)
   };
 
+  getCityWorkspaces = () => {
+    // this.setState({
+    //   listOfWorkspaces: workspaces
+    // });
+     axios
+      .get(`http://localhost:5000/api/workspaces/${this.state.citySearched}`)
+      .then(responseFromApi => {
+        this.setState({
+          workspacesInCitySearched: responseFromApi.data
+        });
+        this.props.updateWorkspaces(responseFromApi.data);
+        console.log(this.state);
+      })
+      .catch(error => console.log(error));
+  };
+
   render() {
     return (
       <div>
@@ -68,7 +84,7 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <WorkspaceListing workspacesCity={this.state.citySearched}/>
+              <WorkspaceListing workspaces={this.state.listOfWorkspaces}/>
             </div>
           ) : (
             <div>

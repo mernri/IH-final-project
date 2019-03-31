@@ -13,16 +13,14 @@ class WorkspaceListing extends Component {
   }
 
   getCityWorkspaces = () => {
-    const city = this.props.workspacesCity
+    const city = this.pros.workspacesCity
      axios
       .get(`http://localhost:5000/api/workspaces/${city}`)
       .then(responseFromApi => {
         this.setState({
-          city: city,
           listOfWorkspaces: responseFromApi.data
         });
-        console.log(this.state.city);
-        console.log(this.state.listOfWorkspaces);
+        console.log(this.state.workspacesInCitySearched);
       })
       .catch(error => console.log(error));
   };
@@ -41,7 +39,7 @@ class WorkspaceListing extends Component {
   };
 
   componentDidMount() {
-    this.getCityWorkspaces();
+    this.getAllWorkspaces();
   }
 
   render() {

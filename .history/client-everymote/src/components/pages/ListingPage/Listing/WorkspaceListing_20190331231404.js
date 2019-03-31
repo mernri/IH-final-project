@@ -41,7 +41,7 @@ class WorkspaceListing extends Component {
   };
 
   componentDidMount() {
-    this.getCityWorkspaces();
+    this.getAllWorkspaces();
   }
 
   render() {

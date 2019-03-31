@@ -14,8 +14,12 @@ class ListingPage extends React.Component {
       view: "listing"
     };
     this.getCity = this.getCity.bind(this)
+    this.getCityWorkspaces = this.getCityWorkspaces.bind(this)
   }
 
+  componentDidMount() {
+   this.getCityWorkspaces();
+  }
   // toggleView = () => {
   //   this.state.view === "listing"
   //     ? this.setState({ view: "map" })
@@ -27,6 +31,19 @@ class ListingPage extends React.Component {
       "citySearched": city
     });
     console.log(this.state.citySearched)
+  };
+
+  getCityWorkspaces = () => {
+    const city = this.state.citySearched
+     axios
+      .get(`http://localhost:5000/api/workspaces/${city}`)
+      .then(responseFromApi => {
+        this.setState({
+          workspacesInCitySearched: responseFromApi.data
+        });
+        console.log(this.state);
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -68,7 +85,7 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <WorkspaceListing workspacesCity={this.state.citySearched}/>
+              <WorkspaceListing workspaces={this.state.workspacesInCitySearched}/>
             </div>
           ) : (
             <div>

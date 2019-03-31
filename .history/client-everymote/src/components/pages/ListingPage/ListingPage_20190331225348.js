@@ -11,6 +11,7 @@ class ListingPage extends React.Component {
     super(props);
     this.state = {
       citySearched: "Paris",
+      workspacesInCitySearched: [],
       view: "listing"
     };
     this.getCity = this.getCity.bind(this)
@@ -27,6 +28,22 @@ class ListingPage extends React.Component {
       "citySearched": city
     });
     console.log(this.state.citySearched)
+  };
+
+  getCityWorkspaces = workspaces => {
+    this.setState({
+      listOfWorkspaces: workspaces
+    });
+     axios
+      .get(`http://localhost:5000/api/workspaces/${this.state.citySearched}`)
+      .then(responseFromApi => {
+        this.setState({
+          workspacesInCitySearched: responseFromApi.data
+        });
+        this.props.updateWorkspaces(responseFromApi.data);
+        console.log(this.state);
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -53,7 +70,7 @@ class ListingPage extends React.Component {
             </div>
           </section>
         </div>
-        
+        {/* 
         <div
           className="workspaces-view"
           style={{ marginLeft: "5%", marginRight: "5%" }}
@@ -68,7 +85,7 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <WorkspaceListing workspacesCity={this.state.citySearched}/>
+              <WorkspaceListing workspaces={this.state.listOfWorkspaces}/>
             </div>
           ) : (
             <div>
@@ -83,7 +100,7 @@ class ListingPage extends React.Component {
               <MapSection />
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     );
   }

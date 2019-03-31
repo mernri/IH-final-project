@@ -21,7 +21,6 @@ class WorkspaceListing extends Component {
           city: city,
           listOfWorkspaces: responseFromApi.data
         });
-        console.log(this.state.city);
         console.log(this.state.listOfWorkspaces);
       })
       .catch(error => console.log(error));
@@ -41,7 +40,7 @@ class WorkspaceListing extends Component {
   };
 
   componentDidMount() {
-    this.getCityWorkspaces();
+    this.getAllWorkspaces();
   }
 
   render() {

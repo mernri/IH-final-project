@@ -7,25 +7,10 @@ import "bulma/css/bulma.css";
 class WorkspaceListing extends Component {
   constructor() {
     super();
-    this.state = { 
-      city: "Paris",
-      listOfWorkspaces: [] };
+    this.state = { listOfWorkspaces: [] };
   }
 
-  getCityWorkspaces = () => {
-    const city = this.props.workspacesCity
-     axios
-      .get(`http://localhost:5000/api/workspaces/${city}`)
-      .then(responseFromApi => {
-        this.setState({
-          city: city,
-          listOfWorkspaces: responseFromApi.data
-        });
-        console.log(this.state.city);
-        console.log(this.state.listOfWorkspaces);
-      })
-      .catch(error => console.log(error));
-  };
+  
 
   getAllWorkspaces = () => {
     axios
@@ -40,8 +25,8 @@ class WorkspaceListing extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getCityWorkspaces();
+  componentWillReceiveProps({workspaces}) {
+    this.getAllWorkspaces();
   }
 
   render() {
