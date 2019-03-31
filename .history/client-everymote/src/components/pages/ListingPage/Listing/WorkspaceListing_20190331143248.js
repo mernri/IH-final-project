@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ListingCard from "./ListingCard.js";
 import axios from "axios";
-import NavButton from "../../../layout/NavBar/NavButton.js";
 import "bulma/css/bulma.css";
 
 class WorkspaceListing extends Component {
@@ -31,7 +30,6 @@ class WorkspaceListing extends Component {
   render() {
     return (
       <div>
-        
         <div className="columns">
           <div className="column is-on-third">
             {this.state.listOfWorkspaces.map(workspace => {

@@ -19,7 +19,6 @@ class ListingPage extends React.Component {
       : this.setState({ view: "listing" });
   };
 
-
   render() {
     return (
       <div>
@@ -29,22 +28,13 @@ class ListingPage extends React.Component {
           className="workspaces-view"
           style={{ marginLeft: "100px", marginRight: "100px" }}
         >
-          {this.state.view === "listing" ? 
-          
-          (
-            <div>
-            <div className="button is-success" onClick={() => {this.toggleView()}}> See on Map </div>
-            <WorkspaceListing/>
-            </div>
-            
+          {this.state.view === "listing" ? (
+            <WorkspaceListing
+            />
           ) : (
-
-            <div>
-            <div className="button is-success" onClick={() => {this.toggleView()}}> See as a List </div>
-            <MapSection/>
-            </div>
+            <MapSection
+            />
           )}
-
         </div>
       </div>
     );

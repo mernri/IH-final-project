@@ -19,6 +19,10 @@ class ListingPage extends React.Component {
       : this.setState({ view: "listing" });
   };
 
+  <div className="button is-success" onClick={this.props.view()}>
+          See on Map
+        </div>
+
 
   render() {
     return (
@@ -29,22 +33,19 @@ class ListingPage extends React.Component {
           className="workspaces-view"
           style={{ marginLeft: "100px", marginRight: "100px" }}
         >
-          {this.state.view === "listing" ? 
-          
-          (
+          {this.state.view === "listing" ? (
             <div>
-            <div className="button is-success" onClick={() => {this.toggleView()}}> See on Map </div>
+            <div className="button is-success" onClick={(this.toggleView()}>
+          See on Map
+        </div>
             <WorkspaceListing/>
             </div>
+
+
             
           ) : (
-
-            <div>
-            <div className="button is-success" onClick={() => {this.toggleView()}}> See as a List </div>
             <MapSection/>
-            </div>
           )}
-
         </div>
       </div>
     );

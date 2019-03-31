@@ -31,7 +31,11 @@ class WorkspaceListing extends Component {
   render() {
     return (
       <div>
-        
+
+        <NavButton isSmall isSuccess className="is-rounded my-class" onClick = {this.props.toggleView()}>
+           See on Map 
+        </NavButton>
+
         <div className="columns">
           <div className="column is-on-third">
             {this.state.listOfWorkspaces.map(workspace => {

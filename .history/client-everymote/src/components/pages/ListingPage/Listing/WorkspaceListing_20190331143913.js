@@ -31,7 +31,10 @@ class WorkspaceListing extends Component {
   render() {
     return (
       <div>
-        
+        <a className="button is-success" onClick={this.props.view()}>
+          See on Map
+        </a>
+
         <div className="columns">
           <div className="column is-on-third">
             {this.state.listOfWorkspaces.map(workspace => {

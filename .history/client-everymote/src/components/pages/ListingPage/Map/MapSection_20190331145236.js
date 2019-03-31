@@ -5,8 +5,8 @@ import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Link } from "react-router-dom";
 
-// import marker icons
-// delete L.Icon.Default.prototype._getIconUrl;
+import marker icons
+delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -25,7 +25,7 @@ class MapSection extends React.Component {
     };
   }
 
-  // Ajoute le search d'adresse à Leaflet
+  Ajoute le search d'adresse à Leaflet
   componentDidMount() {
     const map = this.leafletMap.leafletElement;
     const searchControl = new ELG.Geosearch().addTo(map);
@@ -47,7 +47,7 @@ class MapSection extends React.Component {
 
 
         {/* END OF MAP TOGGLE FOR MOBILE */}
-        <Map
+        {/* <Map
           center={position}
           zoom={this.state.zoom}
           ref={m => {
@@ -57,13 +57,13 @@ class MapSection extends React.Component {
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-          />
+          /> */}
           {/* <Marker position={position}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
-          </Marker>  */}
-         </Map>
+          </Marker> */}
+        {/* </Map> */}
       </div>
     );
   }

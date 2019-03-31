@@ -5,8 +5,8 @@ import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Link } from "react-router-dom";
 
-// import marker icons
-// delete L.Icon.Default.prototype._getIconUrl;
+import marker icons
+delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -25,7 +25,7 @@ class MapSection extends React.Component {
     };
   }
 
-  // Ajoute le search d'adresse à Leaflet
+  Ajoute le search d'adresse à Leaflet
   componentDidMount() {
     const map = this.leafletMap.leafletElement;
     const searchControl = new ELG.Geosearch().addTo(map);

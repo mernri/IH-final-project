@@ -6,7 +6,7 @@ import * as ELG from "esri-leaflet-geocoder";
 import { Link } from "react-router-dom";
 
 // import marker icons
-// delete L.Icon.Default.prototype._getIconUrl;
+delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -26,28 +26,30 @@ class MapSection extends React.Component {
   }
 
   // Ajoute le search d'adresse à Leaflet
-  componentDidMount() {
-    const map = this.leafletMap.leafletElement;
-    const searchControl = new ELG.Geosearch().addTo(map);
-    const results = new L.LayerGroup().addTo(map);
+  // componentDidMount() {
+  //   const map = this.leafletMap.leafletElement;
+  //   const searchControl = new ELG.Geosearch().addTo(map);
+  //   const results = new L.LayerGroup().addTo(map);
 
-    searchControl.on("results", function(data) {
-      results.clearLayers();
-      for (let i = data.results.length - 1; i >= 0; i--) {
-        results.addLayer(L.marker(data.results[i].latlng));
-      }
-    });
-  }
+  //   searchControl.on("results", function(data) {
+  //     results.clearLayers();
+  //     for (let i = data.results.length - 1; i >= 0; i--) {
+  //       results.addLayer(L.marker(data.results[i].latlng));
+  //     }
+  //   });
+  // }
 
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-    
+        <div className="button is-success" onClick={this.props.view()}>
+          See as List
+        </div>
 
 
         {/* END OF MAP TOGGLE FOR MOBILE */}
-        <Map
+        {/* <Map
           center={position}
           zoom={this.state.zoom}
           ref={m => {
@@ -57,13 +59,13 @@ class MapSection extends React.Component {
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-          />
+          /> */}
           {/* <Marker position={position}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
-          </Marker>  */}
-         </Map>
+          </Marker> */}
+        {/* </Map> */}
       </div>
     );
   }

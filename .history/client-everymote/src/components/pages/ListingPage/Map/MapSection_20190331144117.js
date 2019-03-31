@@ -6,7 +6,7 @@ import * as ELG from "esri-leaflet-geocoder";
 import { Link } from "react-router-dom";
 
 // import marker icons
-// delete L.Icon.Default.prototype._getIconUrl;
+delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -43,8 +43,13 @@ class MapSection extends React.Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-    
-
+        <div className="button is-success" onClick={this.props.view()}>
+          See on Map
+        </div>
+        {/* MAP TOGGLE FOR MOBILE */}
+        <Link to="/workspaces" className="button is-info toggle-map">
+          List view
+        </Link>
 
         {/* END OF MAP TOGGLE FOR MOBILE */}
         <Map
@@ -62,8 +67,8 @@ class MapSection extends React.Component {
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
-          </Marker>  */}
-         </Map>
+          </Marker> */}
+        </Map>
       </div>
     );
   }

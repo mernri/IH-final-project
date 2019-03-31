@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import WorkspaceListing from "../Listing/WorkspaceListing";
 
 export default class ResultsHeader extends Component {
   render() {

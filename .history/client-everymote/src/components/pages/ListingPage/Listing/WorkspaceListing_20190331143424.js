@@ -31,7 +31,13 @@ class WorkspaceListing extends Component {
   render() {
     return (
       <div>
-        
+        <Link to="/workspaces" className="button is-info toggle-map">
+          View on Map
+        </Link>
+        <NavButton isSmall isSuccess className="is-rounded my-class">
+           See on Map 
+        </NavButton>
+
         <div className="columns">
           <div className="column is-on-third">
             {this.state.listOfWorkspaces.map(workspace => {

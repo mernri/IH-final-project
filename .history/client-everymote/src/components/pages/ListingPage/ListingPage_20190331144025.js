@@ -1,6 +1,8 @@
 import React from "react";
 import WorkspaceListing from "./Listing/WorkspaceListing.js";
 import MapSection from "./Map/MapSection.js";
+import { Link } from "react-router-dom";
+// import "./ListingPage.css";
 
 import "bulma/css/bulma.css";
 import ResultsHeader from "./ResultsHeader/ResultsHeader.js";
@@ -18,9 +20,18 @@ class ListingPage extends React.Component {
       ? this.setState({ view: "map" })
       : this.setState({ view: "listing" });
   };
+  
 
+  
 
   render() {
+    var style1 = {
+      background: "violet"
+    };
+    var style2 = {
+      background: "pink"
+    };
+
     return (
       <div>
         <ResultsHeader />
@@ -29,22 +40,17 @@ class ListingPage extends React.Component {
           className="workspaces-view"
           style={{ marginLeft: "100px", marginRight: "100px" }}
         >
-          {this.state.view === "listing" ? 
-          
-          (
-            <div>
-            <div className="button is-success" onClick={() => {this.toggleView()}}> See on Map </div>
-            <WorkspaceListing/>
-            </div>
-            
+          {/* NEEDS A TOGGLE BUTTON ! if this.state.view = listing : bouton "see on map"
+        onclick change state to view: map */}
+          <Link to="/workspaces" className="button is-info toggle-map">
+            View on list
+          </Link>
+
+          {this.state.view === "listing" ? (
+            <WorkspaceListing view={() => {this.toggleView()}}/>
           ) : (
-
-            <div>
-            <div className="button is-success" onClick={() => {this.toggleView()}}> See as a List </div>
-            <MapSection/>
-            </div>
+            <MapSection />
           )}
-
         </div>
       </div>
     );

@@ -40,7 +40,7 @@ class ListingPage extends React.Component {
           ) : (
 
             <div>
-            <div className="button is-success" onClick={() => {this.toggleView()}}> See as a List </div>
+            <div className="button is-success" onClick={this.toggleView()}> See as a List </div>
             <MapSection/>
             </div>
           )}

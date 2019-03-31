@@ -25,7 +25,7 @@ class MapSection extends React.Component {
     };
   }
 
-  // Ajoute le search d'adresse à Leaflet
+  Ajoute le search d'adresse à Leaflet
   componentDidMount() {
     const map = this.leafletMap.leafletElement;
     const searchControl = new ELG.Geosearch().addTo(map);
