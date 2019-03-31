@@ -5,13 +5,11 @@ import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 export default class WorkspaceMap extends Component {
   constructor(props) {
     super(props);
-    console.log(this);
 
     // !!!!!!!!!!!!! 
     // N'ARRIVE PAS A RECUPERER L'ADRESSE ENVOYER EN PROPS PAR WORKSPACEVIEW.JS
     // !!!!!!!!!!!!!  (undefined)
-    console.log(this.props.address);
-
+    console.log(this);
 
     this.state = {
       workspace: {},
