@@ -19,7 +19,19 @@ export default class ResultsHeader extends Component {
                   <div className="column is-one-quarter" />
                 </div>
                 <div className="city-searchbar">
-                  HERE IS THE CITY SEARCH
+                  {/* Description  */}
+                  <div className="field">
+                    <label className="label" />
+                    <div className="control">
+                      <input
+                        name="description"
+                        className="input"
+                        type="text-area"
+                        placeholder="type the desription"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

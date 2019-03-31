@@ -10,13 +10,9 @@ class ListingCard extends React.Component {
     return (
       <div>
         <div className="card">
-          
           <div className="card-image">
             <figure className="image is-3by2">
-              <img
-                src={this.props.pictures[0]}
-                alt="Placeholder"
-              />
+              <img src={this.props.pictures[0]} alt="Placeholder" />
             </figure>
           </div>
 
@@ -24,15 +20,17 @@ class ListingCard extends React.Component {
             <div className="media">
               <div className="media-content">
                 <div className="columns">
-                <p className="subtitle column is-two-thirds" > <strong> {this.props.name} </strong></p>
-                <p className="column" > €{this.props.monthlyPrice} /mo</p>
-
-
+                  <p
+                    className="title is-4 column is-two-thirds
+"
+                  >
+                    {this.props.name}
+                  </p>
+                  <p className="column"> €{this.props.monthlyPrice} /mo</p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     );

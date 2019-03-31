@@ -24,10 +24,8 @@ class ListingCard extends React.Component {
             <div className="media">
               <div className="media-content">
                 <div className="columns">
-                <p className="subtitle column is-two-thirds" > <strong> {this.props.name} </strong></p>
-                <p className="column" > €{this.props.monthlyPrice} /mo</p>
-
-
+                <p className="title is-4 column" >{this.props.name}</p>
+                <p className=" is-4 column" > €{this.props.monthlyPrice} /mo</p>
                 </div>
               </div>
             </div>

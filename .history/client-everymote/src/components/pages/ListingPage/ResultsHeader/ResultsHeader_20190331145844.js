@@ -19,7 +19,7 @@ export default class ResultsHeader extends Component {
                   <div className="column is-one-quarter" />
                 </div>
                 <div className="city-searchbar">
-                  HERE IS THE CITY SEARCH
+                  CITY SEARCHBAR - contient le composant searchbar
                 </div>
               </div>
             </div>
