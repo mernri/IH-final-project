@@ -8,9 +8,12 @@ class WorkspaceListing extends Component {
   render() {
     return (
       <div>
+
+
         <div>
           {this.props.workspaces.map(workspace => {
             return (
+
               <section className="section">
                 <div className="cards-container">
                   <div className="card" key={workspace._id}>
@@ -23,6 +26,8 @@ class WorkspaceListing extends Component {
             );
           })}
         </div>
+
+        
       </div>
     );
   }

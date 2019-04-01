@@ -28,12 +28,11 @@ export default class addWorkspace extends Component {
     axios.get(url).then(function(response) {
       const latitude = response.data.results[0].locations[0].latLng.lat;
       const longitude = response.data.results[0].locations[0].latLng.lng;
-      this.setState({
-        latitude: latitude,
-        longitude: longitude
-      });
+      // this.setState({
+      //   latitude: latitude,
+      //   longitude: longitude
+      // });
     });
-    console.log(this.state.latitude);
   };
 
   handleChange = event => {
@@ -45,6 +44,8 @@ export default class addWorkspace extends Component {
     event.preventDefault();
 
     this.addressToGeoCoordinates(this.state.address + " " + this.state.city);
+    console.log( this.addressToGeoCoordinates(this.state.address + " " + this.state.city))
+    console.log(this.state);
 
     const {
       name,
@@ -59,7 +60,7 @@ export default class addWorkspace extends Component {
       longitude
     } = this.state;
 
-    // convert address to geocordinates and change the state.lat and state.lng before posting to axios
+    // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
     axios
       .post(
         "http://localhost:5000/api/workspaces/add",
@@ -91,8 +92,6 @@ export default class addWorkspace extends Component {
         });
       })
       .catch(error => console.log(error));
-
-    // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
   };
 
   render() {

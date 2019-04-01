@@ -33,7 +33,7 @@ export default class addWorkspace extends Component {
         longitude: longitude
       });
     });
-    console.log(this.state.latitude);
+    console.log(this.state.latitude)
   };
 
   handleChange = event => {
@@ -43,8 +43,6 @@ export default class addWorkspace extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
-    this.addressToGeoCoordinates(this.state.address + " " + this.state.city);
 
     const {
       name,
@@ -60,37 +58,43 @@ export default class addWorkspace extends Component {
     } = this.state;
 
     // convert address to geocordinates and change the state.lat and state.lng before posting to axios
-    axios
-      .post(
-        "http://localhost:5000/api/workspaces/add",
-        {
-          name,
-          address,
-          zipcode,
-          city,
-          description,
-          phone,
-          pictures,
-          monthlyPrice,
-          latitude,
-          longitude
-        },
-        { withCredentials: true }
-      )
+    this.addressToGeoCoordinates(this.state.address + " " + this.state.city)
       .then(() => {
-        this.setState({
-          name: "",
-          address: "",
-          zipcode: "",
-          city: "",
-          description: "",
-          phone: "",
-          pictures: [],
-          monthlyPrice: "",
-          redirectToOnboarding: true
-        });
+        axios
+          .post(
+            "http://localhost:5000/api/workspaces/add",
+            {
+              name,
+              address,
+              zipcode,
+              city,
+              description,
+              phone,
+              pictures,
+              monthlyPrice,
+              latitude,
+              longitude
+            },
+            { withCredentials: true }
+          )
+          .then(() => {
+            this.setState({
+              name: "",
+              address: "",
+              zipcode: "",
+              city: "",
+              description: "",
+              phone: "",
+              pictures: [],
+              monthlyPrice: "",
+              redirectToOnboarding: true
+            });
+          })
+          .catch(error => console.log(error));
       })
-      .catch(error => console.log(error));
+      .catch(err => {
+        console.log(err);
+      });
 
     // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
   };

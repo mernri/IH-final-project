@@ -9,6 +9,10 @@ class ListingCard extends React.Component {
   render() {
     return (
       <div>
+
+
+
+
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={this.props.pictures[0]} alt="Placeholder" />
@@ -27,6 +31,9 @@ class ListingCard extends React.Component {
             </div>
           </div>
         </div>
+
+
+        
       </div>
     );
   }

@@ -1,0 +1,9 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0.5em;
+background-color: red}
+
+.card {
+  height: max-content;
+}

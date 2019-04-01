@@ -11,11 +11,11 @@ class WorkspaceListing extends Component {
         <div>
           {this.props.workspaces.map(workspace => {
             return (
-              <section className="section">
-                <div className="cards-container">
-                  <div className="card" key={workspace._id}>
+              <section class="section">
+                <div class="container" style={{ backgroundColor: "red" }}>
+                  <div class="card" key={workspace._id}>
                     <Link to={`/workspace/${workspace._id}`}>
-                      <ListingCard {...workspace} />
+                        <ListingCard {...workspace} />
                     </Link>
                   </div>
                 </div>

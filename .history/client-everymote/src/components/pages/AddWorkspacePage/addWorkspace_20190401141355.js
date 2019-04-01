@@ -46,6 +46,7 @@ export default class addWorkspace extends Component {
 
     this.addressToGeoCoordinates(this.state.address + " " + this.state.city);
 
+
     const {
       name,
       address,

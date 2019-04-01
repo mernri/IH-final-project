@@ -44,8 +44,6 @@ export default class addWorkspace extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    this.addressToGeoCoordinates(this.state.address + " " + this.state.city);
-
     const {
       name,
       address,

@@ -11,7 +11,6 @@ class WorkspaceListing extends Component {
         <div>
           {this.props.workspaces.map(workspace => {
             return (
-              <section className="section">
                 <div className="cards-container">
                   <div className="card" key={workspace._id}>
                     <Link to={`/workspace/${workspace._id}`}>
@@ -19,7 +18,6 @@ class WorkspaceListing extends Component {
                     </Link>
                   </div>
                 </div>
-              </section>
             );
           })}
         </div>

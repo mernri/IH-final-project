@@ -20,20 +20,22 @@ export default class addWorkspace extends Component {
     };
   }
 
-  // PROBLEME : Je récupère la lat et la lng, mais je n'arrive pas à updater le state avec ces valeurs
-
-  addressToGeoCoordinates = fullAddress => {
+  getLatitude = fullAddress => {
     const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
     const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${fullAddress}`;
     axios.get(url).then(function(response) {
       const latitude = response.data.results[0].locations[0].latLng.lat;
-      const longitude = response.data.results[0].locations[0].latLng.lng;
-      this.setState({
-        latitude: latitude,
-        longitude: longitude
-      });
+      return latitude;
     });
-    console.log(this.state.latitude);
+  };
+
+  getLongitude = fullAddress => {
+    const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
+    const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${fullAddress}`;
+    axios.get(url).then(function(response) {
+      const longitude = response.data.results[0].locations[0].latLng.lng;
+      return longitude;
+    });
   };
 
   handleChange = event => {
@@ -41,10 +43,19 @@ export default class addWorkspace extends Component {
     this.setState({ [name]: value });
   };
 
+  getLatLng = () => {
+    const latitude = this.getLatitude(this.state.address + " " + this.state.city);
+    const longitude = this.getLongitude(this.state.address + " " + this.state.city);
+
+    this.setState({
+      latitude: latitude,
+      longitude: longitude
+    });
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
-
-    this.addressToGeoCoordinates(this.state.address + " " + this.state.city);
+    this.getLatLng()
 
     const {
       name,
@@ -59,7 +70,9 @@ export default class addWorkspace extends Component {
       longitude
     } = this.state;
 
-    // convert address to geocordinates and change the state.lat and state.lng before posting to axios
+
+    console.log(this.state);
+    // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
     axios
       .post(
         "http://localhost:5000/api/workspaces/add",
@@ -87,12 +100,13 @@ export default class addWorkspace extends Component {
           phone: "",
           pictures: [],
           monthlyPrice: "",
-          redirectToOnboarding: true
+
+          redirectToOnboarding: true,
+          latitude: 0,
+          longitude: 0
         });
       })
       .catch(error => console.log(error));
-
-    // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
   };
 
   render() {
@@ -107,7 +121,10 @@ export default class addWorkspace extends Component {
               <h3 className="title has-text-grey">Add a workspace</h3>
               <p className="subtitle has-text-grey">DO IT! </p>
 
-              <form onSubmit={this.handleFormSubmit}>
+              <form onSubmit={() => {
+                {this.handleFormSubmit}
+                {this.getLatLng}
+                }>
                 {/* Name  */}
                 <div className="field">
                   <label className="label">Workspace name</label>
