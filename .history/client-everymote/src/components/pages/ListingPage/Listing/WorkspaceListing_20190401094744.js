@@ -4,7 +4,9 @@ import ListingCard from "./ListingCard.js";
 import "bulma/css/bulma.css";
 
 class WorkspaceListing extends Component {
-
+  componentDidMount() {
+    console.log(this.props.workspaces);
+  }
   render() {
     return (
       <div>

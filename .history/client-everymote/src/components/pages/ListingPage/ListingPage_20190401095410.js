@@ -1,6 +1,7 @@
 import React from "react";
 import WorkspaceListing from "./Listing/WorkspaceListing.js";
 import MapSection from "./Map/MapSection.js";
+import SearchBar from "../../layout/SearchBar/SearchBar.js";
 import axios from "axios";
 
 import "bulma/css/bulma.css";
@@ -13,34 +14,25 @@ class ListingPage extends React.Component {
       listOfWorkspaces: [],
       view: "listing"
     };
+    this.getCity = this.getCity.bind(this);
     this.getWorkspaces = this.getWorkspaces.bind(this);
   }
 
-  componentDidMount() {
+  component() {
     this.getWorkspaces();
-    console.log("city is ", this.state.city);
-    console.log("workspaces are ", this.state.listOfWorkspaces);
   }
-
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    const { city } = this.state;
-    this.setState({
-      city: city
-    });
-    this.getWorkspaces();
-  };
 
   // toggleView = () => {
   //   this.state.view === "listing"
   //     ? this.setState({ view: "map" })
   //     : this.setState({ view: "listing" });
   // }
+
+  getCity = city => {
+    this.setState({
+      city: city
+    });
+  };
 
   getWorkspaces = () => {
     if (this.state.city !== "") {
@@ -88,22 +80,9 @@ class ListingPage extends React.Component {
                   <div className="column is-one-quarter" />
                 </div> */}
               <div className="city-searchbar">
-                <form onSubmit={this.handleFormSubmit}>
-                  <div className="field">
-                    <div className="control">
-                      <input
-                        name="city"
-                        className="input"
-                        type="text"
-                        placeholder="Ex: Paris, Berlin..."
-                        onChange={this.handleChange}
-                      />
-                      <div className="control has-text-centered">
-                        <button className="button is-link ">find</button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
+                {/* <SearchBar updateCity={this.getCity} /> */}
+
+                
               </div>
               {/* </div> */}
             </div>

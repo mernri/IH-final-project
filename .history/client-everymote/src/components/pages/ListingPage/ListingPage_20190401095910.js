@@ -1,6 +1,7 @@
 import React from "react";
 import WorkspaceListing from "./Listing/WorkspaceListing.js";
 import MapSection from "./Map/MapSection.js";
+import SearchBar from "../../layout/SearchBar/SearchBar.js";
 import axios from "axios";
 
 import "bulma/css/bulma.css";
@@ -18,8 +19,9 @@ class ListingPage extends React.Component {
 
   componentDidMount() {
     this.getWorkspaces();
-    console.log("city is ", this.state.city);
-    console.log("workspaces are ", this.state.listOfWorkspaces);
+    console.log("city is ", this.state.city)
+    console.log("workspaces are ", this.state.listOfWorkspaces)
+
   }
 
   handleChange = event => {
@@ -33,7 +35,7 @@ class ListingPage extends React.Component {
     this.setState({
       city: city
     });
-    this.getWorkspaces();
+    this.getWorkspaces()
   };
 
   // toggleView = () => {
@@ -88,6 +90,8 @@ class ListingPage extends React.Component {
                   <div className="column is-one-quarter" />
                 </div> */}
               <div className="city-searchbar">
+                {/* <SearchBar updateCity={this.getCity} /> */}
+
                 <form onSubmit={this.handleFormSubmit}>
                   <div className="field">
                     <div className="control">

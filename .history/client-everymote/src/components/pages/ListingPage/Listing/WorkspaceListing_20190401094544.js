@@ -4,14 +4,13 @@ import ListingCard from "./ListingCard.js";
 import "bulma/css/bulma.css";
 
 class WorkspaceListing extends Component {
-
   render() {
     return (
       <div>
         <div className="tile is-ancestor">
           <div className="tile is-vertical is-8">
             <div className="tile is-parent">
-              {this.props.workspaces.map(workspace => {
+              {this.props.listOfWorkspaces.map(workspace => {
                 return (
                   <div key={workspace._id}>
                     <Link to={`/workspace/${workspace._id}`}>

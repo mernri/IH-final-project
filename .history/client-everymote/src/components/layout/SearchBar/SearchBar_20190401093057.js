@@ -13,7 +13,7 @@ export default class SearchBar extends Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  };
+  }; 
 
   handleFormSubmit = event => {
     event.preventDefault();
