@@ -36,11 +36,11 @@ class ListingPage extends React.Component {
     this.getWorkspaces();
   };
 
-  toggleView = () => {
-    this.state.view === "listing"
-      ? this.setState({ view: "map" })
-      : this.setState({ view: "listing" });
-  }
+  // toggleView = () => {
+  //   this.state.view === "listing"
+  //     ? this.setState({ view: "map" })
+  //     : this.setState({ view: "listing" });
+  // }
 
   getWorkspaces = () => {
     if (this.state.city !== "") {
@@ -86,27 +86,28 @@ class ListingPage extends React.Component {
                     <p className="column">Cities</p>
                   </div>
                   <div className="column is-one-quarter" />
-                </div>
+                </div>{" "}
+              </div>
 
-                <div className="city-searchbar">
-                  <form onSubmit={this.handleFormSubmit}>
-                    <div className="field">
-                      <div className="control">
-                        <input
-                          name="city"
-                          className="input"
-                          type="text"
-                          placeholder="Ex: Paris, Berlin..."
-                          onChange={this.handleChange}
-                        />
-                        <div className="control has-text-centered">
-                          <button className="button is-link ">find</button>
-                        </div>
+              <div className="city-searchbar">
+                <form onSubmit={this.handleFormSubmit}>
+                  <div className="field">
+                    <div className="control">
+                      <input
+                        name="city"
+                        className="input"
+                        type="text"
+                        placeholder="Ex: Paris, Berlin..."
+                        onChange={this.handleChange}
+                      />
+                      <div className="control has-text-centered">
+                        <button className="button is-link ">find</button>
                       </div>
                     </div>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
+              {/* </div> */}
             </div>
           </section>
         </div>

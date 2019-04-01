@@ -36,11 +36,11 @@ class ListingPage extends React.Component {
     this.getWorkspaces();
   };
 
-  toggleView = () => {
-    this.state.view === "listing"
-      ? this.setState({ view: "map" })
-      : this.setState({ view: "listing" });
-  }
+  // toggleView = () => {
+  //   this.state.view === "listing"
+  //     ? this.setState({ view: "map" })
+  //     : this.setState({ view: "listing" });
+  // }
 
   getWorkspaces = () => {
     if (this.state.city !== "") {
