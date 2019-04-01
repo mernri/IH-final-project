@@ -45,17 +45,17 @@ export default class addWorkspace extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    
 
-    const {
-      name,
-      address,
-      zipcode,
-      city,
-      description,
-      phone,
-      pictures,
-      monthlyPrice
-    } = this.state;
+    const name = this.state.name;
+    const address = this.state.address;
+    const zipcode = this.state.zipcode;
+    const city = this.state.city;
+    const description = this.state.description;
+    const phone = this.state.phone;
+    const pictures = this.state.pictures;
+    const monthlyPrice = this.state.monthlyPrice;
+
 
     const latitude = this.getLatitude(address + " " + city);
     const longitude = this.getLongitude(address + " " + city);
@@ -65,7 +65,7 @@ export default class addWorkspace extends Component {
       longitude: longitude
     });
 
-    console.log(this.state);
+    console.log(this.state)
     // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
     axios
       .post(
@@ -79,7 +79,6 @@ export default class addWorkspace extends Component {
           phone,
           pictures,
           monthlyPrice,
-
           latitude,
           longitude
         },
@@ -95,10 +94,9 @@ export default class addWorkspace extends Component {
           phone: "",
           pictures: [],
           monthlyPrice: "",
-
           redirectToOnboarding: true,
-          latitude: 0,
-          longitude: 0
+          latitude: "",
+          longitude: ""
         });
       })
       .catch(error => console.log(error));

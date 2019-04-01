@@ -15,8 +15,8 @@ export default class addWorkspace extends Component {
       pictures: [],
       monthlyPrice: "",
       redirectToListing: false,
-      latitude: 0,
-      longitude: 0
+      latitude: this.getLatitude((this.state.address + " " + this.state.city)),
+      longitude: this.getLongitude((this.state.address + " " + this.state.city))
     };
   }
 
@@ -97,8 +97,8 @@ export default class addWorkspace extends Component {
           monthlyPrice: "",
 
           redirectToOnboarding: true,
-          latitude: 0,
-          longitude: 0
+          latitude: "",
+          longitude: ""
         });
       })
       .catch(error => console.log(error));

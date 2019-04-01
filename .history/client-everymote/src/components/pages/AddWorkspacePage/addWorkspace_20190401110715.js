@@ -57,8 +57,14 @@ export default class addWorkspace extends Component {
       monthlyPrice
     } = this.state;
 
-    const latitude = this.getLatitude(address + " " + city);
-    const longitude = this.getLongitude(address + " " + city);
+    const latitude = this.getLatitude(
+      this.state.address
+    );
+    console.log(latitude);
+
+    const longitude = this.getLongitude(
+      this.state.address + " " + this.state.city
+    );
 
     this.setState({
       latitude: latitude,
@@ -79,7 +85,6 @@ export default class addWorkspace extends Component {
           phone,
           pictures,
           monthlyPrice,
-
           latitude,
           longitude
         },
@@ -95,7 +100,6 @@ export default class addWorkspace extends Component {
           phone: "",
           pictures: [],
           monthlyPrice: "",
-
           redirectToOnboarding: true,
           latitude: 0,
           longitude: 0

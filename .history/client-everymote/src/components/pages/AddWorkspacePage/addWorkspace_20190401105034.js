@@ -7,16 +7,16 @@ export default class addWorkspace extends Component {
     super(props);
     this.state = {
       name: "",
-      address: "",
+      address: " ",
       zipcode: "",
-      city: "",
+      city: " ",
       description: "",
       phone: "",
       pictures: [],
       monthlyPrice: "",
       redirectToListing: false,
-      latitude: 0,
-      longitude: 0
+      latitude: this.getLatitude((this.state.address + " " + this.state.city)),
+      longitude: this.getLongitude((this.state.address + " " + this.state.city))
     };
   }
 
@@ -54,16 +54,11 @@ export default class addWorkspace extends Component {
       description,
       phone,
       pictures,
-      monthlyPrice
+      monthlyPrice,
+      latitude,
+      longitude
     } = this.state;
 
-    const latitude = this.getLatitude(address + " " + city);
-    const longitude = this.getLongitude(address + " " + city);
-
-    this.setState({
-      latitude: latitude,
-      longitude: longitude
-    });
 
     console.log(this.state);
     // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
@@ -79,7 +74,6 @@ export default class addWorkspace extends Component {
           phone,
           pictures,
           monthlyPrice,
-
           latitude,
           longitude
         },
@@ -95,10 +89,9 @@ export default class addWorkspace extends Component {
           phone: "",
           pictures: [],
           monthlyPrice: "",
-
           redirectToOnboarding: true,
-          latitude: 0,
-          longitude: 0
+          latitude: "",
+          longitude: ""
         });
       })
       .catch(error => console.log(error));

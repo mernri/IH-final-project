@@ -14,28 +14,27 @@ export default class addWorkspace extends Component {
       phone: "",
       pictures: [],
       monthlyPrice: "",
+      dailyPrice: "",
+      annualPrice: "",
       redirectToListing: false,
-      latitude: 0,
-      longitude: 0
+      latitude: "",
+      longitude: "",
     };
   }
 
-  getLatitude = fullAddress => {
+  addressToGeoCoordinates = (fullAddress) => {
     const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
     const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${fullAddress}`;
-    axios.get(url).then(function(response) {
-      const latitude = response.data.results[0].locations[0].latLng.lat;
-      return latitude;
-    });
-  };
-
-  getLongitude = fullAddress => {
-    const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
-    const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${fullAddress}`;
-    axios.get(url).then(function(response) {
-      const longitude = response.data.results[0].locations[0].latLng.lng;
-      return longitude;
-    });
+    axios.get(url).then(
+      function(response) {
+        const latitude = response.data.results[0].locations[0].latLng.lat;
+        const longitude = response.data.results[0].locations[0].latLng.lng;
+        this.setState({
+          latitude: latitude,
+          longitude: longitude
+        });
+      }.bind(this)
+    );
   };
 
   handleChange = event => {
@@ -45,7 +44,6 @@ export default class addWorkspace extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
     const {
       name,
       address,
@@ -54,18 +52,14 @@ export default class addWorkspace extends Component {
       description,
       phone,
       pictures,
-      monthlyPrice
+      monthlyPrice,
+      dailyPrice,
+      annualPrice
     } = this.state;
 
-    const latitude = this.getLatitude(address + " " + city);
-    const longitude = this.getLongitude(address + " " + city);
+    this.addressToGeoCoordinates((this.state.address + " " + this.state.city));
 
-    this.setState({
-      latitude: latitude,
-      longitude: longitude
-    });
 
-    console.log(this.state);
     // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
     axios
       .post(
@@ -79,9 +73,8 @@ export default class addWorkspace extends Component {
           phone,
           pictures,
           monthlyPrice,
-
-          latitude,
-          longitude
+          dailyPrice,
+          annualPrice
         },
         { withCredentials: true }
       )
@@ -95,10 +88,11 @@ export default class addWorkspace extends Component {
           phone: "",
           pictures: [],
           monthlyPrice: "",
-
+          dailyPrice: "",
+          annualPrice: "",
           redirectToOnboarding: true,
-          latitude: 0,
-          longitude: 0
+          latitude: "",
+          longitude: ""
         });
       })
       .catch(error => console.log(error));
@@ -106,7 +100,7 @@ export default class addWorkspace extends Component {
 
   render() {
     if (this.state.redirectToOnboarding) {
-      return <Redirect to="/workspaces" />;
+      return <Redirect to='/workspaces' />
     }
     return (
       <div>
@@ -130,6 +124,7 @@ export default class addWorkspace extends Component {
                     />
                   </div>
                 </div>
+
                 {/* Description  */}
                 <div className="field">
                   <label className="label">Workspace description</label>
@@ -143,6 +138,7 @@ export default class addWorkspace extends Component {
                     />
                   </div>
                 </div>
+
                 {/* Address  */}
                 <div className="field">
                   <label className="label">Address</label>

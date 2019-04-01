@@ -14,6 +14,7 @@ export default class addWorkspace extends Component {
       phone: "",
       pictures: [],
       monthlyPrice: "",
+
       redirectToListing: false,
       latitude: 0,
       longitude: 0
@@ -97,8 +98,8 @@ export default class addWorkspace extends Component {
           monthlyPrice: "",
 
           redirectToOnboarding: true,
-          latitude: 0,
-          longitude: 0
+          latitude: "",
+          longitude: ""
         });
       })
       .catch(error => console.log(error));
