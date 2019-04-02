@@ -47,7 +47,7 @@ class AdView extends React.Component {
           <div className="columns">
             <div className="column name-city">
               <div className="title">{this.state.name}</div>
-              <div className="subtitle">
+              <div className="title">
                 {this.state.city}, {this.state.zipcode}
               </div>
             </div>

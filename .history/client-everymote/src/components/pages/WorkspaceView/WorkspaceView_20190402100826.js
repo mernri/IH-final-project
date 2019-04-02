@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./WorkspaceView.css";
+import "./WorkspaceView.css"
 import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
 
 // import WorkspaceGallery from "./WorspaceGallery/WorkspaceGallery.js";
@@ -15,8 +15,9 @@ class AdView extends React.Component {
   }
 
   //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
-  componentWillMount() {
+  componentDidMount() {
     this.getSingleWorkspace();
+    console.log("pictures", this.state.pictures)
   }
 
   getSingleWorkspace = () => {
@@ -33,26 +34,25 @@ class AdView extends React.Component {
   };
 
   getFullAddress = () => {
-    return this.state.address + ", " + this.state.city;
+    return (
+      this.state.address + ", " + this.state.city
+    );
   };
 
   render() {
     return (
       <div>
-        <div className="workspace-photos">
-          <img src={this.state.pictures} alt="" />
-        </div>
+        <div className="workspace-photos">workspace photos gallery</div>
+        {/* <img src={this.state.name} alt=""/> */}
         {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
         <div className="workspace-header">
           <div className="columns">
             <div className="column name-city">
-              <div className="title">{this.state.name}</div>
-              <div className="subtitle">
-                {this.state.city}, {this.state.zipcode}
-              </div>
+              <div>{this.state.name}</div>
+              <div> {this.state.city}</div>
             </div>
             <div className="column price-review">
-              <div className="subtitle"> €{this.state.monthlyPrice} /month</div>
+              €{this.state.monthlyPrice} /month
             </div>
           </div>
         </div>

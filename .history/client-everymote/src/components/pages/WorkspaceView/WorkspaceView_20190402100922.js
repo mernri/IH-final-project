@@ -15,7 +15,7 @@ class AdView extends React.Component {
   }
 
   //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
-  componentWillMount() {
+  componentDidMount() {
     this.getSingleWorkspace();
   }
 
@@ -39,20 +39,18 @@ class AdView extends React.Component {
   render() {
     return (
       <div>
-        <div className="workspace-photos">
-          <img src={this.state.pictures} alt="" />
-        </div>
+        <div className="workspace-photos">workspace photos gallery</div>
+        {/* <img src={this.state.name} alt=""/> */}
+        {console.log("pictures", this.state.pictures)}
         {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
         <div className="workspace-header">
           <div className="columns">
             <div className="column name-city">
-              <div className="title">{this.state.name}</div>
-              <div className="subtitle">
-                {this.state.city}, {this.state.zipcode}
-              </div>
+              <div>{this.state.name}</div>
+              <div> {this.state.city}</div>
             </div>
             <div className="column price-review">
-              <div className="subtitle"> €{this.state.monthlyPrice} /month</div>
+              €{this.state.monthlyPrice} /month
             </div>
           </div>
         </div>

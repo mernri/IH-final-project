@@ -52,7 +52,7 @@ class AdView extends React.Component {
               </div>
             </div>
             <div className="column price-review">
-              <div className="subtitle"> €{this.state.monthlyPrice} /month</div>
+              <div className="title"> €{this.state.monthlyPrice} /month</div>
             </div>
           </div>
         </div>

@@ -1,0 +1,8 @@
+.cards-container {
+  display: grid;
+  width: 33%
+}
+
+.card {
+  height: max-content;
+}

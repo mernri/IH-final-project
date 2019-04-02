@@ -46,13 +46,11 @@ class AdView extends React.Component {
         <div className="workspace-header">
           <div className="columns">
             <div className="column name-city">
-              <div className="title">{this.state.name}</div>
-              <div className="subtitle">
-                {this.state.city}, {this.state.zipcode}
-              </div>
+              <div>{this.state.name}</div>
+              <div> {this.state.city}</div>
             </div>
             <div className="column price-review">
-              <div className="subtitle"> €{this.state.monthlyPrice} /month</div>
+              €{this.state.monthlyPrice} /month
             </div>
           </div>
         </div>
