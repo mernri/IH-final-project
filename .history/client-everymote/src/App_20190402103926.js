@@ -1,8 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import NavLoggedIn from "./components/layout/NavBar/NavLoggedIn.js";
-import NavLoggedOut from "./components/layout/NavBar/NavLoggedOut.js";
-
+import Nav from "./components/layout/NavBar/Nav.js";
 import HomePage from "./components/pages/HomePage/HomePage.js";
 import ListingPage from "./components/pages/ListingPage/ListingPage.js";
 import WorkspaceView from "./components/pages/WorkspaceView/WorkspaceView.js";
@@ -22,10 +20,6 @@ class App extends React.Component {
 
   service = new AuthService();
 
-  componentDidMount() {
-    this.fetchUser();
-  }
-
   fetchUser = () => {
     if (this.state.user === null) {
       this.service
@@ -39,15 +33,14 @@ class App extends React.Component {
     this.setState({ user: data });
   };
 
+  componentDidMount() {
+    this.fetchUser();
+  }
+
   render() {
     return (
       <div className="App">
-        {this.state.user ? (
-          <NavLoggedIn user={this.state.user} />
-        ) : (
-          <NavLoggedOut updateUser={this.updateUser} />
-        )}
-
+        <Nav user={this.state.user} />
         <Switch>
           <Route
             exact

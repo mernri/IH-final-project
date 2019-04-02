@@ -43,9 +43,9 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.state.user ? (
-          <NavLoggedIn user={this.state.user} />
+          <NavLoggedIn user={this.state.user} updateUser={this.updateUser} />
         ) : (
-          <NavLoggedOut updateUser={this.updateUser} />
+          <NavLoggedOut user={this.state.user} updateUser={this.updateUser} />
         )}
 
         <Switch>

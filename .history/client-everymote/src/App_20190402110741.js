@@ -1,8 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import NavLoggedIn from "./components/layout/NavBar/NavLoggedIn.js";
-import NavLoggedOut from "./components/layout/NavBar/NavLoggedOut.js";
-
 import HomePage from "./components/pages/HomePage/HomePage.js";
 import ListingPage from "./components/pages/ListingPage/ListingPage.js";
 import WorkspaceView from "./components/pages/WorkspaceView/WorkspaceView.js";
@@ -42,11 +40,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.user ? (
-          <NavLoggedIn user={this.state.user} />
-        ) : (
-          <NavLoggedOut updateUser={this.updateUser} />
-        )}
+        <NavLoggedIn user={this.state.user} updateUser={this.updateUser}/>
 
         <Switch>
           <Route
@@ -75,6 +69,9 @@ class App extends React.Component {
               />
             )}
           />
+
+
+  
 
           <Route exact path="/" component={HomePage} />
           <Route exact path="/workspaces" component={ListingPage} />

@@ -88,22 +88,48 @@ class ListingPage extends React.Component {
                   <div className="column is-one-quarter" />
                 </div>
 
+
+
+                <div class="box">
                 <form onSubmit={this.handleFormSubmit}>
+
                   <div class="field is-grouped">
                     <p class="control is-expanded">
-                      <input
-                        name="city"
-                        className="input"
-                        type="text"
-                        placeholder="Ex: Paris, Berlin..."
-                        onChange={this.handleChange}
-                      />
+                    <input
+                          name="city"
+                          className="input"
+                          type="text"
+                          placeholder="Ex: Paris, Berlin..."
+                          onChange={this.handleChange}
+                        />
                     </p>
                     <p class="control">
                       <a class="button is-info">Find my tribe</a>
                     </p>
                   </div>
-                </form>
+                  </form>
+                </div>
+
+{/* 
+
+                <div className="city-searchbar">
+                  <form onSubmit={this.handleFormSubmit}>
+                    <div className="field">
+                      <div className="control">
+                        <input
+                          name="city"
+                          className="input"
+                          type="text"
+                          placeholder="Ex: Paris, Berlin..."
+                          onChange={this.handleChange}
+                        />
+                        <div className="control has-text-centered">
+                          <button className="button is-link ">find</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div> */}
               </div>
             </div>
           </section>
