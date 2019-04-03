@@ -55,7 +55,6 @@ export default class addWorkspace extends Component {
 
   handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("étape 1")
 
     await this.addressToGeoCoordinates(
       this.state.address + " " + this.state.city
@@ -71,9 +70,8 @@ export default class addWorkspace extends Component {
     const monthlyPrice = this.state.monthlyPrice 
     const latitude = this.state.latitude
     const longitude = this.state.longitude
-    console.log("hello", this.state.longitude)
 
-    console.log("étape 2")
+    console.log("handleform values", latitude)
     // convert address to geocordinates and change the state.lat and state.lng before posting to axios
     await axios
       .post(
@@ -108,7 +106,6 @@ export default class addWorkspace extends Component {
         });
       })
       .catch(error => console.log(error));
-      console.log("étape 3")
 
     // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
   };

@@ -8,7 +8,7 @@ class ListingCard extends React.Component {
 
   render() {
     return (
-      <div className="card is-shady">
+      <div class="card is-shady">
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={this.props.pictures[0]} alt="Placeholder" />
@@ -22,7 +22,7 @@ class ListingCard extends React.Component {
                 <p className="subtitle column is-two-thirds">
                   <strong> {this.props.name} </strong>
                 </p>
-                <p className="column"> €{this.props.monthlyPrice} /mo</p>
+                {/* <p className="column"> €{this.props.monthlyPrice} /mo</p> */}
               </div>
             </div>
           </div>

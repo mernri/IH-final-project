@@ -40,11 +40,13 @@ class AdView extends React.Component {
     return (
       <div>
         <div className="workspace-photos">
+          <img src={this.state.pictures} alt="" />
+
           <figure class="image is-4by3">
-            <img src={this.state.pictures} />
+            <img src="https://bulma.io/images/placeholders/128x128.png" />
           </figure>
         </div>
-
+        
         {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
         <div className="workspace-header">
           <div className="columns">
@@ -54,10 +56,8 @@ class AdView extends React.Component {
                 {this.state.city}, {this.state.zipcode}
               </div>
             </div>
-
             <div className="column price-review">
-              <div className="subtitle" />
-              <div className="subtitle">€{this.state.monthlyPrice} /month</div>
+              <div className="subtitle"> €{this.state.monthlyPrice} /month</div>
             </div>
           </div>
         </div>

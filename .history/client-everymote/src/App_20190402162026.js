@@ -1,8 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Nav from "./components/layout/NavBar/Nav.js";
+import { Link } from "react-router-dom";
 
-import HomePage from "./components/pages/HomePage/HomePage.js";
+
+// import HomePage from "./components/pages/HomePage/HomePage.js";
 import ListingPage from "./components/pages/ListingPage/ListingPage.js";
 import WorkspaceView from "./components/pages/WorkspaceView/WorkspaceView.js";
 import Signup from "./components/pages/AuthPages/SignupPage/Signup.js";
@@ -31,7 +33,7 @@ class App extends React.Component {
         .loggedin()
         .then(response => this.setState({ user: response }))
         .catch(err => this.setState({ user: false }));
-    } else this.updateUser(this.state.user);
+    }
   };
 
   updateUser = data => {
@@ -41,9 +43,27 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Nav user={this.state.user} updateUser={this.updateUser} />
+        <Nav user={this.state.user} />
 
         <Switch>
+
+
+        <Route exact path="/" render={() => (
+              <div>
+                {this.state.user && this.state.user._id ? (
+                  <Nav user={this.state.user} updateUser={this.updateUser} />
+                ) : (
+                      <div className="cta">
+                        <Link className="btn" to="/signup">Sign up</Link>
+                        <Link className="btn" to="/login">Log in</Link>
+                      </div>
+                  )} />
+                )}
+              </div>
+            )} />
+
+
+
           <Route
             exact
             path="/signup"
@@ -71,7 +91,6 @@ class App extends React.Component {
             )}
           />
 
-          <Route exact path="/" component={HomePage} />
           <Route exact path="/workspaces" component={ListingPage} />
 
           <Route exact path="/workspace/:id" component={WorkspaceView} />

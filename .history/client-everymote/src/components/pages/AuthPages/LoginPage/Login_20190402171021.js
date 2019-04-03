@@ -31,6 +31,23 @@ class Login extends Component {
 
 
 
+  service = new AuthService();
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.service.login(this.state.username, this.state.password)
+      .then(response => {
+        this.props.updateUser(response);
+        this.props.history.push('/');
+      })
+    ;
+  }
+
+
+
+
+
   handleChange = event => {
     const { name, value } = event.target;
     console.log({ name }, { value });

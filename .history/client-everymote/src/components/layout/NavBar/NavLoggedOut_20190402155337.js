@@ -6,7 +6,9 @@ import AuthService from "../../pages/AuthPages/Authservices.js";
 import "bulma/css/bulma.css";
 
 export default class Nav extends React.Component {
+  service = new AuthService();
 
+ 
 
   render() {
     return (
@@ -32,25 +34,23 @@ export default class Nav extends React.Component {
               Workspaces
             </Link>
           </div>
-
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="field is-grouped">
                 <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
-                    <Link to="/onboarding"> Profile </Link>
+                    <Link to="/login"> Login </Link>
                   </NavButton>
                 </div>
                 <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
-                    <Link to="/workspaces" onClick={this.logoutUser}>
-                      Logout
-                    </Link>
+                    <Link to="/signup"> Signup </Link>
                   </NavButton>
                 </div>
               </div>
             </div>
           </div>
+          )}
         </div>
       </div>
     );

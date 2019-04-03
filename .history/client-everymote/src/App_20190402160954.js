@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Nav from "./components/layout/NavBar/Nav.js";
+import NavLoggedIn from "./components/layout/NavBar/NavLoggedIn.js";
+import NavLoggedOut from "./components/layout/NavBar/NavLoggedOut.js";
 
 import HomePage from "./components/pages/HomePage/HomePage.js";
 import ListingPage from "./components/pages/ListingPage/ListingPage.js";
@@ -31,7 +32,7 @@ class App extends React.Component {
         .loggedin()
         .then(response => this.setState({ user: response }))
         .catch(err => this.setState({ user: false }));
-    } else this.updateUser(this.state.user);
+    }
   };
 
   updateUser = data => {
@@ -41,7 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Nav user={this.state.user} updateUser={this.updateUser} />
+          <Nav user={this.state.user} />
 
         <Switch>
           <Route

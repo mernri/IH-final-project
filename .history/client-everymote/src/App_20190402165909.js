@@ -31,7 +31,7 @@ class App extends React.Component {
         .loggedin()
         .then(response => this.setState({ user: response }))
         .catch(err => this.setState({ user: false }));
-    } else this.updateUser(this.state.user);
+    }
   };
 
   updateUser = data => {
@@ -41,7 +41,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Nav user={this.state.user} updateUser={this.updateUser} />
+        <Nav user={this.state.user} updateUser={this.updateUser}/>
 
         <Switch>
           <Route
@@ -49,6 +49,14 @@ class App extends React.Component {
             path="/signup"
             render={props => (
               <Signup updateUser={this.updateUser} history={props.history} />
+            )}
+          />
+
+          <Route
+            exact
+            path="/logout"
+            render={props => (
+              <ListingPage updateUser={this.updateUser} history={props.history} />
             )}
           />
 

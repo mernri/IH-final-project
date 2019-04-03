@@ -17,18 +17,16 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    this.service.login(this.state.email, this.state.password)
-    .then(response => {
+    this.service.login(this.state.email, this.state.password).then(response => {
       this.props.updateUser(response);
       this.props.history.push("/");
-      // this.setState({
-      //   email: "",
-      //   password: "",
-      //   redirectToListing: true
-      // });
+      this.setState({
+        email: "",
+        password: "",
+        redirectToListing: true
+      });
     });
   };
-
 
 
   handleChange = event => {

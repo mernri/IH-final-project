@@ -18,7 +18,7 @@ class WorkspaceListing extends Component {
               
               <section class="container">
                 <div class="columns features">
-                  <div className="column is-4" key={workspace._id}>
+                  <div key={workspace._id}>
                     <Link to={`/workspace/${workspace._id}`}>
                       <ListingCard {...workspace} />
                     </Link>

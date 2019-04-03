@@ -71,7 +71,7 @@ export default class addWorkspace extends Component {
     const monthlyPrice = this.state.monthlyPrice 
     const latitude = this.state.latitude
     const longitude = this.state.longitude
-    console.log("hello", this.state.longitude)
+    console.log(this.state.longitude)
 
     console.log("étape 2")
     // convert address to geocordinates and change the state.lat and state.lng before posting to axios

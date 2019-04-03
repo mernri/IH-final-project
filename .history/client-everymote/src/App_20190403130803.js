@@ -31,8 +31,43 @@ class App extends React.Component {
         .loggedin()
         .then(response => this.setState({ user: response }))
         .catch(err => this.setState({ user: false }));
-    } else this.updateUser(this.state.user);
+    }
+    else (
+      this.updateUser(this.state.user)
+    )
   };
+
+// A SUPPRIMER 
+// users to retrieve
+const users = [
+	'W8lbAokuirfdlTJpnsNC5kryuHtu1G53',
+	'ZinqxnohbXMQdtF6avtlUkxLLknRxCTh',
+	'ynQePb3RB2JSx4iziGYMM5eXgkwnufS5',
+	'EtT2haq2sNoWnNjmeyZnfUmZn9Ihfi8w'
+];
+
+// array to hold response
+let response = [];
+
+async function getUsers(users) {
+	try {
+		response[0] = await axios.get(`/users/userId=${users[0]}`);
+		response[1] = await axios.get(`/users/userId=${users[1]}`);
+		response[2] = await axios.get(`/users/userId=${users[2]}`);
+		response[3] = await axios.get(`/users/userId=${users[3]}`);
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+
+// A SUPPRIMER 
+
+
+
+
+
+
 
   updateUser = data => {
     this.setState({ user: data });
@@ -41,7 +76,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Nav user={this.state.user} updateUser={this.updateUser} />
+        <Nav user={this.state.user} updateUser={this.updateUser}/>
 
         <Switch>
           <Route
@@ -51,6 +86,8 @@ class App extends React.Component {
               <Signup updateUser={this.updateUser} history={props.history} />
             )}
           />
+
+         
 
           <Route
             exact

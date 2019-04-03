@@ -2,21 +2,15 @@ import React from "react";
 import NavButton from "./NavButton.js";
 import { Link } from "react-router-dom";
 import AuthService from "../../pages/AuthPages/Authservices.js";
-
 import "bulma/css/bulma.css";
 
 export default class Nav extends React.Component {
   service = new AuthService();
 
   logoutUser = event => {
-    event.preventDefault();
-
-    this.service
-      .logout()
-      .then(() => {
-        this.props.updateUser(null);
-      })
-      .catch(error => console.log(error));
+    this.service.logout().then(response => {
+      this.props.updateUser(null);
+    });
   };
 
   render() {
@@ -43,23 +37,45 @@ export default class Nav extends React.Component {
               Workspaces
             </Link>
           </div>
+
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="field is-grouped">
                 <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
-                    <Link to="/login"> Login </Link>
+                    <Link to="/onboarding"> Profile </Link>
                   </NavButton>
                 </div>
                 <div className="control">
+
+                  {this.props.user ? 
+                    (
+                    <NavButton
+                    isSmall
+                    isSuccess
+                    className="is-rounded my-class"
+                    onClick={this.logoutUser}
+                    >
+                    Logout
+                    </NavButton>
+                    <div className="control">
                   <NavButton isSmall isSuccess className="is-rounded my-class">
                     <Link to="/signup"> Signup </Link>
                   </NavButton>
                 </div>
+                )
+                   : 
+                   <div className="control">
+                  <NavButton isSmall isSuccess className="is-rounded my-class">
+                    <Link to="/signup"> Signup </Link>
+                  </NavButton>
+                </div>
+                   }
+                  
+                </div>
               </div>
             </div>
           </div>
-          )}
         </div>
       </div>
     );

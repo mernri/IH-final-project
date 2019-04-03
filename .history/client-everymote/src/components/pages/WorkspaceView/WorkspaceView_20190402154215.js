@@ -40,8 +40,10 @@ class AdView extends React.Component {
     return (
       <div>
         <div className="workspace-photos">
-          <figure class="image is-4by3">
-            <img src={this.state.pictures} />
+          <img src={this.state.pictures} alt="" />
+
+          <figure class="image 2by1">
+            <img src={this.state.pictures} alt="" />
           </figure>
         </div>
 
@@ -54,10 +56,8 @@ class AdView extends React.Component {
                 {this.state.city}, {this.state.zipcode}
               </div>
             </div>
-
             <div className="column price-review">
-              <div className="subtitle" />
-              <div className="subtitle">€{this.state.monthlyPrice} /month</div>
+              <div className="subtitle"> €{this.state.monthlyPrice} /month</div>
             </div>
           </div>
         </div>
