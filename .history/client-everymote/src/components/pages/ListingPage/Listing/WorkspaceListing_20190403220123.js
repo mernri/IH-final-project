@@ -9,12 +9,12 @@ class WorkspaceListing extends Component {
     return (
       <div>
         <div>
-          <section className="container">
-            <div className="columns features">
+          <section class="container">
+            <div class="columns features">
               {this.props.workspaces.map(workspace => {
                 return (
-                  <div className="column is-4" key={workspace._id}>
-                    <div className=" card is-shady">
+                  <div className="column is-4">
+                    <div className=" card is-shady" key={workspace._id}>
                       <Link to={`/workspace/${workspace._id}`}>
                         <ListingCard {...workspace} />
                       </Link>

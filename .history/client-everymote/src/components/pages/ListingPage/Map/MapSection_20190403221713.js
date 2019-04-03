@@ -18,9 +18,9 @@ class MapSection extends React.Component {
   constructor() {
     super();
     this.state = {
-      lat: 48.8585,
-      lng: 2.348549999999932,
-      zoom: 13
+      lat: 48.8716,
+      lng: 2.3109100000000353,
+      zoom: 15
     };
   }
 
@@ -39,6 +39,7 @@ class MapSection extends React.Component {
   }
 
   render() {
+
     const position = [48.8716, 2.3109100000000353];
     return (
       <div>
@@ -56,34 +57,19 @@ class MapSection extends React.Component {
           />
 
           {this.props.workspaces.map(workspace => {
-            const workspacePosition = [workspace.latitude, workspace.longitude];
+            const workspacePosition = [this.props.workspaces.latitude, this.props.workspaces.longitude];
 
             return (
               <Marker position={workspacePosition}>
                 <Popup>
-                  <Link to={`/workspace/${workspace._id}`}>
-                    <div className="card-image">
-                      <figure className="image ">
-                        <img src={workspace.pictures[0]} alt="Placeholder" />
-                      </figure>
-                    </div>
-                    <div className="media">
-                      <div className="media-content">
-                        <div className="columns">
-                          <p className="subtitle column is-two-thirds">
-                            <strong> {workspace.name} </strong>
-                          </p>
-                          <p className="column">
-                            €{workspace.monthlyPrice} /mo
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
+                  A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>
               </Marker>
             );
           })}
+
+
+
         </Map>
       </div>
     );

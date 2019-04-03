@@ -61,25 +61,26 @@ class MapSection extends React.Component {
             return (
               <Marker position={workspacePosition}>
                 <Popup>
-                  <Link to={`/workspace/${workspace._id}`}>
+                  </Popup><Link to={`/workspace/${workspace._id}`}>
                     <div className="card-image">
                       <figure className="image ">
                         <img src={workspace.pictures[0]} alt="Placeholder" />
                       </figure>
                     </div>
-                    <div className="media">
-                      <div className="media-content">
-                        <div className="columns">
-                          <p className="subtitle column is-two-thirds">
-                            <strong> {workspace.name} </strong>
-                          </p>
-                          <p className="column">
-                            €{workspace.monthlyPrice} /mo
-                          </p>
+                      <div className="media">
+                        <div className="media-content">
+                          <div className="columns">
+                            <p className="subtitle column is-two-thirds">
+                              <strong> {workspace.name} </strong>
+                            </p>
+                            <p className="column">
+                              €{workspace.monthlyPrice} /mo
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
+                      </Link>
+
                 </Popup>
               </Marker>
             );

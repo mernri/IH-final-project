@@ -18,6 +18,8 @@ class ListingPage extends React.Component {
 
   componentDidMount() {
     this.getWorkspaces();
+    console.log("city is ", this.state.city);
+    console.log("workspaces are ", this.state.listOfWorkspaces);
   }
 
   handleChange = event => {
@@ -64,6 +66,8 @@ class ListingPage extends React.Component {
           console.log(err);
         });
     }
+    console.log(this.state.city);
+    console.log(this.state.listOfWorkspaces);
   };
 
   render() {

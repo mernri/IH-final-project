@@ -18,8 +18,8 @@ class MapSection extends React.Component {
   constructor() {
     super();
     this.state = {
-      lat: 48.8585,
-      lng: 2.348549999999932,
+      lat: 48.8566101,
+      lng: 2.3514992,
       zoom: 13
     };
   }
@@ -39,8 +39,10 @@ class MapSection extends React.Component {
   }
 
   render() {
+
     const position = [48.8716, 2.3109100000000353];
     return (
+      
       <div>
         {/* END OF MAP TOGGLE FOR MOBILE */}
         <Map
@@ -61,29 +63,14 @@ class MapSection extends React.Component {
             return (
               <Marker position={workspacePosition}>
                 <Popup>
-                  <Link to={`/workspace/${workspace._id}`}>
-                    <div className="card-image">
-                      <figure className="image ">
-                        <img src={workspace.pictures[0]} alt="Placeholder" />
-                      </figure>
-                    </div>
-                    <div className="media">
-                      <div className="media-content">
-                        <div className="columns">
-                          <p className="subtitle column is-two-thirds">
-                            <strong> {workspace.name} </strong>
-                          </p>
-                          <p className="column">
-                            €{workspace.monthlyPrice} /mo
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
+                  A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>
               </Marker>
             );
           })}
+
+
+
         </Map>
       </div>
     );
