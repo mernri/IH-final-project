@@ -57,6 +57,7 @@ class ListingPage extends React.Component {
         .get(`http://localhost:5000/api/workspaces`)
         .then(responseFromApi => {
           this.setState({
+            city: "",
             listOfWorkspaces: responseFromApi.data
           });
         })

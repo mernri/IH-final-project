@@ -22,7 +22,7 @@ class ListingPage extends React.Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    // this.setState({ [name]: value });
   };
 
   handleFormSubmit = event => {
@@ -92,7 +92,7 @@ class ListingPage extends React.Component {
                         className="input"
                         type="text"
                         placeholder="Ex: Paris, Berlin..."
-                        onChange={this.handleChange}
+                        /* onChange={this.handleChange} */
                       />
                     </p>
                     <p className="control">

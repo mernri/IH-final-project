@@ -25,7 +25,7 @@ class MapSection extends React.Component {
     };
   }
 
-  getCityCoordinates = async city => {
+  getCityCoordinates = async (city) => {
     const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
     const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${city}`;
     let response = {};
@@ -34,8 +34,11 @@ class MapSection extends React.Component {
 
     try {
       response = await axios.get(url);
-      latitude = await response.data.results[0].locations[0].latLng.lat;
-      longitude = await response.data.results[0].locations[0].latLng.lng;
+      console.log(response.data.results[0].locations[0]);
+
+      // latitude = await response.data.results[0].locations[0].latLng.lat;
+      // longitude = await response.data.results[0].locations[0].latLng.lng;
+      console.log("latitude de la ville", latitude);
 
       await this.setState({
         latitude: latitude,
@@ -44,21 +47,26 @@ class MapSection extends React.Component {
     } catch (err) {
       console.log(err);
     }
+
+    console.log(this.props.city);
   };
 
+  // Ajoute le search d'adresse à Leaflet
   componentDidMount() {
-    this.getCityCoordinates("paris");
-  }
-
-  // Permet d'updater le centre de la map quand je veux voir les workspaces dans une autre ville
-  // Attention, cette methode de lifecycle est du legacy, je ne devrais pas l'utiliser
-  componentWillReceiveProps() {
     this.props.city
       ? this.getCityCoordinates(this.props.city)
       : this.getCityCoordinates("paris");
-    console.log(
-      " je suis entrain de claquer tout ton quota d'appel API dispo. deal with it "
-    );
+      console.log(this.props.city)
+    const map = this.leafletMap.leafletElement;
+    const searchControl = new ELG.Geosearch().addTo(map);
+    const results = new L.LayerGroup().addTo(map);
+
+    searchControl.on("results", function(data) {
+      results.clearLayers();
+      for (let i = data.results.length - 1; i >= 0; i--) {
+        results.addLayer(L.marker(data.results[i].latlng));
+      }
+    });
   }
 
   render() {

@@ -131,7 +131,7 @@ class ListingPage extends React.Component {
               >
                 See as a List
               </div>
-              <MapSection city={this.state.city} workspaces={this.state.listOfWorkspaces} />
+              <MapSection city={this.state.city} updateMapView={this.UpdateCity} workspaces={this.state.listOfWorkspaces} />
             </div>
           )}
         </div>

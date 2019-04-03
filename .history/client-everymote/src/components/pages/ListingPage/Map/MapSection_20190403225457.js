@@ -46,22 +46,25 @@ class MapSection extends React.Component {
     }
   };
 
+  // Ajoute le search d'adresse à Leaflet
   componentDidMount() {
-    this.getCityCoordinates("paris");
-  }
-
-  // Permet d'updater le centre de la map quand je veux voir les workspaces dans une autre ville
-  // Attention, cette methode de lifecycle est du legacy, je ne devrais pas l'utiliser
-  componentWillReceiveProps() {
     this.props.city
-      ? this.getCityCoordinates(this.props.city)
-      : this.getCityCoordinates("paris");
-    console.log(
-      " je suis entrain de claquer tout ton quota d'appel API dispo. deal with it "
-    );
+    ? this.getCityCoordinates(this.props.city)
+    : this.getCityCoordinates("paris");
+    // const map = this.leafletMap.leafletElement;
+    // const searchControl = new ELG.Geosearch().addTo(map);
+    // const results = new L.LayerGroup().addTo(map);
+
+    // // searchControl.on("results", function(data) {
+    //   results.clearLayers();
+    //   for (let i = data.results.length - 1; i >= 0; i--) {
+    //     results.addLayer(L.marker(data.results[i].latlng));
+    //   }
+    // });
   }
 
   render() {
+
     const position = [this.state.latitude, this.state.longitude];
     return (
       <div>

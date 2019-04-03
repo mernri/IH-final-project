@@ -20,10 +20,10 @@ class ListingPage extends React.Component {
     this.getWorkspaces();
   }
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+  // handleChange = event => {
+  //   const { name, value } = event.target;
+  //   // this.setState({ [name]: value });
+  // };
 
   handleFormSubmit = event => {
     event.preventDefault();

@@ -47,18 +47,16 @@ class MapSection extends React.Component {
   };
 
   componentDidMount() {
-    this.getCityCoordinates("paris");
+    this.getCityCoordinates(this.props.getCity)
+    console.log("hey rita", this.props.getCity)
   }
-
   // Permet d'updater le centre de la map quand je veux voir les workspaces dans une autre ville
   // Attention, cette methode de lifecycle est du legacy, je ne devrais pas l'utiliser
   componentWillReceiveProps() {
     this.props.city
       ? this.getCityCoordinates(this.props.city)
       : this.getCityCoordinates("paris");
-    console.log(
-      " je suis entrain de claquer tout ton quota d'appel API dispo. deal with it "
-    );
+      console.log(" je suis entrain de claquer tout ton quota d'appel API dispo. deal with it ")
   }
 
   render() {

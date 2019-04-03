@@ -46,8 +46,8 @@ class MapSection extends React.Component {
     }
   };
 
-  componentDidMount() {
-    this.getCityCoordinates("paris");
+this.getCityCoordinates("paris");
+      console.log(" je suis entrain de claquer tout ton quota d'appel API dispo. deal with it ")
   }
 
   // Permet d'updater le centre de la map quand je veux voir les workspaces dans une autre ville
@@ -56,9 +56,7 @@ class MapSection extends React.Component {
     this.props.city
       ? this.getCityCoordinates(this.props.city)
       : this.getCityCoordinates("paris");
-    console.log(
-      " je suis entrain de claquer tout ton quota d'appel API dispo. deal with it "
-    );
+      console.log(" je suis entrain de claquer tout ton quota d'appel API dispo. deal with it ")
   }
 
   render() {

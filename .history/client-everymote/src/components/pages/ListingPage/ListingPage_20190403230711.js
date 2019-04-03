@@ -20,10 +20,10 @@ class ListingPage extends React.Component {
     this.getWorkspaces();
   }
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+  // handleChange = event => {
+  //   const { name, value } = event.target;
+  //   // this.setState({ [name]: value });
+  // };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -92,7 +92,7 @@ class ListingPage extends React.Component {
                         className="input"
                         type="text"
                         placeholder="Ex: Paris, Berlin..."
-                        onChange={this.handleChange}
+                        /* onChange={this.handleChange} */
                       />
                     </p>
                     <p className="control">

@@ -9,7 +9,6 @@ class ListingPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: "",
       listOfWorkspaces: [],
       view: "listing"
     };

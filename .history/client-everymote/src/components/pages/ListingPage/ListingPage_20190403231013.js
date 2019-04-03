@@ -31,8 +31,13 @@ class ListingPage extends React.Component {
     this.setState({
       city: city.toLowerCase()
     });
+    this.updateMapView(this.state.city)
     this.getWorkspaces();
   };
+
+  updateMapView = city => {
+
+  }
 
   toggleView = () => {
     this.state.view === "listing"
@@ -92,7 +97,7 @@ class ListingPage extends React.Component {
                         className="input"
                         type="text"
                         placeholder="Ex: Paris, Berlin..."
-                        onChange={this.handleChange}
+                        /* onChange={this.handleChange} */
                       />
                     </p>
                     <p className="control">
