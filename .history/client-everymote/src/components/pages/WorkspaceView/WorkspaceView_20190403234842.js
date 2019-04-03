@@ -14,7 +14,7 @@ class AdView extends React.Component {
     this.state = {};
   }
 
-  //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
+  //   Lorsque le composant va être rendu dans la page on fait appel à getSingleProject
   componentWillMount() {
     this.getSingleWorkspace();
   }
@@ -26,6 +26,7 @@ class AdView extends React.Component {
       .then(responseFromApi => {
         const theWorkspace = responseFromApi.data;
         this.setState(theWorkspace);
+        console.log("workspaceView state : ", this.state)
       })
       .catch(err => {
         console.log(err);
@@ -36,11 +37,26 @@ class AdView extends React.Component {
     return this.state.address + ", " + this.state.city;
   };
 
+  addressToGeoCoordinates = getFullAddress => {
+    const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
+    const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${getFullAddress}`;
+    axios.get(url).then(
+      function(response) {
+        const latitude = response.data.results[0].locations[0].latLng.lat;
+        const longitude = response.data.results[0].locations[0].latLng.lng;
+        this.setState({
+          latitude: latitude,
+          longitude: longitude
+        });
+      }.bind(this)
+    );
+  };
+
   render() {
     return (
       <div>
         <div className="workspace-photos">
-          <figure class="image is-4by3">
+          <figure className="image is-4by3">
             <img src={this.state.pictures} />
           </figure>
         </div>
@@ -74,7 +90,7 @@ class AdView extends React.Component {
           <div>
             {this.getFullAddress()}
             <div className="workspace-map">
-              <WorkspaceMap address={this.state.address} />
+              <WorkspaceMap workspace={this.state} address={this.getFullAddress()} />
             </div>
           </div>
         </div>

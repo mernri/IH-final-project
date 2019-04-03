@@ -11,7 +11,9 @@ import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
 class AdView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      
+    };
   }
 
   //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
@@ -40,7 +42,7 @@ class AdView extends React.Component {
     return (
       <div>
         <div className="workspace-photos">
-          <figure class="image is-4by3">
+          <figure className="image is-4by3">
             <img src={this.state.pictures} />
           </figure>
         </div>
@@ -74,7 +76,7 @@ class AdView extends React.Component {
           <div>
             {this.getFullAddress()}
             <div className="workspace-map">
-              <WorkspaceMap address={this.state.address} />
+              <WorkspaceMap workspace={this.state} />
             </div>
           </div>
         </div>

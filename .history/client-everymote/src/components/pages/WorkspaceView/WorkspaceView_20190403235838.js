@@ -14,7 +14,7 @@ class AdView extends React.Component {
     this.state = {};
   }
 
-  //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
+  //   Lorsque le composant va être rendu dans la page on fait appel à getSingleProject
   componentWillMount() {
     this.getSingleWorkspace();
   }
@@ -26,21 +26,18 @@ class AdView extends React.Component {
       .then(responseFromApi => {
         const theWorkspace = responseFromApi.data;
         this.setState(theWorkspace);
+        console.log("workspaceView state : ", this.state);
       })
       .catch(err => {
         console.log(err);
       });
   };
 
-  getFullAddress = () => {
-    return this.state.address + ", " + this.state.city;
-  };
-
   render() {
     return (
       <div>
         <div className="workspace-photos">
-          <figure class="image is-4by3">
+          <figure className="image is-4by3">
             <img src={this.state.pictures} />
           </figure>
         </div>
@@ -74,7 +71,7 @@ class AdView extends React.Component {
           <div>
             {this.getFullAddress()}
             <div className="workspace-map">
-              <WorkspaceMap address={this.state.address} />
+              <WorkspaceMap workspace={this.state} />
             </div>
           </div>
         </div>

@@ -17,6 +17,7 @@ class AdView extends React.Component {
   //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
   componentWillMount() {
     this.getSingleWorkspace();
+    this.getFullAddress();
   }
 
   getSingleWorkspace = () => {

@@ -14,22 +14,24 @@ class AdView extends React.Component {
     this.state = {};
   }
 
-  //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
-  componentWillMount() {
+  //   Lorsque le composant va être rendu dans la page on fait appel à getSingleWorkspace
+  componentWillUpdate() {
     this.getSingleWorkspace();
   }
 
-  getSingleWorkspace = () => {
+  getSingleWorkspace = async () => {
     const { params } = this.props.match;
-    axios
-      .get(`http://localhost:5000/api/workspace/${params.id}`)
-      .then(responseFromApi => {
-        const theWorkspace = responseFromApi.data;
-        this.setState(theWorkspace);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    let responseFromApi = {};
+    try {
+      responseFromApi = await axios.get(
+        `http://localhost:5000/api/workspace/${params.id}`
+      );
+      const theWorkspace = await responseFromApi.data;
+      await this.setState(theWorkspace);
+      await console.log("workspaceView state : ", this.state);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   getFullAddress = () => {
@@ -40,7 +42,7 @@ class AdView extends React.Component {
     return (
       <div>
         <div className="workspace-photos">
-          <figure class="image is-4by3">
+          <figure className="image is-4by3">
             <img src={this.state.pictures} />
           </figure>
         </div>
@@ -74,7 +76,10 @@ class AdView extends React.Component {
           <div>
             {this.getFullAddress()}
             <div className="workspace-map">
-              <WorkspaceMap address={this.state.address} />
+              {console.log("this state : ", this.state)}
+              {/* <WorkspaceMap
+                workspace={this.state}
+              /> */}
             </div>
           </div>
         </div>

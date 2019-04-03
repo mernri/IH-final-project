@@ -17,6 +17,7 @@ class AdView extends React.Component {
   //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
   componentWillMount() {
     this.getSingleWorkspace();
+    this.getFullAddress();
   }
 
   getSingleWorkspace = () => {
@@ -40,7 +41,7 @@ class AdView extends React.Component {
     return (
       <div>
         <div className="workspace-photos">
-          <figure class="image is-4by3">
+          <figure className="image is-4by3">
             <img src={this.state.pictures} />
           </figure>
         </div>
