@@ -8,6 +8,7 @@ class Signup extends Component {
     this.state = {
       email: "",
       password: "",
+      redirectToOnboarding: false
     };
   }
 
@@ -21,18 +22,37 @@ class Signup extends Component {
     // PERMET DE CREER UN NOUVEAU PROJET AVEC LES INFOS DU FORMULAIRE
     this.service
       .signup(email, password)
-      .then(response => {
-        this.props.updateUser(response);
-        this.props.history.push("/onboarding");
-      })
       .then(() => {
+        this.props.updateUser(response);
+        this.props.history.push("/");
         this.setState({
           email: "",
           password: "",
+          redirectToOnboarding: true
         });
       })
       .catch(error => console.log(error));
   };
+
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+    this.service
+      .edit(
+        this.state.fullname,
+        this.state.picture,
+        this.state.occupation,
+        this.state.city
+      )
+      .then(response => {
+        this.props.updateUser(response);
+        this.props.history.push("/");
+      });
+  };
+
+
+
 
 
 
@@ -43,7 +63,9 @@ class Signup extends Component {
   };
 
   render() {
-    
+    if (this.state.redirectToOnboarding) {
+      return <Redirect to='/onboarding' />
+    }
     return (
       <div>
         <div className="hero-body">

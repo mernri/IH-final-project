@@ -44,7 +44,7 @@ class ListingPage extends React.Component {
 
   getWorkspaces = () => {
     if (this.state.city !== "") {
-      const city = this.state.city.toLowerCase();
+      const city = this.state.city;
       axios
         .get(`http://localhost:5000/api/workspaces/${city}`)
         .then(responseFromApi => {

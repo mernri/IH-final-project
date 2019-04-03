@@ -8,6 +8,7 @@ class Signup extends Component {
     this.state = {
       email: "",
       password: "",
+      redirectToOnboarding: false
     };
   }
 
@@ -24,17 +25,24 @@ class Signup extends Component {
       .then(response => {
         this.props.updateUser(response);
         this.props.history.push("/onboarding");
-      })
+      });
       .then(() => {
         this.setState({
           email: "",
           password: "",
+          redirectToOnboarding: true
         });
       })
       .catch(error => console.log(error));
   };
 
 
+
+
+
+
+
+  
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -43,7 +51,9 @@ class Signup extends Component {
   };
 
   render() {
-    
+    if (this.state.redirectToOnboarding) {
+      return <Redirect to='/onboarding' />
+    }
     return (
       <div>
         <div className="hero-body">

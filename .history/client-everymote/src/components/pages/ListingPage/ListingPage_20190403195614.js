@@ -31,7 +31,7 @@ class ListingPage extends React.Component {
     event.preventDefault();
     const { city } = this.state;
     this.setState({
-      city: city.toLowerCase()
+      city: city.toLowerCase
     });
     this.getWorkspaces();
   };
@@ -44,12 +44,12 @@ class ListingPage extends React.Component {
 
   getWorkspaces = () => {
     if (this.state.city !== "") {
-      const city = this.state.city.toLowerCase();
+      const city = this.state.city;
       axios
         .get(`http://localhost:5000/api/workspaces/${city}`)
         .then(responseFromApi => {
           this.setState({
-            city: city,
+            city: city.toLowerCase,
             listOfWorkspaces: responseFromApi.data
           });
         })

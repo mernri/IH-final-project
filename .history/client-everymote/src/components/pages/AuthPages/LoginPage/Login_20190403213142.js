@@ -2,36 +2,31 @@ import React, { Component } from "react";
 import AuthService from "../Authservices.js";
 import { Redirect } from "react-router-dom";
 
-class Signup extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
+      redirectToListing: false
     };
   }
 
   service = new AuthService();
 
-
-  handleFormSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
-    const { email, password } = this.state;
 
-    // PERMET DE CREER UN NOUVEAU PROJET AVEC LES INFOS DU FORMULAIRE
-    this.service
-      .signup(email, password)
-      .then(response => {
-        this.props.updateUser(response);
-        this.props.history.push("/onboarding");
-      })
-      .then(() => {
-        this.setState({
-          email: "",
-          password: "",
-        });
-      })
-      .catch(error => console.log(error));
+    this.service.login(this.state.email, this.state.password)
+    .then(response => {
+      this.props.updateUser(response);
+      this.props.history.push("/");
+      this.setState({
+        email: "",
+        password: "",
+        redirectToListing: true
+      });
+    });
   };
 
 
@@ -43,14 +38,16 @@ class Signup extends Component {
   };
 
   render() {
-    
+    if (this.state.redirectToListing) {
+      return <Redirect to="/workspaces" />;
+    }
     return (
       <div>
         <div className="hero-body">
           <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 className="title has-text-grey">Signup</h3>
-              <p className="subtitle has-text-grey">Go go go </p>
+              <h3 className="title has-text-grey">Login</h3>
+              <p className="subtitle has-text-grey">Happy to see you</p>
 
               <form onSubmit={this.handleFormSubmit}>
                 {/* EMAIL  */}
@@ -93,4 +90,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default Login;

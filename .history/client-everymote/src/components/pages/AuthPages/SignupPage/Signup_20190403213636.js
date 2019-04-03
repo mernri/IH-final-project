@@ -36,6 +36,12 @@ class Signup extends Component {
 
 
 
+
+
+
+
+  
+
   handleChange = event => {
     const { name, value } = event.target;
     console.log({ name }, { value });
@@ -43,7 +49,9 @@ class Signup extends Component {
   };
 
   render() {
-    
+    if (this.state.redirectToOnboarding) {
+      return <Redirect to='/onboarding' />
+    }
     return (
       <div>
         <div className="hero-body">
