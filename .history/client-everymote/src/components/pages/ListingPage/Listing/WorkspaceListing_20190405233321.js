@@ -7,7 +7,7 @@ import "./WorkspaceListing.css";
 class WorkspaceListing extends Component {
   render() {
     return (
-      <div class="columns is-multiline" >
+      <div class="columns is-multiline" style={{margin:0}}>
         {this.props.workspaces.map(workspace => {
           return (
             <div

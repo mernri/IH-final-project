@@ -13,10 +13,10 @@
 
 .content {
   margin-top: 3%;
-  background-color: white;
+  background-color: white
   border-radius: 8px;
-}
 
+}
 
 .card:hover {
   transform: scale(1.035, 1.035);

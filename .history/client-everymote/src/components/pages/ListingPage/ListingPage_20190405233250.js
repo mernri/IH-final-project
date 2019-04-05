@@ -74,7 +74,7 @@ class ListingPage extends React.Component {
             <div className="hero-body">
               <div className="container" style={{ width: "70%" }}>
                 <h1 className="title">SUPER LOGO ! </h1>
-                {/* <div className="header-sections columns">
+                <div className="header-sections columns">
                   <div className="column is-one-quarter" />
                   <div className="column columns is-two-quarters">
                     <p className="column">Remote Jobs</p>
@@ -82,7 +82,7 @@ class ListingPage extends React.Component {
                     <p className="column">Cities</p>
                   </div>
                   <div className="column is-one-quarter" />
-                </div> */}
+                </div>
 
                 <form onSubmit={this.handleFormSubmit}>
                   <div className="field is-grouped">
@@ -109,7 +109,7 @@ class ListingPage extends React.Component {
           {this.state.view === "listing" ? (
             <div>
               <div
-                className="button"
+                className="button is-success"
                 onClick={() => {
                   this.toggleView();
                 }}
@@ -123,7 +123,7 @@ class ListingPage extends React.Component {
           ) : (
             <div>
               <div
-                className="button"
+                className="button is-success"
                 onClick={() => {
                   this.toggleView();
                 }}

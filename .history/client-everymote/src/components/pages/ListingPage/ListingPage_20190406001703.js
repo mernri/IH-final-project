@@ -123,7 +123,7 @@ class ListingPage extends React.Component {
           ) : (
             <div>
               <div
-                className="button"
+                className="button is-success"
                 onClick={() => {
                   this.toggleView();
                 }}

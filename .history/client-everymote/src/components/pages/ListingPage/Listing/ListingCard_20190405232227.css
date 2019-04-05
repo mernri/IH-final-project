@@ -15,8 +15,8 @@
   margin-top: 3%;
   background-color: white;
   border-radius: 8px;
+  overflow: hidden;
 }
-
 
 .card:hover {
   transform: scale(1.035, 1.035);

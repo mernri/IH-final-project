@@ -15,8 +15,8 @@
   margin-top: 3%;
   background-color: white;
   border-radius: 8px;
+  align-items: stretch
 }
-
 
 .card:hover {
   transform: scale(1.035, 1.035);
