@@ -11,12 +11,12 @@ class WorkspaceListing extends Component {
         {this.props.workspaces.map(workspace => {
           return (
             <div
-              class="column is-half-desktop is-half-tablet"
+              class="column is-one-third-desktop is-half-tablet "
               key={workspace._id}
             >
-              <Link to={`/workspace/${workspace._id}`}>
+              {/* <Link to={`/workspace/${workspace._id}`}> */}
               <ListingCard {...workspace} />
-              </Link>
+              {/* </Link> */}
             </div>
           );
         })}

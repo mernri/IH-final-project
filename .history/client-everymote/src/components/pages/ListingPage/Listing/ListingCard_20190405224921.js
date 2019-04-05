@@ -10,13 +10,12 @@ class ListingCard extends React.Component {
   render() {
     return (
       <div className="card" style={{height:"100%"}}>
-        {/* <div className="card is-shady" > */}
-          <div className="card-image" style={{height:"80%"}}>
+        <div className="card is-shady">
+          <div className="card-image">
             <figure className="image is-5by3s">
               <img src={this.props.pictures[0]} alt="Placeholder" />
             </figure>
           </div>
-
           <div className="content">
             <div className="media">
               <div className="media-left" />
@@ -30,8 +29,7 @@ class ListingCard extends React.Component {
               </div>
             </div>
           </div>
-          
-        {/* </div> */}
+        </div>
       </div>
     );
   }

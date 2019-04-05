@@ -1,0 +1,9 @@
+.card {
+  border-radius: 10px
+}
+
+.image img {
+  border-radius: 10px 10px 0px 0px;
+  max-height: 80%;
+
+}
