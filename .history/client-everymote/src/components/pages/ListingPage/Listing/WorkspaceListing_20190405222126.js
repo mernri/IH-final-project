@@ -1,19 +1,22 @@
-import React from "react";
-import "./ListingCard.css";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import ListingCard from "./ListingCard.js";
+import "bulma/css/bulma.css";
+import "./WorkspaceListing.css";
 
-class ListingCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+class WorkspaceListing extends Component {
   render() {
     return (
-      <div className="card">
+        <div class="columns is-desktop">
+          {this.props.workspaces.map(workspace => {
+            return (
+                <div class="column is-4" key={workspace._id}>
+                  {/* <Link to={`/workspace/${workspace._id}`}> */}
+                  <div className="card">
         <div className="card is-shady">
           <div className="card-image">
             <figure className="image is-4by3">
-              <img src={this.props.pictures[0]} alt="Placeholder" />
+              <img src={this.state.pictures[0]} alt="Placeholder" />
             </figure>
           </div>
           <div className="content">
@@ -31,8 +34,13 @@ class ListingCard extends React.Component {
           </div>
         </div>
       </div>
+                  {/* </Link> */}
+                </div>
+            );
+          })}
+        </div>
     );
   }
 }
 
-export default ListingCard;
+export default WorkspaceListing;

@@ -20,10 +20,10 @@ class ListingPage extends React.Component {
     this.getWorkspaces();
   }
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+  // handleChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({ [name]: value });
+  // };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -32,6 +32,7 @@ class ListingPage extends React.Component {
       city: city.toLowerCase()
     });
     this.getWorkspaces();
+    console.log(this.state.city)
   };
 
   toggleView = () => {
@@ -92,7 +93,6 @@ class ListingPage extends React.Component {
                         className="input"
                         type="text"
                         placeholder="Ex: Paris, Berlin..."
-                        onChange={this.handleChange}
                       />
                     </p>
                     <p className="control">
@@ -105,7 +105,10 @@ class ListingPage extends React.Component {
           </section>
         </div>
 
-        <div className="workspaces-view">
+        <div
+          className="workspaces-view"
+          style={{ marginLeft: "5%", marginRight: "5%" }}
+        >
           {this.state.view === "listing" ? (
             <div>
               <div
@@ -116,10 +119,7 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <div className="container">
               <WorkspaceListing workspaces={this.state.listOfWorkspaces} />
-
-              </div>
             </div>
           ) : (
             <div>
@@ -131,10 +131,7 @@ class ListingPage extends React.Component {
               >
                 See as a List
               </div>
-              <MapSection
-                city={this.state.city}
-                workspaces={this.state.listOfWorkspaces}
-              />
+              <MapSection city={this.state.city} workspaces={this.state.listOfWorkspaces} />
             </div>
           )}
         </div>

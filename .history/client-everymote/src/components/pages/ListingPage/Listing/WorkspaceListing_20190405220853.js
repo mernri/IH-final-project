@@ -7,14 +7,16 @@ import "./WorkspaceListing.css";
 class WorkspaceListing extends Component {
   render() {
     return (
-      <div class="columns is-multiline">
+      <div>
         {this.props.workspaces.map(workspace => {
           return (
-            <div class="column is-one-third-desktop is-half-tablet is-mobile" key={workspace._id}>
-              {/* <Link to={`/workspace/${workspace._id}`}> */}
-              <ListingCard {...workspace} />
-              {/* </Link> */}
-            </div>
+            <div class="columns features">
+                <div key={workspace._id}>
+                  <Link to={`/workspace/${workspace._id}`}>
+                    <ListingCard {...workspace} />
+                  </Link>
+                </div>
+              </div>
           );
         })}
       </div>

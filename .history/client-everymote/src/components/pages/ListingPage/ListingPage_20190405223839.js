@@ -116,10 +116,7 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <div className="container">
               <WorkspaceListing workspaces={this.state.listOfWorkspaces} />
-
-              </div>
             </div>
           ) : (
             <div>

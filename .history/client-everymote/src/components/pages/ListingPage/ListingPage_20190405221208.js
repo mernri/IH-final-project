@@ -105,7 +105,10 @@ class ListingPage extends React.Component {
           </section>
         </div>
 
-        <div className="workspaces-view">
+        <div
+          className="workspaces-view"
+          style={{ marginLeft: "5%", marginRight: "5%" }}
+        >
           {this.state.view === "listing" ? (
             <div>
               <div
@@ -116,9 +119,9 @@ class ListingPage extends React.Component {
               >
                 See on Map
               </div>
-              <div className="container">
-              <WorkspaceListing workspaces={this.state.listOfWorkspaces} />
+              <div class="columns features">
 
+              <WorkspaceListing workspaces={this.state.listOfWorkspaces} />
               </div>
             </div>
           ) : (
