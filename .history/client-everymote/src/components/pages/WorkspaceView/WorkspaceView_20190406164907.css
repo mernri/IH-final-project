@@ -1,0 +1,13 @@
+.leaflet-container {
+  height: 400px;
+  width: 80%;
+}
+
+.workspace-photos {
+  padding: 0px;
+}
+
+.section img {
+  height: 200px;
+  object-fit : contain
+}
