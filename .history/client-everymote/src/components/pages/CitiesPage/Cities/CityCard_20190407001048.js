@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import "./CityCard.css";
 import { Link } from "react-router-dom";
 
+import "./CityCard.css";
 
 class CityCard extends React.Component {
   state = {

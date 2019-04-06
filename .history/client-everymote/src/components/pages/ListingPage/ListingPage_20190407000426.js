@@ -18,6 +18,7 @@ class ListingPage extends React.Component {
   }
 
   componentWillMount() {
+    console.log(this.props.match.params.city);
     this.getWorkspaces();
   }
 
@@ -37,6 +38,7 @@ class ListingPage extends React.Component {
         this.getWorkspaces();
       }
     );
+    console.log("citySearched = ", this.state.citySearched);
   };
 
   toggleView = () => {
@@ -45,8 +47,19 @@ class ListingPage extends React.Component {
       : this.setState({ view: "listing" });
   };
 
-  // 1/ vérifie si citySearched est dans le state. Si ce n'est pas le cas, vérifie si citySearched est dans l'url. Sinon renvoie tous les workspaces.
-  
+  getCityWorkspace = () => {
+    const city = this.props.match.params.city;
+    axios
+      .get(`http://localhost:5000/api/workspaces/${city}`)
+      .then(responseFromApi => {
+        this.setState({
+          listOfWorkspaces: responseFromApi.data
+        });
+        this.props.history.push(`/workspaces/${city}`);
+      })
+      .catch(error => console.log(error));
+  };
+
   getWorkspaces = () => {
     if (this.state.citySearched !== "") {
       const city = this.state.citySearched;
@@ -56,24 +69,6 @@ class ListingPage extends React.Component {
           this.setState({
             listOfWorkspaces: responseFromApi.data
           });
-          this.props.history.push(`/workspaces/${city}`);
-        })
-        .catch(error => console.log(error));
-    } else if (this.props.match.params.city) {
-      const city = this.props.match.params.city;
-      axios
-        .get(`http://localhost:5000/api/workspaces/${city}`)
-        .then(responseFromApi => {
-          this.setState(
-            {
-              citySearched: city.toLowerCase(),
-              listOfWorkspaces: responseFromApi.data
-            },
-            () => {
-              this.getWorkspaces();
-            }
-          );
-
           this.props.history.push(`/workspaces/${city}`);
         })
         .catch(error => console.log(error));

@@ -19,13 +19,6 @@ export default class CitiesSection extends Component {
           numberOfSpaces="25"
           picture="https://cdn.tuifly.be/img/static/im1000/08400/08407/08407A.JPG"
         />
-
-        <CityCard
-          city="Berlin"
-          numberOfSpaces="58"
-          picture="https://www.st-christophers.co.uk/__data/assets/image/0006/522969/Insta-Berlin-lead.jpg"
-        />
-
         <CityCard
           city="Barcelona"
           numberOfSpaces="35"

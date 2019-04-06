@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 import "./CityCard.css";
-import { Link } from "react-router-dom";
-
 
 class CityCard extends React.Component {
   state = {
@@ -36,17 +34,20 @@ class CityCard extends React.Component {
 
   render() {
     const imgurl = `https://openweathermap.org/img/w/${this.state.temps}.png`;
+    console.log(this.props.picture);
     return (
       <div className="card">
-        <Link to={`/workspaces/${this.props.city}`}>
-          <img className="cityPicture" src={this.props.picture} alt="" />
-          <div className="is-overlay">
-            <h3>{this.props.city}</h3>
-            <img src={imgurl} alt="" />
-            <p>{Math.trunc(this.state.temperature - 273.15)}°C</p>
-            <p>{this.props.numberOfSpaces} Tribes</p>
-          </div>
-        </Link>
+        <img className="cityPicture" src={this.props.picture} alt="" />
+        <div className="is-overlay">
+          <h3>{this.props.city}</h3>
+          <img src={imgurl} alt="" />
+          <p>
+            {Math.trunc(this.state.temperature - 273.15)}°C
+          </p>
+          <p>
+            {this.props.numberOfSpaces} Tribes
+          </p>
+        </div>
       </div>
     );
   }

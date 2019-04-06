@@ -38,7 +38,7 @@ class CityCard extends React.Component {
     const imgurl = `https://openweathermap.org/img/w/${this.state.temps}.png`;
     return (
       <div className="card">
-        <Link to={`/workspaces/${this.props.city}`}>
+        <Link to={`/workspaces/paris`}>
           <img className="cityPicture" src={this.props.picture} alt="" />
           <div className="is-overlay">
             <h3>{this.props.city}</h3>

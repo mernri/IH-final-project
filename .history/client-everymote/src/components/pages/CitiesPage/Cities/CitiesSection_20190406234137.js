@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CityCard from "./CityCard.js";
+import { Link } from "react-router-dom";
 
 import "./CitiesSection.css";
 
@@ -8,24 +9,19 @@ export default class CitiesSection extends Component {
     return (
       <div className="cities-container">
         {/* <h1>Europe</h1> */}
-        <CityCard
-          city="Paris"
-          numberOfSpaces="52"
-          picture="https://static.latribune.fr/509696/la-tour-eiffel-illuminee-de-nuit-le-14-juillet-2013-a-paris.jpg"
-        />
+        <Link to={`/workspaces}`}>
+          <CityCard
+            city="Paris"
+            numberOfSpaces="52"
+            picture="https://static.latribune.fr/509696/la-tour-eiffel-illuminee-de-nuit-le-14-juillet-2013-a-paris.jpg"
+          />
+        </Link>
 
         <CityCard
           city="Faro"
           numberOfSpaces="25"
           picture="https://cdn.tuifly.be/img/static/im1000/08400/08407/08407A.JPG"
         />
-
-        <CityCard
-          city="Berlin"
-          numberOfSpaces="58"
-          picture="https://www.st-christophers.co.uk/__data/assets/image/0006/522969/Insta-Berlin-lead.jpg"
-        />
-
         <CityCard
           city="Barcelona"
           numberOfSpaces="35"

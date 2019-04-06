@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Nav from "./components/layout/NavBar/Nav.js";
 import axios from "axios";
 
+
 import HomePage from "./components/pages/HomePage/HomePage.js";
 import ListingPage from "./components/pages/ListingPage/ListingPage.js";
 import WorkspaceView from "./components/pages/WorkspaceView/WorkspaceView.js";
@@ -40,6 +41,20 @@ class App extends React.Component {
     this.setState({ user: data });
   };
 
+  getCityFromURL = () => {
+    const { city } = this.props.match;
+    axios
+      .get(`http://localhost:5000/api/workspaces/${city}`)
+      .then(responseFromApi => {
+        const theWorkspace = responseFromApi.data;
+        this.setState(theWorkspace);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -76,11 +91,10 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/workspaces" component={ListingPage} />
           <Route exact path="/cities" component={CitiesPage} />
-          <Route exact path="/workspaces/:city" component={ListingPage} />
 
           <Route exact path="/workspace/:id" component={WorkspaceView} />
 
-          {/* <Route
+          <Route
             exact
             path="/workspaces/:city"
             render={props => (
@@ -89,7 +103,7 @@ class App extends React.Component {
                 history={props.history}
               />
             )}
-          /> */}
+          />
 
           <Route exact path="/add-workspace" component={addWorkspace} />
         </Switch>

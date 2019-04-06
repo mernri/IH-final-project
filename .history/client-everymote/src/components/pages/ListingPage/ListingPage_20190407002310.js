@@ -45,8 +45,6 @@ class ListingPage extends React.Component {
       : this.setState({ view: "listing" });
   };
 
-  // 1/ vérifie si citySearched est dans le state. Si ce n'est pas le cas, vérifie si citySearched est dans l'url. Sinon renvoie tous les workspaces.
-  
   getWorkspaces = () => {
     if (this.state.citySearched !== "") {
       const city = this.state.citySearched;

@@ -40,6 +40,16 @@ class App extends React.Component {
     this.setState({ user: data });
   };
 
+  /* TEST POUR RECUPERER VILLE DE L'URL */
+
+  getCityFromURL = () => {
+    const { city } = this.props.match;
+    console.log("city ", city);
+    return city;
+  };
+
+  /* TEST POUR RECUPERER VILLE DE L'URL */
+
   render() {
     return (
       <div className="App">
@@ -76,11 +86,10 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/workspaces" component={ListingPage} />
           <Route exact path="/cities" component={CitiesPage} />
-          <Route exact path="/workspaces/:city" component={ListingPage} />
 
           <Route exact path="/workspace/:id" component={WorkspaceView} />
 
-          {/* <Route
+          <Route
             exact
             path="/workspaces/:city"
             render={props => (
@@ -89,7 +98,7 @@ class App extends React.Component {
                 history={props.history}
               />
             )}
-          /> */}
+          />
 
           <Route exact path="/add-workspace" component={addWorkspace} />
         </Switch>
