@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import CitiesSection from "./Cities/CitiesSection.js";
+import CitiesSection from "./CitiesPage/CitiesSection.js";
 
 export default class CitiesPage extends Component {
   render() {

@@ -10,7 +10,7 @@ import Login from "./components/pages/AuthPages/LoginPage/Login.js";
 import Onboarding from "./components/pages/AuthPages/SignupPage/Onboarding.js";
 import addWorkspace from "./components/pages/AddWorkspacePage/addWorkspace.js";
 import AuthService from "./components/pages/AuthPages/Authservices.js";
-import CitiesPage from "./components/pages/CitiesPage/CitiesPage.js";
+import CitiesPage from "./components/pages/CitiesPage/CitiesPage.js"
 
 import "bulma/css/bulma.css";
 import "./App.css";

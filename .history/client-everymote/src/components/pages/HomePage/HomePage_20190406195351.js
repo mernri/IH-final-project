@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
+import InspirationSection from "./Inspiration/InspirationSection";
 
 export default class HomePage extends Component {
   render() {
@@ -19,7 +20,9 @@ export default class HomePage extends Component {
                   <p className="control is-expanded">
                     <input className="input" type="text" placeholder="Ex: Paris" />
                   </p>
-                    <div className="button is-info" >Find</div>
+                  <p className="control">
+                    <a className="button is-info">Find</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -28,13 +31,7 @@ export default class HomePage extends Component {
 
         {/* SECOND SECTION : INSPIRATION */}
         <Link to={"/workspaces"}>
-          <p> Popular Workspaces </p>
-        </Link>
-        <Link to={"/workspaces"}>
-          <p> Popular Cities </p>
-        </Link>
-        <Link to={"/workspaces"}>
-          <p> Last Remote jobs</p>
+          <p> go to listing</p>
         </Link>
   
         

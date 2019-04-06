@@ -31,6 +31,7 @@ export default class WorkspaceMap extends Component {
 
   render() {
     this.addressToGeoCoordinates(this.props.address);
+
     const position = [this.state.latitude, this.state.longitude];
 
     return (

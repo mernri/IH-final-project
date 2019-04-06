@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
+import InspirationSection from "./Inspiration/InspirationSection";
 
 export default class HomePage extends Component {
   render() {
