@@ -5,6 +5,7 @@
 
 .workspace-photos {
   padding: 0px;
+  background:rgba(0, 0, 0, 0.75);
 
 }
 
@@ -30,6 +31,6 @@
 .workspace-content {
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 3vh;
-  align-items: center
+  padding-top: 3vh
+
 }

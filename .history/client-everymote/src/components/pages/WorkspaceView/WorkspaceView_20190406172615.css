@@ -5,12 +5,12 @@
 
 .workspace-photos {
   padding: 0px;
-
 }
 
 .section img {
   height: 60vh;
   object-fit: cover;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
 }
 
 .section {
@@ -30,6 +30,6 @@
 .workspace-content {
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 3vh;
-  align-items: center
+  padding-top: 3vh
+
 }

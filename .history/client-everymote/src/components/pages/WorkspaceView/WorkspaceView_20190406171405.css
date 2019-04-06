@@ -1,0 +1,26 @@
+.leaflet-container {
+  height: 400px;
+  width: 80%;
+}
+
+.workspace-photos {
+  padding: 0px;
+}
+
+.section img {
+  height: 60vh;
+  object-fit : cover
+}
+
+.workspace-content {
+  padding: 0px;
+  overflow: hidden
+}
+
+.workspace-nav {
+  display:flex;
+}
+
+.workspace-nav div {
+  margin-right: 20px
+}

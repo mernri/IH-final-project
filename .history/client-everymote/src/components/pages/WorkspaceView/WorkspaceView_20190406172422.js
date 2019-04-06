@@ -28,6 +28,7 @@ class AdView extends React.Component {
       .then(responseFromApi => {
         const theWorkspace = responseFromApi.data;
         this.setState(theWorkspace);
+        console.log("WorkspaceView 2: this.state.address", this.state.address);
       })
       .catch(err => {
         console.log(err);
@@ -60,6 +61,7 @@ class AdView extends React.Component {
               </div>
 
               <div className="column price-review">
+                <div className="subtitle" />
                 <div className="subtitle">
                   €{this.state.monthlyPrice} /month
                 </div>

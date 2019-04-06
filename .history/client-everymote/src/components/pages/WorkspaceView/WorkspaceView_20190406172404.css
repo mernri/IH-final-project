@@ -5,7 +5,6 @@
 
 .workspace-photos {
   padding: 0px;
-
 }
 
 .section img {
@@ -30,6 +29,6 @@
 .workspace-content {
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 3vh;
-  align-items: center
+  padding-top: 3vh
+
 }

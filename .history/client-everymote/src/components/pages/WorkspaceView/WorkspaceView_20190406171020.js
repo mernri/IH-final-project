@@ -28,6 +28,7 @@ class AdView extends React.Component {
       .then(responseFromApi => {
         const theWorkspace = responseFromApi.data;
         this.setState(theWorkspace);
+        console.log("WorkspaceView 2: this.state.address", this.state.address);
       })
       .catch(err => {
         console.log(err);
@@ -48,54 +49,52 @@ class AdView extends React.Component {
           </figure>
         </section>
 
-        <section className="section workspace-content">
-          {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
-          <section className="section workspace-header">
-            <div className="columns">
-              <div className="column name-city">
-                <div className="title">{this.state.name}</div>
-                <div className="subtitle">
-                  {this.state.city}, {this.state.zipcode}
-                </div>
-              </div>
-
-              <div className="column price-review">
-                <div className="subtitle">
-                  €{this.state.monthlyPrice} /month
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* THE WORKSPACE NAV (workspace, tribe, events) */}
-          <section className="section workspace-nav">
-            <div>
-              <NavLink> Workspace </NavLink>
-            </div>
-            <div>
-              <NavLink> Tribe </NavLink>
-            </div>
-            <div>
-              <NavLink> Events </NavLink>
-            </div>
-          </section>
-
-          {/* Description */}
-          <section className="section workspace-description">
-            {this.state.description}
-          </section>
-
-          {/* Location */}
-          <section className="section workspace-location">
-            <div>Location</div>
-            <div>
-              {this.getFullAddress()}
-              <div className="workspace-map">
-                <WorkspaceMap address={this.getFullAddress()} />
-              </div>
-            </div>
-          </section>
+        {/* THE WORKSPACE NAV (workspace, tribe, events) */}
+        <section className="section workspace-nav">
+          <div>
+            <NavLink> Workspace </NavLink>
+          </div>
+          <div>
+            <NavLink> The Tribe </NavLink>
+          </div>
+          <div>
+            <NavLink> Events </NavLink>
+          </div>
         </section>
+        
+        {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
+        <section className="section workspace-header">
+          <div className="columns">
+            <div className="column name-city">
+              <div className="title">{this.state.name}</div>
+              <div className="subtitle">
+                {this.state.city}, {this.state.zipcode}
+              </div>
+            </div>
+
+            <div className="column price-review">
+              <div className="subtitle" />
+              <div className="subtitle">€{this.state.monthlyPrice} /month</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Description */}
+        <div className="workspace-description"> {this.state.description} </div>
+
+        {/* Tribe Members */}
+        <div className="workspace-tribe">The Tribe</div>
+
+        {/* Location */}
+        <div className="workspace-location">
+          <div>Location</div>
+          <div>
+            {this.getFullAddress()}
+            <div className="workspace-map">
+              <WorkspaceMap address={this.getFullAddress()} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -5,31 +5,22 @@
 
 .workspace-photos {
   padding: 0px;
-
 }
 
 .section img {
   height: 60vh;
-  object-fit: cover;
+  object-fit : cover
 }
 
 .section {
   padding: 0px;
-  overflow: hidden;
+  overflow: hidden
 }
 
 .workspace-nav {
-  display: flex;
+  display:flex;
 }
 
 .workspace-nav div {
-  margin-right: 20px;
-}
-
-
-.workspace-content {
-  padding-left: 5vw;
-  padding-right: 5vw;
-  padding-top: 3vh;
-  align-items: center
+  margin-right: 20px
 }
