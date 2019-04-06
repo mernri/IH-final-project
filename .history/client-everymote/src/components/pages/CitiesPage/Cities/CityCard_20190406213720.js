@@ -38,17 +38,13 @@ class CityCard extends React.Component {
     console.log(this.props.picture);
     return (
       <div className="card">
-        <img className="cityPicture" src={this.props.picture} alt="" />
-        <div className="is-overlay">
-          <h3>{this.props.ville}</h3>
-          <img src={imgurl} alt="" />
-          <p>
-            {Math.trunc(this.state.temperature - 273.15)}°C
-          </p>
-          <p>
-            {this.props.numberOfSpaces} Tribes
-          </p>
-        </div>
+        <img className="cityPicure" src={this.props.picture} alt="" />
+        <h3>{this.props.ville}</h3>
+        <img src={imgurl} alt="" />
+        <p> {Math.trunc(this.state.temperature - 273.15)}°C</p>
+        <p className="subtitle">
+          <strong>{this.props.numberOfSpaces} Tribes </strong>
+        </p>
       </div>
     );
   }

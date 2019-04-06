@@ -38,7 +38,7 @@ class CityCard extends React.Component {
     console.log(this.props.picture);
     return (
       <div className="card">
-        <img className="cityPicture" src={this.props.picture} alt="" />
+        <img className="cityPicure" src={this.props.picture} alt="" />
         <div className="is-overlay">
           <h3>{this.props.ville}</h3>
           <img src={imgurl} alt="" />
