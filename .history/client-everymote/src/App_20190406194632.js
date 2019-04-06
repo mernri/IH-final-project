@@ -72,7 +72,7 @@ class App extends React.Component {
             )}
           />
 
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={ListingPage} />
           <Route exact path="/workspaces" component={ListingPage} />
           <Route exact path="/cities" component={CitiesPage} />
 

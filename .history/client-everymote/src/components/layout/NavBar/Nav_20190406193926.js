@@ -36,7 +36,7 @@ export default class Nav extends React.Component {
             <Link className="navbar-item" to="/workspaces">
               Workspaces
             </Link>
-            <Link className="navbar-item" to="/cities">
+            <Link className="navbar-item" to="/workspaces">
               Cities
             </Link>
             <Link className="navbar-item" to="/workspaces">
