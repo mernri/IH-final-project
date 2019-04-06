@@ -2,6 +2,7 @@ import React from "react";
 import "./MapSection.css";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
+import * as ELG from "esri-leaflet-geocoder";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -14,7 +15,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png"
 });
 
-class MapSection extends React.Component {
+class WorkspaceMap extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -24,7 +25,7 @@ class MapSection extends React.Component {
     };
   }
 
-  getCityCoordinates = async city => {
+  getCityCoordinates = async (this.props.city) => {
     const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
     const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${city}`;
     let response = {};
@@ -112,4 +113,4 @@ class MapSection extends React.Component {
   }
 }
 
-export default MapSection;
+export default WorkspaceMap;

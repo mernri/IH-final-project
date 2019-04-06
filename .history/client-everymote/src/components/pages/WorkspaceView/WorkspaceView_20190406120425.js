@@ -78,7 +78,7 @@ class AdView extends React.Component {
           <div>
             {this.getFullAddress()}
             <div className="workspace-map">
-              <WorkspaceMap address={this.getFullAddress()} />
+              <WorkspaceMap address={this.state.address} />
             </div>
           </div>
         </div>

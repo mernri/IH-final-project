@@ -12,7 +12,11 @@ export default class WorkspaceMap extends Component {
       longitude: "",
       zoom: 15
     };
+
+    console.log("WorkspaceMap 1: this.props.address", this.props.address);
   }
+
+
 
   addressToGeoCoordinates = address => {
     const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
@@ -30,9 +34,10 @@ export default class WorkspaceMap extends Component {
   };
 
   render() {
-    {this.addressToGeoCoordinates(this.props.address)}
     const position = [this.state.latitude, this.state.longitude];
-
+    {
+      this.addressToGeoCoordinates(this.props.address);
+    }
     return (
       <div>
         <Map

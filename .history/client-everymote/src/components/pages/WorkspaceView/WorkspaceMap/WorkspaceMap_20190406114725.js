@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Map, Marker, TileLayer } from "react-leaflet";
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default class WorkspaceMap extends Component {
   constructor(props) {
@@ -12,6 +12,12 @@ export default class WorkspaceMap extends Component {
       longitude: "",
       zoom: 15
     };
+
+    console.log("WorkspaceMap 1 this.props.address", this.props.address)
+  }
+
+  componentWillMount() {
+    this.addressToGeoCoordinates(this.props.address);
   }
 
   addressToGeoCoordinates = address => {
@@ -30,9 +36,8 @@ export default class WorkspaceMap extends Component {
   };
 
   render() {
-    {this.addressToGeoCoordinates(this.props.address)}
     const position = [this.state.latitude, this.state.longitude];
-
+    { console.log("WorkspaceMap 2 this.props.address", this.props.address)}
     return (
       <div>
         <Map
@@ -46,11 +51,11 @@ export default class WorkspaceMap extends Component {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
           />
-          <Marker position={position}>
-            {/* <Popup>
+          {/* <Marker position={position}>
+            <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup> */}
-          </Marker>
+            </Popup>
+          </Marker> */}
         </Map>
       </div>
     );

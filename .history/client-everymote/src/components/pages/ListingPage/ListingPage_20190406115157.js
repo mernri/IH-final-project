@@ -96,7 +96,7 @@ class ListingPage extends React.Component {
                       />
                     </p>
                     <p className="control">
-                      <a className="button is-info" href="/workspaces">Find my tribe</a>
+                      <a className="button is-info" href="#">Find my tribe</a>
                     </p>
                   </div>
                 </form>

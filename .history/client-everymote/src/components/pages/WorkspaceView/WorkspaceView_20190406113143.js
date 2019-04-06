@@ -26,7 +26,6 @@ class AdView extends React.Component {
       .then(responseFromApi => {
         const theWorkspace = responseFromApi.data;
         this.setState(theWorkspace);
-        console.log("WorkspaceView 2: this.state.address", this.state.address);
       })
       .catch(err => {
         console.log(err);
@@ -38,16 +37,13 @@ class AdView extends React.Component {
   };
 
   render() {
-    {
-      console.log("WorkspaceView 3: this.state.address", this.state.address);
-    }
     return (
-      <div className="workspace-container">
-        {/* <div className="workspace-photos">
+      <div>
+        <div className="workspace-photos">
           <figure class="image is-4by3">
-            <img src={this.state.pictures} />
+            <img src={this.state.pictures[0]} />
           </figure>
-        </div> */}
+        </div>
 
         {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
         <div className="workspace-header">
@@ -78,7 +74,7 @@ class AdView extends React.Component {
           <div>
             {this.getFullAddress()}
             <div className="workspace-map">
-              <WorkspaceMap address={this.getFullAddress()} />
+              <WorkspaceMap address={this.state.address} />
             </div>
           </div>
         </div>

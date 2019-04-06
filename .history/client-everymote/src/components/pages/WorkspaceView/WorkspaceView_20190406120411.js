@@ -17,6 +17,7 @@ class AdView extends React.Component {
   //   Lorsque le composant est rendu dans la page on fait appel à getSingleProject
   componentWillMount() {
     this.getSingleWorkspace();
+    console.log("WorkspaceView 1: this.state.address", this.state.address);
   }
 
   getSingleWorkspace = () => {
@@ -78,7 +79,7 @@ class AdView extends React.Component {
           <div>
             {this.getFullAddress()}
             <div className="workspace-map">
-              <WorkspaceMap address={this.getFullAddress()} />
+              <WorkspaceMap address={this.state.address} />
             </div>
           </div>
         </div>

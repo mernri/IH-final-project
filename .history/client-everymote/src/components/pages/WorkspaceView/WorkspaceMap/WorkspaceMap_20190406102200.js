@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Map, Marker, TileLayer } from "react-leaflet";
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default class WorkspaceMap extends Component {
   constructor(props) {
     super(props);
+
+    // !!!!!!!!!!!!! 
+    // N'ARRIVE PAS A RECUPERER L'ADRESSE ENVOYER EN PROPS PAR WORKSPACEVIEW.JS
+    // !!!!!!!!!!!!!  (undefined)
+    console.log("this props addresse", this.props.address);
+    console.log("étape 2")
+
 
     this.state = {
       workspace: {},
@@ -12,6 +19,13 @@ export default class WorkspaceMap extends Component {
       longitude: "",
       zoom: 15
     };
+  }
+
+ 
+  componentDidMount() {
+    this.addressToGeoCoordinates(this.props.address);
+    // console.log("this state address is : " + this.state.workspace.name);
+    // console.log("this address geocord are : " + this.addressToGeoCoordinates(this.props.address));
   }
 
   addressToGeoCoordinates = address => {
@@ -25,12 +39,12 @@ export default class WorkspaceMap extends Component {
           latitude: latitude,
           longitude: longitude
         });
+        console.log(this.state.latitude, this.state.longitude);
       }.bind(this)
     );
   };
 
   render() {
-    {this.addressToGeoCoordinates(this.props.address)}
     const position = [this.state.latitude, this.state.longitude];
 
     return (
@@ -46,11 +60,11 @@ export default class WorkspaceMap extends Component {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
           />
-          <Marker position={position}>
-            {/* <Popup>
+          {/* <Marker position={position}>
+            <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup> */}
-          </Marker>
+            </Popup>
+          </Marker> */}
         </Map>
       </div>
     );
