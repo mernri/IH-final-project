@@ -39,8 +39,8 @@ export default class Nav extends React.Component {
             <NavLink className="navbar-item" to="/cities">
               Cities
             </NavLink>
-            <NavLink className="navbar-item" to="/companies">
-              Companies 
+            <NavLink className="navbar-item" to="/workspaces">
+              Remote Jobs
             </NavLink>
           </div>
 

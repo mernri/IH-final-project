@@ -18,14 +18,6 @@
   margin-bottom: 2vh;
 }
 
-.workspace-header {
-  display: flex;
-}
-
-.workspace-header :nth-child(2) {
-  margin-left: auto;
-}
-
 .workspace-nav {
   display: flex;
 }
@@ -43,7 +35,8 @@
 }
 
 #address {
-  margin-left: 20vw;
+  text-align: center;
+  width: 100%
 }
 
 .workspace-content {

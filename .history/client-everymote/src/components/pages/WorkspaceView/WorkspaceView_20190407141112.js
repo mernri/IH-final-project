@@ -58,7 +58,7 @@ class AdView extends React.Component {
               </div>
             </div>
 
-            <div className="subtitle price"> €{this.state.monthlyPrice} /month</div>
+            <div className="title">€{this.state.monthlyPrice} /month</div>
           </section>
 
           {/* THE WORKSPACE NAV (workspace, tribe, events) */}

@@ -87,7 +87,7 @@ export default class CitiesSection extends Component {
         <CityCard
           city="Papeete"
           numberOfSpaces="128"
-          picture="https://www.opodo.fr/blog/wp-content/uploads/sites/16/2012/10/bora-bora-gengish-skan.jpg"
+          picture="https://www.costacruises.com/content/dam/costa/inventory-assets/ports/PPT/ppt-papeete-port-1.jpg.image.750.563.low.jpg"
         />
 
         {/* <h1>Antartica</h1> */}

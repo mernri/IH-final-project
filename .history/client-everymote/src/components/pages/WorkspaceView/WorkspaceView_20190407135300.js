@@ -51,14 +51,20 @@ class AdView extends React.Component {
         <section className="section workspace-content">
           {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
           <section className="section workspace-header">
-            <div>
-              <div className="title text-left">{this.state.name}</div>
-              <div className="subtitle text-left ">
-                {this.state.city}, {this.state.zipcode}
+            <div className="columns">
+              <div className="column name-city">
+                <div className="title text-left">{this.state.name}</div>
+                <div className="subtitle text-left ">
+                  {this.state.city}, {this.state.zipcode}
+                </div>
+              </div>
+
+              <div className="column price-review">
+                <div className="subtitle">
+                  €{this.state.monthlyPrice} /month
+                </div>
               </div>
             </div>
-
-            <div className="subtitle price"> €{this.state.monthlyPrice} /month</div>
           </section>
 
           {/* THE WORKSPACE NAV (workspace, tribe, events) */}
@@ -92,7 +98,8 @@ class AdView extends React.Component {
           >
             <div>
               <span className="subtitle">
-                <strong>Location</strong>
+                {" "}
+                <strong>Location</strong>{" "}
               </span>
               <span id="address">
                 {this.state.address}, {this.state.zipcode} - {this.state.city}

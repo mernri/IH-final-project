@@ -11,7 +11,7 @@ export default class CitiesSection extends Component {
         <CityCard
           city="Paris"
           numberOfSpaces="52"
-          picture="https://i.kinja-img.com/gawker-media/image/upload/s--4G1wA8FQ--/c_scale,f_auto,fl_progressive,q_80,w_800/kxegwb3ihi9xli2hreme.jpg"
+          picture="https://static.latribune.fr/509696/la-tour-eiffel-illuminee-de-nuit-le-14-juillet-2013-a-paris.jpg"
         />
 
         <CityCard
@@ -87,7 +87,7 @@ export default class CitiesSection extends Component {
         <CityCard
           city="Papeete"
           numberOfSpaces="128"
-          picture="https://www.opodo.fr/blog/wp-content/uploads/sites/16/2012/10/bora-bora-gengish-skan.jpg"
+          picture="http://www.almarseaviaggi.it/wp-content/uploads/2016/11/Le-Meridien-Bora-Bora-010-1280x640.jpg"
         />
 
         {/* <h1>Antartica</h1> */}

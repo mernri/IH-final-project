@@ -9,6 +9,7 @@
     "esri-leaflet-geocoder": "^2.2.14",
     "leaflet": "^1.4.0",
     "react": "^16.8.4",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.8.4",
     "react-geocode": "^0.1.2",
     "react-image-gallery": "^0.8.14",

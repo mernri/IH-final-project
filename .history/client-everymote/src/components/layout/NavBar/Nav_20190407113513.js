@@ -36,38 +36,65 @@ export default class Nav extends React.Component {
             <NavLink className="navbar-item" to="/workspaces">
               Workspaces
             </NavLink>
-            <NavLink className="navbar-item" to="/cities">
+            <Link className="navbar-item" to="/cities">
               Cities
-            </NavLink>
-            <NavLink className="navbar-item" to="/companies">
-              Companies 
-            </NavLink>
+            </Link>
+            <Link className="navbar-item" to="/workspaces">
+              Remote Jobs
+            </Link>
           </div>
 
           {this.props.user && this.props.user._id ? (
+
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="field is-grouped">
                   <div className="control">
-                    <NavLink to="/onboarding"> Profile </NavLink>
+                    <NavButton
+                      isSmall
+                      isSuccess
+                      className="is-rounded my-class"
+                    >
+                      <Link to="/onboarding"> Profile </Link>
+                    </NavButton>
                   </div>
                   <div className="control">
-                    <NavLink to="/workspaces" onClick={this.logoutUser}>
-                      Logout
-                    </NavLink>
+                    <NavButton
+                      isSmall
+                      isSuccess
+                      className="is-rounded my-class"
+                    >
+                      <Link to="/workspaces" onClick={this.logoutUser}>
+                        Logout
+                      </Link>
+                    </NavButton>
                   </div>
                 </div>
               </div>
             </div>
+
           ) : (
+
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="field is-grouped">
                   <div className="control">
-                    <NavLink to="/login"> Login </NavLink>
+                    <NavButton
+                      isSmall
+                      isSuccess
+                      className="is-rounded my-class"
+                    >
+                      <Link to="/login"> Login </Link>
+                    </NavButton>
                   </div>
                   <div className="control">
-                    <NavLink to="/signup"> Signup </NavLink>
+                    <NavButton
+                      isSmall
+                      isSuccess
+                      className="is-rounded my-class"
+                    >
+                      <Link to="/signup"> Signup </Link>
+                    </NavButton>
                   </div>
                 </div>
               </div>

@@ -22,6 +22,10 @@
   display: flex;
 }
 
+.price {
+  padding-top: 1px;
+}
+
 .workspace-header :nth-child(2) {
   margin-left: auto;
 }

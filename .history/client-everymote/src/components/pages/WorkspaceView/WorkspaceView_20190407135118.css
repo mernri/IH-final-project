@@ -5,6 +5,7 @@
 
 .workspace-photos {
   padding: 0px;
+
 }
 
 .section img {
@@ -15,15 +16,7 @@
 .section {
   padding: 0px;
   overflow: hidden;
-  margin-bottom: 2vh;
-}
-
-.workspace-header {
-  display: flex;
-}
-
-.workspace-header :nth-child(2) {
-  margin-left: auto;
+  margin-bottom: 2vh
 }
 
 .workspace-nav {
@@ -35,20 +28,20 @@
 }
 
 .text-left {
-  text-align: justify;
+  text-align: justify
 }
 
 .subtitle:not(:last-child) {
-  margin-bottom: 0;
+  margin-bottom: 0
 }
 
 #address {
-  margin-left: 20vw;
+margin-left: 10%
 }
 
 .workspace-content {
   padding-left: 10vw;
   padding-right: 10vw;
   padding-top: 3vh;
-  align-items: center;
+  align-items: center
 }

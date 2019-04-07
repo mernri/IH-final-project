@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
 
 import "./WorkspaceView.css";
@@ -51,14 +51,20 @@ class AdView extends React.Component {
         <section className="section workspace-content">
           {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
           <section className="section workspace-header">
-            <div>
-              <div className="title text-left">{this.state.name}</div>
-              <div className="subtitle text-left ">
-                {this.state.city}, {this.state.zipcode}
+            <div className="columns">
+              <div className="column name-city">
+                <div className="title text-left">{this.state.name}</div>
+                <div className="subtitle text-left ">
+                  {this.state.city}, {this.state.zipcode}
+                </div>
+              </div>
+
+              <div className="column price-review">
+                <div className="subtitle">
+                  €{this.state.monthlyPrice} /month
+                </div>
               </div>
             </div>
-
-            <div className="subtitle price"> €{this.state.monthlyPrice} /month</div>
           </section>
 
           {/* THE WORKSPACE NAV (workspace, tribe, events) */}
@@ -75,32 +81,19 @@ class AdView extends React.Component {
           </section>
 
           {/* Description */}
-          <section
-            className="section workspace-description text-left"
-            id="description"
-          >
-            <div className="subtitle">
-              <strong>Description</strong>
-            </div>
+          <section className="section workspace-description text-left" id="description">
+            <div className="title"> Description </div>
             {this.state.description}
           </section>
 
           {/* Location */}
-          <section
-            className="section workspace-location text-left"
-            id="location"
-          >
+          <section className="section workspace-location" id="location">
+            <div>Location</div>
             <div>
-              <span className="subtitle">
-                <strong>Location</strong>
-              </span>
-              <span id="address">
-                {this.state.address}, {this.state.zipcode} - {this.state.city}
-              </span>
-            </div>
-
-            <div className="workspace-map">
-              <WorkspaceMap address={this.getFullAddress()} />
+              {this.getFullAddress()}
+              <div className="workspace-map">
+                <WorkspaceMap address={this.getFullAddress()} />
+              </div>
             </div>
           </section>
         </section>
