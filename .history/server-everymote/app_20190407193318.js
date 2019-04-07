@@ -86,14 +86,13 @@ app.use(
   })
 );
 
-app.use("/", require("./routes/index"));
+const index = require("./routes/index");
+app.use("/", index);
 
 app.use("/auth", require("./routes/authRoutes"));
 
 app.use("/api", require("./routes/workspaceRoutes"));
 
 app.use("/api", require("./routes/tribeRoutes"));
-
-
 
 module.exports = app;

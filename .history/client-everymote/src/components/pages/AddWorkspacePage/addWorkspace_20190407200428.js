@@ -49,17 +49,21 @@ export default class addWorkspace extends Component {
     this.setState({ [name]: value });
   };
 
-  // handleUpload = event => {
-  //   let formData = new FormData();
-  //   formData.append("photo", event.target.files[0]);
+  handleUpload = (event) => {
+    let formData = new FormData();
+    formData.append('photo', event.target.files[0]);
 
-  //   this.service.upload(formData).then(response => {
-  //     this.props.updateUser(response);
-  //   });
-  // };
+    this.service.upload(formData)
+      .then(response => {
+        this.props.updateUser(response);
+      })
+    ;
+  } 
+
 
   handleFormSubmit = async event => {
     event.preventDefault();
+    console.log("étape 1");
 
     await this.addressToGeoCoordinates(
       this.state.address + " " + this.state.city
@@ -75,7 +79,7 @@ export default class addWorkspace extends Component {
     const monthlyPrice = this.state.monthlyPrice;
     const latitude = this.state.latitude;
     const longitude = this.state.longitude;
-    // const workspaceID = this.state._id;
+    const workspaceID = this.state._id
 
     // convert address to geocordinates and change the state.lat and state.lng before posting to axios
     await axios
@@ -95,18 +99,6 @@ export default class addWorkspace extends Component {
         },
         { withCredentials: true }
       )
-      .then(response => {
-        const workspace = response.data;
-        axios
-          .post(
-            "http://localhost:5000/api/tribe/add",
-            {
-              workspace
-            },
-            { withCredentials: true }
-          )
-          .then(response => console.log(response));
-      })
       .then(() => {
         this.setState({
           name: "",
@@ -123,7 +115,19 @@ export default class addWorkspace extends Component {
         });
       })
 
+      .then(() => {
+        axios
+      .post(
+        "http://localhost:5000/api/tribe/add",
+        {
+          workspaceID,
+        },
+        { withCredentials: true }
+      )
+      })
+
       .catch(error => console.log(error));
+    console.log("étape 3");
 
     // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
   };
@@ -233,15 +237,10 @@ export default class addWorkspace extends Component {
                   </div>
                 </div>
                 {/* Add pictures */}
-                {/* <div className="field">
+                <div className="field">
                   <div className="file has-name">
                     <label className="file-label">
-                      <input
-                        className="file-input"
-                        type="file"
-                        name="resume"
-                        onChange={this.hanleUpload}
-                      />
+                      <input className="file-input" type="file" name="resume" onChange={this.hanleUpload}/>
                       <span className="file-cta">
                         <span className="file-icon">
                           <i className="fas fa-upload" />
@@ -253,7 +252,7 @@ export default class addWorkspace extends Component {
                       </span>
                     </label>
                   </div>
-                </div> */}
+                </div>
 
                 <div className="control has-text-centered">
                   <button className="button is-link ">Add</button>

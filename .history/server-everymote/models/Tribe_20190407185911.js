@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Workspace = require("./Workspace"); // 👈
 
-const Tribe = require("./Tribe");
-
-const userSchema = new Schema(
+const tribeSchema = new Schema(
   {
-    password: String,
+    workspace: { type: Schema.Types.ObjectId, ref: "Workspace" } 
     email: String,
-    tribe: { type: Schema.Types.ObjectId, ref: Tribe },
+    
     fullname: String,
     picture: String,
     occupation: String,
@@ -21,5 +20,5 @@ const userSchema = new Schema(
   }
 );
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Tribe = mongoose.model("Tribe", tribeSchema);
+module.exports = Tribe;

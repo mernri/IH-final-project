@@ -94,6 +94,4 @@ app.use("/api", require("./routes/workspaceRoutes"));
 
 app.use("/api", require("./routes/tribeRoutes"));
 
-
-
 module.exports = app;

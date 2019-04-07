@@ -6,7 +6,10 @@ import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
 import "./WorkspaceView.css";
 import WorkspaceTribe from "./WorkspaceTribe/WorkspaceTribe.js";
 
+// import WorkspaceGallery from "./WorspaceGallery/WorkspaceGallery.js";
+// import WorkspacePresentation from "./AdviewPresentation.js";
 // import WorkspaceAmenities from "./AdViewAmenities.js";
+// import WorkspaceMap from "./AdViewMap.js";
 
 class AdView extends React.Component {
   constructor(props) {
@@ -30,12 +33,6 @@ class AdView extends React.Component {
       .catch(err => {
         console.log(err);
       });
-  };
-
-  getWorkspaceId = () => {
-    const { params } = this.props.match;
-    const workspaceId = params.id
-    return workspaceId
   };
 
   getFullAddress = () => {
@@ -71,22 +68,26 @@ class AdView extends React.Component {
           <section className="section workspace-nav">
             <div>
               <AnchorLink offset={() => 200} href="#description">
-                Description
+                {" "}
+                Description{" "}
               </AnchorLink>
             </div>
             <div>
               <AnchorLink offset={() => 200} href="#amenities">
-                Amenities
+                {" "}
+                Amenities{" "}
               </AnchorLink>
             </div>
             <div>
               <AnchorLink offset={() => 200} href="#tribe">
-                Tribe
+                {" "}
+                Tribe{" "}
               </AnchorLink>
             </div>
             <div>
               <AnchorLink offset={() => 200} href="#location">
-                Location
+                {" "}
+                Location{" "}
               </AnchorLink>
             </div>
           </section>
@@ -120,7 +121,7 @@ class AdView extends React.Component {
             <div className="subtitle">
               <strong>Tribe</strong>
             </div>
-            <WorkspaceTribe workspaceId={this.getWorkspaceId()}/>
+            <WorkspaceTribe />
           </section>
 
           {/* Location */}
@@ -137,9 +138,9 @@ class AdView extends React.Component {
               </span>
             </div>
 
-            {/* <div className="workspace-map">
+            <div className="workspace-map">
               <WorkspaceMap address={this.getFullAddress()} />
-            </div> */}
+            </div>
           </section>
         </section>
       </div>

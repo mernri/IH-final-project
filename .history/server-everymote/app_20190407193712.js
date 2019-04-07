@@ -91,7 +91,6 @@ app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/authRoutes"));
 
 app.use("/api", require("./routes/workspaceRoutes"));
-
 app.use("/api", require("./routes/tribeRoutes"));
 
 

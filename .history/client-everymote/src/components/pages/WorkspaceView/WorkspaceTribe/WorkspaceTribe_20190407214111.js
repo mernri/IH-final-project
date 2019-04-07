@@ -1,0 +1,17 @@
+import React, { Component } from 'react'
+
+export default class 
+ extends Component {
+  render() {
+    return (
+      <div>
+        Hello I'm the tribe section. 
+        > If no one is in the tribe yet, you'll have a "no one in this tribe yet :( + button "Join the tribe"
+        > If there are already tribe members : you'll see the tribe members + button "join the tribe"
+        > If you're connected and you click on join the tribe : you are added to the tribe + you see your card in the first position of the tribe
+        > If you're not connected and you click on join the tribe : you are redirect to the login page > then to the wokspace one you're logged in
+        > If you want to leave a tribe : you can click on the red cross on your profile card or remove the tribe from your profile
+      </div>
+    )
+  }
+}

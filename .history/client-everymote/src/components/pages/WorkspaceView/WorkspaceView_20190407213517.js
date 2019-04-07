@@ -6,7 +6,10 @@ import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
 import "./WorkspaceView.css";
 import WorkspaceTribe from "./WorkspaceTribe/WorkspaceTribe.js";
 
+// import WorkspaceGallery from "./WorspaceGallery/WorkspaceGallery.js";
+// import WorkspacePresentation from "./AdviewPresentation.js";
 // import WorkspaceAmenities from "./AdViewAmenities.js";
+// import WorkspaceMap from "./AdViewMap.js";
 
 class AdView extends React.Component {
   constructor(props) {
@@ -30,12 +33,6 @@ class AdView extends React.Component {
       .catch(err => {
         console.log(err);
       });
-  };
-
-  getWorkspaceId = () => {
-    const { params } = this.props.match;
-    const workspaceId = params.id
-    return workspaceId
   };
 
   getFullAddress = () => {
@@ -70,25 +67,18 @@ class AdView extends React.Component {
           {/* THE WORKSPACE NAV (workspace, tribe, events) */}
           <section className="section workspace-nav">
             <div>
-              <AnchorLink offset={() => 200} href="#description">
-                Description
-              </AnchorLink>
+              <AnchorLink offset={() => 200} href="#description"> Description </AnchorLink>
             </div>
             <div>
-              <AnchorLink offset={() => 200} href="#amenities">
-                Amenities
-              </AnchorLink>
+              <AnchorLink offset={() => 200} href="#amenities"> Amenities </AnchorLink>
             </div>
             <div>
-              <AnchorLink offset={() => 200} href="#tribe">
-                Tribe
-              </AnchorLink>
+              <AnchorLink offset={() => 200} href="#tribe"> Tribe </AnchorLink>
             </div>
             <div>
-              <AnchorLink offset={() => 200} href="#location">
-                Location
-              </AnchorLink>
+              <AnchorLink offset={() => 200} href="#location"> Location </AnchorLink>
             </div>
+            
           </section>
         </div>
 
@@ -104,8 +94,8 @@ class AdView extends React.Component {
             {this.state.description}
           </section>
 
-          {/* Amenities */}
-          <section
+           {/* Amenities */}
+           <section
             className="section workspace-amenities text-left"
             id="amenities"
           >
@@ -116,12 +106,16 @@ class AdView extends React.Component {
           </section>
 
           {/* Tribe */}
-          <section className="section workspace-tribe text-left" id="tribe">
+          <section
+            className="section workspace-tribe text-left"
+            id="tribe"
+          >
             <div className="subtitle">
               <strong>Tribe</strong>
             </div>
-            <WorkspaceTribe workspaceId={this.getWorkspaceId()}/>
+            <WorkspaceTribe
           </section>
+
 
           {/* Location */}
           <section
@@ -137,9 +131,9 @@ class AdView extends React.Component {
               </span>
             </div>
 
-            {/* <div className="workspace-map">
+            <div className="workspace-map">
               <WorkspaceMap address={this.getFullAddress()} />
-            </div> */}
+            </div>
           </section>
         </section>
       </div>

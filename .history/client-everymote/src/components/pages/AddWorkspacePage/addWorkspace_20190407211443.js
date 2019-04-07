@@ -97,15 +97,13 @@ export default class addWorkspace extends Component {
       )
       .then(response => {
         const workspace = response.data;
-        axios
-          .post(
-            "http://localhost:5000/api/tribe/add",
-            {
-              workspace
-            },
-            { withCredentials: true }
-          )
-          .then(response => console.log(response));
+        axios.post(
+          "http://localhost:5000/api/tribe/add",
+          {
+            workspace,
+          },
+          { withCredentials: true }
+        ).then((response) => console.log(response));
       })
       .then(() => {
         this.setState({

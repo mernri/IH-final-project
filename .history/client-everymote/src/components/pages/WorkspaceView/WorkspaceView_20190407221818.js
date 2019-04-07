@@ -6,7 +6,10 @@ import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
 import "./WorkspaceView.css";
 import WorkspaceTribe from "./WorkspaceTribe/WorkspaceTribe.js";
 
+// import WorkspaceGallery from "./WorspaceGallery/WorkspaceGallery.js";
+// import WorkspacePresentation from "./AdviewPresentation.js";
 // import WorkspaceAmenities from "./AdViewAmenities.js";
+// import WorkspaceMap from "./AdViewMap.js";
 
 class AdView extends React.Component {
   constructor(props) {
@@ -35,7 +38,7 @@ class AdView extends React.Component {
   getWorkspaceId = () => {
     const { params } = this.props.match;
     const workspaceId = params.id
-    return workspaceId
+    return 
   };
 
   getFullAddress = () => {
@@ -120,7 +123,7 @@ class AdView extends React.Component {
             <div className="subtitle">
               <strong>Tribe</strong>
             </div>
-            <WorkspaceTribe workspaceId={this.getWorkspaceId()}/>
+            <WorkspaceTribe workspaceId={this.props.match.id}/>
           </section>
 
           {/* Location */}
@@ -137,9 +140,9 @@ class AdView extends React.Component {
               </span>
             </div>
 
-            {/* <div className="workspace-map">
+            <div className="workspace-map">
               <WorkspaceMap address={this.getFullAddress()} />
-            </div> */}
+            </div>
           </section>
         </section>
       </div>

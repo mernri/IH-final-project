@@ -60,6 +60,7 @@ export default class addWorkspace extends Component {
 
   handleFormSubmit = async event => {
     event.preventDefault();
+    console.log(req);
 
     await this.addressToGeoCoordinates(
       this.state.address + " " + this.state.city
@@ -95,18 +96,18 @@ export default class addWorkspace extends Component {
         },
         { withCredentials: true }
       )
-      .then(response => {
-        const workspace = response.data;
-        axios
-          .post(
-            "http://localhost:5000/api/tribe/add",
-            {
-              workspace
-            },
-            { withCredentials: true }
-          )
-          .then(response => console.log(response));
-      })
+      // .then(response => {
+      //   const workspace = response.data._id;
+      //   const users = [];
+      //   axios.post(
+      //     "http://localhost:5000/api/tribe/add",
+      //     {
+      //       workspace,
+      //       users
+      //     },
+      //     { withCredentials: true }
+      //   );
+      // })
       .then(() => {
         this.setState({
           name: "",

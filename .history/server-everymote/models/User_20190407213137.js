@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const Tribe = require("./Tribe");
 
+
 const userSchema = new Schema(
   {
     password: String,

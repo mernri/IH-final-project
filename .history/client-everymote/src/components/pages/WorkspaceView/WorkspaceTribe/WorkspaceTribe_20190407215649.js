@@ -1,0 +1,65 @@
+import React, { Component } from "react";
+
+ class WorkspaceTribe extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+//   getWorkspaceTribe = () => {
+//     const { params } = this.props.match;
+//     axios
+//       .get(`http://localhost:5000/api/workspace/${params.id}`)
+//       .then(responseFromApi => {
+//         const theWorkspace = responseFromApi.data;
+//         this.setState(theWorkspace);
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       });
+//   };
+
+//   function firstPersonLivingInCuba() //returns an object
+// {
+//   var livingcuba = function(person){
+//     return person.country == "Cuba"
+//   }
+//   return data.find(livingcuba).country
+// }
+
+// Function that returns the tribe that has a specific id 
+
+
+
+  render() {
+    return (
+      <div>
+        <ul>
+          <li>
+            > If no one is in the tribe yet, you'll have a "no one in this tribe
+            yet :( + button "Join the tribe"
+          </li>
+          <li>
+            > If there are already tribe members : you'll see the tribe members
+            + button "join the tribe"
+          </li>
+          <li>
+            > If you're connected and you click on join the tribe : you are
+            added to the tribe + you see your card in the first position of the
+            tribe
+          </li>
+          <li>
+            > If you're not connected and you click on join the tribe : you are
+            redirect to the login page > then to the wokspace one you're logged
+            in
+          </li>
+          <li>
+            > If you want to leave a tribe : you can click on the red cross on
+            your profile card or remove the tribe from your profile
+          </li>
+        </ul>
+      </div>
+    );
+  }
+}
+
+export default WorkspaceTribe;

@@ -60,6 +60,7 @@ export default class addWorkspace extends Component {
 
   handleFormSubmit = async event => {
     event.preventDefault();
+    console.log("étape 1");
 
     await this.addressToGeoCoordinates(
       this.state.address + " " + this.state.city
@@ -95,18 +96,7 @@ export default class addWorkspace extends Component {
         },
         { withCredentials: true }
       )
-      .then(response => {
-        const workspace = response.data;
-        axios
-          .post(
-            "http://localhost:5000/api/tribe/add",
-            {
-              workspace
-            },
-            { withCredentials: true }
-          )
-          .then(response => console.log(response));
-      })
+      .then(response => {console.log("returned by axios post", response)})
       .then(() => {
         this.setState({
           name: "",
@@ -122,7 +112,15 @@ export default class addWorkspace extends Component {
           longitude: 0
         });
       })
-
+      // .then(() => {
+      //   axios.post(
+      //     "http://localhost:5000/api/tribe/add",
+      //     {
+      //       workspaceID
+      //     },
+      //     { withCredentials: true }
+      //   );
+      // })
       .catch(error => console.log(error));
 
     // PERMET DE CREER UN NOUVEAU workspace AVEC LES INFOS DU FORMULAIRE
