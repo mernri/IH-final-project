@@ -52,7 +52,7 @@ class WorkspaceTribe extends Component {
             this.joinTheTribe();
           }}
         >
-           Join the Tribe
+          Join the Tribe
         </div>
 
         <ul>

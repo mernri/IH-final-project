@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AuthService from "../../AuthPages/Authservices.js";
+import AuthService from "../../AuthPages/Authservices.js"
+
+
 
 class WorkspaceTribe extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class WorkspaceTribe extends Component {
 
   componentDidMount() {
     this.getWorkspaceTribe();
-    this.findTheUser();
+    this.findTheUser()
   }
 
   getWorkspaceTribe = () => {
@@ -34,27 +36,17 @@ class WorkspaceTribe extends Component {
 
   findTheUser = () => {
     this.service.loggedin().then(user => {
-      console.log(user._id);
-      return user._id;
-    });
+        console.log(user._id)
+        return user._id
+    })
   };
 
-  joinTheTribe = () => {
-      console.log("hello i want to join the tribe")
-  }
+  
+
 
   render() {
     return (
       <div>
-        <div
-          className="button"
-          onClick={() => {
-            this.joinTheTribe();
-          }}
-        >
-           Join the Tribe
-        </div>
-
         <ul>
           <li>
             > If no one is in the tribe yet, you'll have a "no one in this tribe

@@ -39,20 +39,16 @@ class WorkspaceTribe extends Component {
     });
   };
 
-  joinTheTribe = () => {
-      console.log("hello i want to join the tribe")
-  }
-
   render() {
     return (
       <div>
         <div
           className="button"
           onClick={() => {
-            this.joinTheTribe();
+            this.joingTheTribe();
           }}
         >
-           Join the Tribe
+          Join the Tribe
         </div>
 
         <ul>
