@@ -52,7 +52,6 @@ class WorkspaceTribe extends Component {
           .then(tribeUsers => {
             console.log(tribeUsers.data.users);
             this.setState(tribeUsers);
-            console.log(this.state)
           });
       });
   };

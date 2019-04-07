@@ -12,7 +12,7 @@ class WorkspaceTribe extends Component {
 
   componentDidMount() {
     this.getWorkspaceTribe();
-    // this.findTheUser();
+    this.findTheUser();
   }
 
   getWorkspaceTribe = () => {
@@ -24,45 +24,26 @@ class WorkspaceTribe extends Component {
         const theTribe = responseFromApi.data;
         this.setState(theTribe);
       })
-      .then(() => {})
+      .then(() => {
+        console.log("et voici ma tribe ! : ", this.state.users);
+      })
       .catch(err => {
         console.log(err);
       });
   };
 
-  //   findTheUser = () => {
-  //     this.service.loggedin().then(user => {
-  //         return user._id;
-  //       });
-  //   };
+  findTheUser = () => {
+    this.service.loggedin().then(user => {
+      console.log(user._id);
+      return user._id;
+    });
+  };
 
   joinTheTribe = () => {
-    this.service
-      .loggedin()
-      .then(user => {
-        return user._id;
-      })
-      .then(userId => {
-        axios
-          .put(
-            `http://localhost:5000/api/workspace/${
-              this.props.workspaceId
-            }/tribe/${userId}`
-          )
-          .then(tribeUsers => {
-            console.log(tribeUsers.data.users);
-            this.setState(tribeUsers);
-            console.log(this.state)
-          });
-      });
-  };
+    const userId = this.findTheUser()
 
-  displayJoinTheTribeButton = () => {
-    // STEP 1 : create a route to check if the user is in the tribe
-    // STEP 2 : create a function to check if the user is in the tribe
-    // STEP 3 : if the user is in the tribe : don't show the button
-    // STEP 4 : if the is not in the tribe : show the button
-  };
+    // axios.put("/workspace/:id/tribe/:userid")
+  }
 
   render() {
     return (
@@ -73,7 +54,7 @@ class WorkspaceTribe extends Component {
             this.joinTheTribe();
           }}
         >
-          Join the Tribe
+           Join the Tribe
         </div>
 
         <ul>

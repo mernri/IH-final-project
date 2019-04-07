@@ -49,20 +49,18 @@ class WorkspaceTribe extends Component {
               this.props.workspaceId
             }/tribe/${userId}`
           )
-          .then(tribeUsers => {
-            console.log(tribeUsers.data.users);
-            this.setState(tribeUsers);
-            console.log(this.state)
+          .then(responseFromApi => {
+            console.log(responseFromApi.data.users);
           });
       });
   };
 
   displayJoinTheTribeButton = () => {
-    // STEP 1 : create a route to check if the user is in the tribe
-    // STEP 2 : create a function to check if the user is in the tribe
-    // STEP 3 : if the user is in the tribe : don't show the button
-    // STEP 4 : if the is not in the tribe : show the button
-  };
+      // STEP 1 : create a route to check if the user is in the tribe 
+      // STEP 2 : create a function to check if the user is in the tribe
+      // STEP 3 : if the user is in the tribe : don't show the button
+      // STEP 4 : if the is not in the tribe : show the button
+  }
 
   render() {
     return (

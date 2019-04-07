@@ -44,24 +44,16 @@ class WorkspaceTribe extends Component {
       })
       .then(userId => {
         axios
-          .put(
-            `http://localhost:5000/api/workspace/${
-              this.props.workspaceId
-            }/tribe/${userId}`
-          )
-          .then(tribeUsers => {
-            console.log(tribeUsers.data.users);
-            this.setState(tribeUsers);
-            console.log(this.state)
+          .put(`/workspace/${this.props.workspaceId}/tribe/${userId}`)
+          .then(() => {
+            console.log("this state user ", this.state.users);
           });
       });
-  };
 
-  displayJoinTheTribeButton = () => {
-    // STEP 1 : create a route to check if the user is in the tribe
-    // STEP 2 : create a function to check if the user is in the tribe
-    // STEP 3 : if the user is in the tribe : don't show the button
-    // STEP 4 : if the is not in the tribe : show the button
+    // STEP 1 : get the userId
+    // STEP 2 : get the workspaceId (this.props.workspaceId)
+    // STEP 3 : axios.put("/workspace/:id/tribe/:userid")
+    // STEP 4 : console.log(this.state.users)
   };
 
   render() {

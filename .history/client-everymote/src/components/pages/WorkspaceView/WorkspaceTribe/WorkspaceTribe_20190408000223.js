@@ -49,10 +49,8 @@ class WorkspaceTribe extends Component {
               this.props.workspaceId
             }/tribe/${userId}`
           )
-          .then(tribeUsers => {
-            console.log(tribeUsers.data.users);
-            this.setState(tribeUsers);
-            console.log(this.state)
+          .then(responseFromApi => {
+            console.log(responseFromApi.data.users);
           });
       });
   };
