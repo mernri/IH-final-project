@@ -18,9 +18,6 @@ class WorkspaceTribe extends Component {
         const theTribe = responseFromApi.data;
         this.setState(theTribe);
       })
-      .then(() => {
-          console.log("et voici ma tribe ! : ", this.state.users)
-      })
       .catch(err => {
         console.log(err);
       });

@@ -1,30 +1,26 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class WorkspaceTribe extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
-  componentDidMount() {
-    this.getWorkspaceTribe();
-  }
+ class WorkspaceTribe extends Component {
 
   getWorkspaceTribe = () => {
+    const { params } = this.props.match;
     axios
-      .get(`http://localhost:5000/api/workspace/${this.props.workspaceId}/tribe`)
+      .get(`http://localhost:5000/api/workspace/${params.id}/tribe`)
       .then(responseFromApi => {
         const theTribe = responseFromApi.data;
         this.setState(theTribe);
-      })
-      .then(() => {
-          console.log("et voici ma tribe ! : ", this.state.users)
       })
       .catch(err => {
         console.log(err);
       });
   };
+
+componentWillMount() {
+    console.log("l'id du workspace", this.props.workspaceId)
+}
+
 
   render() {
     return (

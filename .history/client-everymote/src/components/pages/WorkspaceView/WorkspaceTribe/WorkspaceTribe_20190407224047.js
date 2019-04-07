@@ -12,14 +12,14 @@ class WorkspaceTribe extends Component {
   }
 
   getWorkspaceTribe = () => {
+    const { params } = this.props.match;
     axios
-      .get(`http://localhost:5000/api/workspace/${this.props.workspaceId}/tribe`)
+      .get(`http://localhost:5000/api/workspace/${params.id}/tribe`)
       .then(responseFromApi => {
         const theTribe = responseFromApi.data;
         this.setState(theTribe);
-      })
-      .then(() => {
-          console.log("et voici ma tribe ! : ", this.state.users)
+      }).then(() => {
+          console.log("voilà ma tribe ! ", this.state.user)
       })
       .catch(err => {
         console.log(err);
