@@ -66,7 +66,7 @@ class AdView extends React.Component {
           {/* THE WORKSPACE NAV (workspace, tribe, events) */}
           <section className="section workspace-nav">
             <div>
-              <AnchorLink offset={() => 200} href="#description"> Description </AnchorLink>
+              <AnchorLink offset={() => 20} href="#description"> Description </AnchorLink>
             </div>
             <div>
               <AnchorLink href="#location"> Location </AnchorLink>

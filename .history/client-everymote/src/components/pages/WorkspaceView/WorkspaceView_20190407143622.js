@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import WorkspaceMap from "./WorkspaceMap/WorkspaceMap.js";
+import { StickyContainer, Sticky } from 'react-sticky';
 
 import "./WorkspaceView.css";
 
@@ -41,41 +42,41 @@ class AdView extends React.Component {
   render() {
     return (
       <div className="workspace-container">
+      <StickyContainer>
         {/* TOP PICTURE */}
         <section className="section workspace-photos">
           <figure className="image">
             <img src={this.state.pictures} alt="" />
           </figure>
         </section>
+        <Sticky>
+        {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
+        <section className="section workspace-header">
+          <div>
+            <div className="title text-left">{this.state.name}</div>
+            <div className="subtitle text-left ">
+              {this.state.city}, {this.state.zipcode}
+            </div>
+          </div>
 
-        <div className="sticky-workspace-header">
-          {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
-          <section className="section workspace-header">
-            <div>
-              <div className="title text-left">{this.state.name}</div>
-              <div className="subtitle text-left ">
-                {this.state.city}, {this.state.zipcode}
-              </div>
-            </div>
+          <div className="subtitle price">
+            €{this.state.monthlyPrice} /month
+          </div>
+        </section>
 
-            <div className="subtitle price">
-              €{this.state.monthlyPrice} /month
-            </div>
-          </section>
-
-          {/* THE WORKSPACE NAV (workspace, tribe, events) */}
-          <section className="section workspace-nav">
-            <div>
-              <AnchorLink offset={() => 200} href="#description"> Description </AnchorLink>
-            </div>
-            <div>
-              <AnchorLink href="#location"> Location </AnchorLink>
-            </div>
-            <div>
-              <AnchorLink> Tribe </AnchorLink>
-            </div>
-          </section>
-        </div>
+        {/* THE WORKSPACE NAV (workspace, tribe, events) */}
+        <section className="section workspace-nav">
+          <div>
+            <AnchorLink href="#description"> Description </AnchorLink>
+          </div>
+          <div>
+            <AnchorLink href="#location"> Location </AnchorLink>
+          </div>
+          <div>
+            <AnchorLink> Tribe </AnchorLink>
+          </div>
+        </section>
+        </Sticky>  
 
         <section className="section workspace-content">
           {/* Description */}
@@ -107,7 +108,9 @@ class AdView extends React.Component {
               <WorkspaceMap address={this.getFullAddress()} />
             </div>
           </section>
-        </section>
+        </section>        
+        </StickyContainer>
+
       </div>
     );
   }

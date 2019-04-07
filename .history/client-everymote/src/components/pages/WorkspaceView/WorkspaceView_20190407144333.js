@@ -48,34 +48,36 @@ class AdView extends React.Component {
           </figure>
         </section>
 
-        <div className="sticky-workspace-header">
+        <div className="sticky-workspace-header"> 
           {/* Nom, Ville, zipcode, prix/mois, notes, nombre d'avis*/}
-          <section className="section workspace-header">
-            <div>
-              <div className="title text-left">{this.state.name}</div>
-              <div className="subtitle text-left ">
-                {this.state.city}, {this.state.zipcode}
-              </div>
+        <section className="section workspace-header">
+          <div>
+            <div className="title text-left">{this.state.name}</div>
+            <div className="subtitle text-left ">
+              {this.state.city}, {this.state.zipcode}
             </div>
+          </div>
 
-            <div className="subtitle price">
-              €{this.state.monthlyPrice} /month
-            </div>
-          </section>
+          <div className="subtitle price">
+            €{this.state.monthlyPrice} /month
+          </div>
+        </section>
 
-          {/* THE WORKSPACE NAV (workspace, tribe, events) */}
-          <section className="section workspace-nav">
-            <div>
-              <AnchorLink offset={() => 200} href="#description"> Description </AnchorLink>
-            </div>
-            <div>
-              <AnchorLink href="#location"> Location </AnchorLink>
-            </div>
-            <div>
-              <AnchorLink> Tribe </AnchorLink>
-            </div>
-          </section>
+        {/* THE WORKSPACE NAV (workspace, tribe, events) */}
+        <section className="section workspace-nav">
+          <div>
+            <AnchorLink href="#description"> Description </AnchorLink>
+          </div>
+          <div>
+            <AnchorLink href="#location"> Location </AnchorLink>
+          </div>
+          <div>
+            <AnchorLink> Tribe </AnchorLink>
+          </div>
+        </section>
+
         </div>
+        
 
         <section className="section workspace-content">
           {/* Description */}

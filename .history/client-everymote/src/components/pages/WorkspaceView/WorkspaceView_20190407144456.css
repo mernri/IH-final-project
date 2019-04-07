@@ -1,5 +1,5 @@
 .leaflet-container {
-  height: 400px;
+  height: 800px;
   width: 100%;
 }
 
@@ -76,6 +76,6 @@
 .sticky-workspace-header {
   position: -webkit-sticky;
   position: sticky;
-  z-index: 5000;
+  z-index: 50;
   top: 0;
 }

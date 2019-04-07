@@ -63,7 +63,7 @@
 }
 
 .workspace-description {
-  margin-bottom : 3vh
+  margin-bottom : 2vh
 }
 
 .workspace-content {
@@ -71,11 +71,4 @@
   padding-right: 10vw;
   padding-top: 3vh;
   align-items: center;
-}
-
-.sticky-workspace-header {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 5000;
-  top: 0;
 }
