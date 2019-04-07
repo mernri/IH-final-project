@@ -61,14 +61,13 @@ class ListingPage extends React.Component {
         })
         .catch(error => console.log(error));
     } else if (this.props.match.params.city) {
-      const cityInURL = this.props.match.params.city;
+      const city = this.props.match.params.city;
       axios
-        .get(`http://localhost:5000/api/workspaces/${cityInURL}`)
+        .get(`http://localhost:5000/api/workspaces/${city}`)
         .then(responseFromApi => {
           this.setState(
             {
-              city: cityInURL,
-              citySearched: cityInURL.toLowerCase(),
+              citySearched: city.toLowerCase(),
               listOfWorkspaces: responseFromApi.data
             },
             () => {
@@ -76,7 +75,7 @@ class ListingPage extends React.Component {
             }
           );
 
-          this.props.history.push(`/workspaces/${cityInURL}`);
+          this.props.history.push(`/workspaces/${city}`);
         })
         .catch(error => console.log(error));
     } else {
@@ -110,7 +109,6 @@ class ListingPage extends React.Component {
                         className="input"
                         type="text"
                         placeholder="Ex: Paris, Berlin..."
-                        value= {this.state.city}
                         onChange={this.handleChange}
                       />
                     </p>

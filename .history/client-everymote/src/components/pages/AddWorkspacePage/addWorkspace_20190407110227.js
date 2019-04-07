@@ -49,18 +49,6 @@ export default class addWorkspace extends Component {
     this.setState({ [name]: value });
   };
 
-  handleUpload = (event) => {
-    let formData = new FormData();
-    formData.append('photo', event.target.files[0]);
-
-    this.service.upload(formData)
-      .then(response => {
-        this.props.updateUser(response);
-      })
-    ;
-  } 
-
-
   handleFormSubmit = async event => {
     event.preventDefault();
     console.log("étape 1");
@@ -226,17 +214,17 @@ export default class addWorkspace extends Component {
                   </div>
                 </div>
                 {/* Add pictures */}
-                <div className="field">
-                  <div className="file has-name">
-                    <label className="file-label">
-                      <input className="file-input" type="file" name="resume" onChange={this.hanleUpload}/>
-                      <span className="file-cta">
-                        <span className="file-icon">
-                          <i className="fas fa-upload" />
+                <div class="field">
+                  <div class="file has-name">
+                    <label class="file-label">
+                      <input class="file-input" type="file" name="resume" />
+                      <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fas fa-upload" />
                         </span>
-                        <span className="file-label">Add a picture</span>
+                        <span class="file-label">Add a picture</span>
                       </span>
-                      <span className="file-name">
+                      <span class="file-name">
                         Screen Shot 2017-07-29 at 15.54.25.png
                       </span>
                     </label>

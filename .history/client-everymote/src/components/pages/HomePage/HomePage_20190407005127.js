@@ -30,7 +30,7 @@ export default class HomePage extends Component {
         <Link to={"/workspaces"}>
           <p style={{color:"blue"}}> Popular Workspaces </p>
         </Link>
-        <Link to={"/cities"}>
+        <Link to={"/workspaces"}>
           <p style={{color:"blue"}}> Popular Cities </p>
         </Link>
         <Link to={"/workspaces"}>

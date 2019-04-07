@@ -67,7 +67,7 @@ class ListingPage extends React.Component {
         .then(responseFromApi => {
           this.setState(
             {
-              city: cityInURL,
+              city: cityInURL.toLowerCase(),
               citySearched: cityInURL.toLowerCase(),
               listOfWorkspaces: responseFromApi.data
             },
@@ -76,7 +76,7 @@ class ListingPage extends React.Component {
             }
           );
 
-          this.props.history.push(`/workspaces/${cityInURL}`);
+          this.props.history.push(`/workspaces/${city}`);
         })
         .catch(error => console.log(error));
     } else {

@@ -67,7 +67,7 @@ class ListingPage extends React.Component {
         .then(responseFromApi => {
           this.setState(
             {
-              city: cityInURL,
+              city: cityInURL.toLowerCase(),
               citySearched: cityInURL.toLowerCase(),
               listOfWorkspaces: responseFromApi.data
             },

@@ -23,7 +23,7 @@ export default class addWorkspace extends Component {
   // PROBLEME : asynchrone => dégager le .then et le remplacer par un async await (code plus clair)
 
   addressToGeoCoordinates = async fullAddress => {
-    const APIKEY = "lIlwmyAyKX9cCMCpWgsLXGS5ZWvrNG0X";
+    const APIKEY = "yPCdzT6YO4vPW3vyeCEctUZ71KsASll6";
     const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${fullAddress}`;
     let response = {};
     let latitude;
@@ -42,24 +42,13 @@ export default class addWorkspace extends Component {
     } catch (err) {
       console.log(err);
     }
+
   };
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
-
-  handleUpload = (event) => {
-    let formData = new FormData();
-    formData.append('photo', event.target.files[0]);
-
-    this.service.upload(formData)
-      .then(response => {
-        this.props.updateUser(response);
-      })
-    ;
-  } 
-
 
   handleFormSubmit = async event => {
     event.preventDefault();
@@ -226,23 +215,7 @@ export default class addWorkspace extends Component {
                   </div>
                 </div>
                 {/* Add pictures */}
-                <div className="field">
-                  <div className="file has-name">
-                    <label className="file-label">
-                      <input className="file-input" type="file" name="resume" onChange={this.hanleUpload}/>
-                      <span className="file-cta">
-                        <span className="file-icon">
-                          <i className="fas fa-upload" />
-                        </span>
-                        <span className="file-label">Add a picture</span>
-                      </span>
-                      <span className="file-name">
-                        Screen Shot 2017-07-29 at 15.54.25.png
-                      </span>
-                    </label>
-                  </div>
-                </div>
-
+                MISSING PICTURES UPLOAD
                 <div className="control has-text-centered">
                   <button className="button is-link ">Add</button>
                 </div>

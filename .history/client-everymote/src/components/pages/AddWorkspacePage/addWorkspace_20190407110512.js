@@ -49,18 +49,6 @@ export default class addWorkspace extends Component {
     this.setState({ [name]: value });
   };
 
-  handleUpload = (event) => {
-    let formData = new FormData();
-    formData.append('photo', event.target.files[0]);
-
-    this.service.upload(formData)
-      .then(response => {
-        this.props.updateUser(response);
-      })
-    ;
-  } 
-
-
   handleFormSubmit = async event => {
     event.preventDefault();
     console.log("étape 1");

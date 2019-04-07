@@ -28,13 +28,13 @@ export default class HomePage extends Component {
 
         {/* SECOND SECTION : INSPIRATION */}
         <Link to={"/workspaces"}>
-          <p style={{color:"blue"}}> Popular Workspaces </p>
-        </Link>
-        <Link to={"/cities"}>
-          <p style={{color:"blue"}}> Popular Cities </p>
+          <p style={{color:"black"}}> Popular Workspaces </p>
         </Link>
         <Link to={"/workspaces"}>
-          <p style={{color:"blue"}}> Last Remote jobs</p>
+          <p> Popular Cities </p>
+        </Link>
+        <Link to={"/workspaces"}>
+          <p> Last Remote jobs</p>
         </Link>
   
         

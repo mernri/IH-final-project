@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Nav from "./components/layout/NavBar/Nav.js";
+import axios from "axios";
 
 import HomePage from "./components/pages/HomePage/HomePage.js";
 import ListingPage from "./components/pages/ListingPage/ListingPage.js";

@@ -5,7 +5,7 @@ const workspaceSchema = new Schema(
   {
     name: String,
     address: String,
-    zipcode: String,
+    zipcode: Number,
     description: String,
     city: String,
     phone: String,

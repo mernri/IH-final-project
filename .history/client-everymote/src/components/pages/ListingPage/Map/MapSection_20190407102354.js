@@ -79,6 +79,7 @@ class MapSection extends React.Component {
 
           {this.props.workspaces.map(workspace => {
             const workspacePosition = [workspace.latitude, workspace.longitude];
+
             return (
               <Marker position={workspacePosition} key={workspace._id}>
                 <Popup>
