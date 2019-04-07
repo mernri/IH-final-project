@@ -47,23 +47,20 @@ tribeRoutes.get("/workspace/:id/tribe", (req, res, next) => {
 });
 
 // PUT route => to add a user in a tribe
-tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
-  const workspaceId = req.params.id
-  const userId = req.params.userid
-  Workspace.findById(workspaceId)
-  .then(workspaceId => {
-    Tribe.findOneAndUpdate({ workspace: workspaceId }, 
-      { $push: {users : userId }} )
-      .then(theTribe => {
-        res.json(theTribe);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  })
-  .catch(err => {
-    res.json(err);
-  });
+tribeRoutes.put("/workspace/:id/tribe", (req, res, next) => {
+  Workspace.findById(req.params.id)
+    .then(workspaceId => {
+      Tribe.findOne({ workspace: workspaceId })
+        .then(theTribe => {
+          res.json(theTribe);
+        })
+        .catch(err => {
+          res.json(err);
+        });
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 module.exports = tribeRoutes;

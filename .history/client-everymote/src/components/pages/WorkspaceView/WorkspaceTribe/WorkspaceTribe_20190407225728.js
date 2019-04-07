@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AuthService from "../../AuthPages/Authservices.js"
-
-
+import AuthService from "../../AuthPages/Authservices.js";
 
 class WorkspaceTribe extends Component {
   constructor(props) {
@@ -14,7 +12,7 @@ class WorkspaceTribe extends Component {
 
   componentDidMount() {
     this.getWorkspaceTribe();
-    this.findTheUser()
+    this.joinTheTribe();
   }
 
   getWorkspaceTribe = () => {
@@ -34,14 +32,12 @@ class WorkspaceTribe extends Component {
       });
   };
 
-  findTheUser = () => {
+  joinTheTribe = () => {
     this.service.loggedin().then(user => {
-        console.log(user._id)
-        return user._id
-    })
+        console.log("i am the user", user)
+      return user;
+    });
   };
-
-
 
   render() {
     return (

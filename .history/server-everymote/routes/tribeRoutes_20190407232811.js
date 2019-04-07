@@ -53,7 +53,7 @@ tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
   Workspace.findById(workspaceId)
   .then(workspaceId => {
     Tribe.findOneAndUpdate({ workspace: workspaceId }, 
-      { $push: {users : userId }} )
+      { $push: {users : req.params.userid }} )
       .then(theTribe => {
         res.json(theTribe);
       })

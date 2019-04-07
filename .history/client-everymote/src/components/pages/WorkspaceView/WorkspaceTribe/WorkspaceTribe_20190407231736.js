@@ -14,7 +14,7 @@ class WorkspaceTribe extends Component {
 
   componentDidMount() {
     this.getWorkspaceTribe();
-    this.findTheUser()
+    this.joinTheTribe()
   }
 
   getWorkspaceTribe = () => {
@@ -34,14 +34,12 @@ class WorkspaceTribe extends Component {
       });
   };
 
-  findTheUser = () => {
+  joinTheTribe = () => {
     this.service.loggedin().then(user => {
-        console.log(user._id)
+        console.log("mon user" , user)
         return user._id
     })
   };
-
-
 
   render() {
     return (

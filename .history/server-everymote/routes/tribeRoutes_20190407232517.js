@@ -48,12 +48,10 @@ tribeRoutes.get("/workspace/:id/tribe", (req, res, next) => {
 
 // PUT route => to add a user in a tribe
 tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
-  const workspaceId = req.params.id
-  const userId = req.params.userid
-  Workspace.findById(workspaceId)
+  Workspace.findById(req.params.id)
   .then(workspaceId => {
     Tribe.findOneAndUpdate({ workspace: workspaceId }, 
-      { $push: {users : userId }} )
+      { $push: {users : req.params.userid }} )
       .then(theTribe => {
         res.json(theTribe);
       })

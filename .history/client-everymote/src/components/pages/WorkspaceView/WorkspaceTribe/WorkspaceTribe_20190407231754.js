@@ -36,12 +36,10 @@ class WorkspaceTribe extends Component {
 
   findTheUser = () => {
     this.service.loggedin().then(user => {
-        console.log(user._id)
+        console.log("mon user" , user)
         return user._id
     })
   };
-
-
 
   render() {
     return (

@@ -29,11 +29,12 @@ tribeRoutes.post("/tribe/add", (req, res, next) => {
     });
 });
 
+
 // GET route => to retrieve a specific tribe
 tribeRoutes.get("/workspace/:id/tribe", (req, res, next) => {
   Workspace.findById(req.params.id)
     .then(workspaceId => {
-      Tribe.findOne({ workspace: workspaceId })
+      Tribe.findOne({ "workspace": workspaceId })
         .then(theTribe => {
           res.json(theTribe);
         })
@@ -46,24 +47,26 @@ tribeRoutes.get("/workspace/:id/tribe", (req, res, next) => {
     });
 });
 
+
+
 // PUT route => to add a user in a tribe
-tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
-  const workspaceId = req.params.id
-  const userId = req.params.userid
-  Workspace.findById(workspaceId)
-  .then(workspaceId => {
-    Tribe.findOneAndUpdate({ workspace: workspaceId }, 
-      { $push: {users : userId }} )
-      .then(theTribe => {
-        res.json(theTribe);
-      })
-      .catch(err => {
-        res.json(err);
+router.put("/projects/:id", (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: "Specified id is not valid" });
+    return;
+  }
+
+  Project.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => {
+      res.json({
+        message: `Project with ${req.params.id} is updated successfully.`
       });
-  })
-  .catch(err => {
-    res.json(err);
-  });
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
+
+
 
 module.exports = tribeRoutes;
