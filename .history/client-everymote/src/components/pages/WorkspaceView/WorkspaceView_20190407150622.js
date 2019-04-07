@@ -69,15 +69,11 @@ class AdView extends React.Component {
               <AnchorLink offset={() => 200} href="#description"> Description </AnchorLink>
             </div>
             <div>
-              <AnchorLink offset={() => 200} href="#amenities"> Amenities </AnchorLink>
+              <AnchorLink href="#location"> Location </AnchorLink>
             </div>
             <div>
-              <AnchorLink offset={() => 200} href="#tribe"> Tribe </AnchorLink>
+              <AnchorLink> Tribe </AnchorLink>
             </div>
-            <div>
-              <AnchorLink offset={() => 200} href="#location"> Location </AnchorLink>
-            </div>
-            
           </section>
         </div>
 

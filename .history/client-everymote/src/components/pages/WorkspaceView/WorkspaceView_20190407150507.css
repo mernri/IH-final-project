@@ -67,7 +67,7 @@
   align-items: center;
 }
 
-.workspace-description, .workspace-amenities, .workspace-tribe , .workspace-location {
+.workspace-description {
   margin-bottom: 3vh;
 }
 

@@ -11,6 +11,7 @@
 .workspace-photos {
   padding: 0px;
   margin-bottom: 0px;
+
 }
 
 .section img {
@@ -18,18 +19,18 @@
   object-fit: cover;
 }
 
+
 .workspace-header {
   display: flex;
   padding-left: 10vw;
   padding-right: 10vw;
   padding-top: 3vh;
   margin-bottom: 0px;
-  margin-top: 0px;
+  margin-top: 0px
 }
 
-.workspace-nav,
-.workspace-header {
-  background-color: white;
+.workspace-nav, .workspace-header {
+  background-color: white
 }
 
 .workspace-header :nth-child(2) {
@@ -60,6 +61,11 @@
   text-align: justify;
 }
 
+
+.workspace-description {
+  margin-bottom : 3vh
+}
+
 .workspace-content {
   padding-left: 10vw;
   padding-right: 10vw;
@@ -67,9 +73,6 @@
   align-items: center;
 }
 
-.workspace-description, .workspace-amenities, .workspace-tribe , .workspace-location {
-  margin-bottom: 3vh;
-}
 
 #address {
   margin-left: 20vw;
