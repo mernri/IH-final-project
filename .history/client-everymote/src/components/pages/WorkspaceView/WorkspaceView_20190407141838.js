@@ -58,6 +58,7 @@ class AdView extends React.Component {
           </div>
 
           <div className="subtitle price">
+            {" "}
             €{this.state.monthlyPrice} /month
           </div>
         </section>
