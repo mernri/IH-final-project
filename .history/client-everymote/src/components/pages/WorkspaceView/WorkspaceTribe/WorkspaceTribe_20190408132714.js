@@ -47,8 +47,7 @@ class WorkspaceTribe extends Component {
             }/tribe/${userId}`
           )
           .then(tribeUsers => {
-            this.setState(tribeUsers)
-            this.setState({userInTribe: true}) ;
+            this.setState(tribeUsers);
           });
       });
   };

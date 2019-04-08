@@ -47,8 +47,7 @@ class WorkspaceTribe extends Component {
             }/tribe/${userId}`
           )
           .then(tribeUsers => {
-            this.setState(tribeUsers)
-            this.setState({userInTribe: true}) ;
+            this.setState(tribeUsers);
           });
       });
   };
@@ -77,7 +76,7 @@ class WorkspaceTribe extends Component {
         <div className="join-tribe-button">
 
         {
-          (!this.state.userInTribe) ? 
+          (!this.state.userInTribe === true) ? 
           (<div className="button" onClick={() => {this.joinTheTribe()}}>
             Join the Tribe
           </div>) : (<div >

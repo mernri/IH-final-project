@@ -5,14 +5,12 @@ import AuthService from "../../AuthPages/Authservices.js";
 class WorkspaceTribe extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userInTribe: false
-    };
+    this.state = {};
   }
 
   service = new AuthService();
 
-  componentWillMount() {
+  componentDidMount() {
     this.getWorkspaceTribe()
   }
 
@@ -29,6 +27,8 @@ class WorkspaceTribe extends Component {
         console.log(err);
       });
       await this.isUserInTribe()
+      await  console.log(this.state)
+
   };
 
 
@@ -47,8 +47,9 @@ class WorkspaceTribe extends Component {
             }/tribe/${userId}`
           )
           .then(tribeUsers => {
-            this.setState(tribeUsers)
-            this.setState({userInTribe: true}) ;
+            console.log(tribeUsers.data.users);
+            this.setState(tribeUsers);
+            console.log(this.state)
           });
       });
   };
@@ -60,7 +61,6 @@ class WorkspaceTribe extends Component {
         return user._id;
       }).then(userId => {
         this.state.users.includes(userId) ? this.setState({userInTribe: true}) : this.setState({userInTribe: false})
-        console.log("this.state.userintribe", this.state.userInTribe)
       })
       .catch(err => {
         console.log(err);
@@ -77,7 +77,7 @@ class WorkspaceTribe extends Component {
         <div className="join-tribe-button">
 
         {
-          (!this.state.userInTribe) ? 
+          (this.state.userInTribe === true) ? 
           (<div className="button" onClick={() => {this.joinTheTribe()}}>
             Join the Tribe
           </div>) : (<div >

@@ -5,14 +5,12 @@ import AuthService from "../../AuthPages/Authservices.js";
 class WorkspaceTribe extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userInTribe: false
-    };
+    this.state = {};
   }
 
   service = new AuthService();
 
-  componentWillMount() {
+  componentDidMount() {
     this.getWorkspaceTribe()
   }
 
@@ -28,7 +26,7 @@ class WorkspaceTribe extends Component {
       .catch(err => {
         console.log(err);
       });
-      await this.isUserInTribe()
+      await this.displayJoinTheTribeButton()
   };
 
 
@@ -47,20 +45,23 @@ class WorkspaceTribe extends Component {
             }/tribe/${userId}`
           )
           .then(tribeUsers => {
-            this.setState(tribeUsers)
-            this.setState({userInTribe: true}) ;
+            console.log(tribeUsers.data.users);
+            this.setState(tribeUsers);
+            console.log(this.state)
           });
       });
   };
 
-  isUserInTribe = () => {
+  displayJoinTheTribeButton = () => {
     this.service
       .loggedin()
       .then(user => {
         return user._id;
       }).then(userId => {
-        this.state.users.includes(userId) ? this.setState({userInTribe: true}) : this.setState({userInTribe: false})
-        console.log("this.state.userintribe", this.state.userInTribe)
+        (this.state.users.includes(userId)) ? console.log("le user est dans la tribe") : console.log("le user n'est pas dans la tribe")
+        console.log("user", userId)
+        console.log("this.state.users", this.state.users)
+
       })
       .catch(err => {
         console.log(err);
@@ -74,19 +75,15 @@ class WorkspaceTribe extends Component {
   render() {
     return (
       <div>
-        <div className="join-tribe-button">
-
-        {
-          (!this.state.userInTribe) ? 
-          (<div className="button" onClick={() => {this.joinTheTribe()}}>
-            Join the Tribe
-          </div>) : (<div >
-            <strong>You're in the tribe !</strong>
-          </div>)
-          
-        }        
+        <div
+          className="button"
+          onClick={() => {
+            this.joinTheTribe();
+          }}
+        >
+          Join the Tribe
         </div>
-        
+
         <ul>
           <li>
             > If no one is in the tribe yet, you'll have a "no one in this tribe
