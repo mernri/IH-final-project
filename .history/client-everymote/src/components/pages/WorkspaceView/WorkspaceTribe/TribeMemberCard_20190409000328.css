@@ -1,0 +1,42 @@
+article {
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 50px 0px;
+  overflow: auto;
+}
+
+.profile-photo  {
+    vertical-align: middle;
+}
+
+.profile-photo img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+article p {
+    color:black
+}
+.profile-info {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-info h1 {
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 0.5em;
+}
+
+@media (max-width: 480px) {
+  article .profile-info {
+    padding: 0 30px;
+  }
+}
