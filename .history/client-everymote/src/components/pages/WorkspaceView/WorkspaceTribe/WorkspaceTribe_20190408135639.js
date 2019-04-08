@@ -14,7 +14,9 @@ class WorkspaceTribe extends Component {
   service = new AuthService();
 
   componentWillMount() {
-    this.getWorkspaceTribe()
+    this.getWorkspaceTribe().then(() => {
+      this.isUserInTribe()
+    })
   }
 
   getWorkspaceTribe =  async () => {
@@ -63,6 +65,7 @@ class WorkspaceTribe extends Component {
         return user._id;
       }).then(userId => {
         this.state.users.includes(userId) ? this.setState({userInTribe: true}) : this.setState({userInTribe: false})
+        console.log("this.state.userintribe", this.state.userInTribe)
       })
       .catch(err => {
         console.log(err);
