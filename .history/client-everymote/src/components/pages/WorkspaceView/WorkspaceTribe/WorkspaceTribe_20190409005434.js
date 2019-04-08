@@ -17,7 +17,6 @@ class WorkspaceTribe extends Component {
     this.getWorkspaceTribe();
   }
 
-  // Récupére les users de la tribe qui a pour workspace celui dont l'id est reçu en props
   getWorkspaceTribe = async () => {
     await axios
       .get(
@@ -34,7 +33,6 @@ class WorkspaceTribe extends Component {
     await this.isUserInTribe();
   };
 
-  // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
   isUserInTribe = () => {
     this.service
       .loggedin()
@@ -52,7 +50,7 @@ class WorkspaceTribe extends Component {
       });
   };
 
-  // Si l'utilisateur est connecté mais ne fais pas partie de la tribe => joinTheTribe : il rejoint la tribe et ne voit plus le bouton
+  // BALANCE UNE ERREUR QUAND J'ESSAIE DE JOINTHETRIBE, mais quand je recharge la page ça fonctionne
   joinTheTribe = () => {
     this.service
       .loggedin()
@@ -74,13 +72,12 @@ class WorkspaceTribe extends Component {
               "étape 2- this.state après que l'utilisateur ait cliqué sur join the tribe",
               this.state
             );
-            this.getWorkspaceTribe();
           })
           .catch(err => {
             console.log(err);
           });
       })
-      .catch(err => {
+      .cacth(err => {
         console.log(err);
       });
   };
@@ -89,8 +86,9 @@ class WorkspaceTribe extends Component {
     return (
       <div>
         {/* Manque une condition : si l'utilisateur n'est pas connecté et qu'il clique sur "Join the tribe" il faut le rediriger vers le login */}
+
         <div className="join-tribe-button">
-          {this.state.user && !this.state.userInTribe ? (
+          {this.state.user && !this.state.userInTribe && (
             <div
               className="button"
               onClick={() => {
@@ -99,17 +97,10 @@ class WorkspaceTribe extends Component {
             >
               Join the Tribe
             </div>
-          ) : (
-            <div>
-              <strong>
-                You're either in a tribe or your not connected. whatever, I
-                don't care.
-              </strong>
-            </div>
           )}
         </div>
 
-        {/* Render the TribeMemberCard once this.state.users is in the state */}
+        {/* Render the TribeMemberCard once this.state.users is true (asynchronous rendering) */}
         {this.state.users ? (
           <div>
             {this.state.users.map(userId => {

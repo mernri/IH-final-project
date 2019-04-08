@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import TribeMemberCard from "./TribeMemberCard.js";
-import AuthService from "../../AuthPages/Authservices.js";
+import AuthService from "../../AuthPages/Authservices.js"
+
 
 class WorkspaceTribe extends Component {
   constructor(props) {
@@ -15,9 +16,10 @@ class WorkspaceTribe extends Component {
 
   componentWillMount() {
     this.getWorkspaceTribe();
+    console.log(user)
   }
 
-  // Récupére les users de la tribe qui a pour workspace celui dont l'id est reçu en props
+
   getWorkspaceTribe = async () => {
     await axios
       .get(
@@ -26,7 +28,6 @@ class WorkspaceTribe extends Component {
       .then(responseFromApi => {
         const theTribe = responseFromApi.data;
         this.setState(theTribe);
-        console.log("the tribe properties", theTribe);
       })
       .catch(err => {
         console.log(err);
@@ -34,30 +35,11 @@ class WorkspaceTribe extends Component {
     await this.isUserInTribe();
   };
 
-  // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
-  isUserInTribe = () => {
-    this.service
-      .loggedin()
-      .then(user => {
-        this.setState({ user: user });
-        this.state.users.includes(user._id)
-          ? this.setState({ userInTribe: true })
-          : this.setState({ userInTribe: false });
-        console.log("the connected user properties", this.state.user);
-        console.log("the state", this.state);
-        return user._id;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  // Si l'utilisateur est connecté mais ne fais pas partie de la tribe => joinTheTribe : il rejoint la tribe et ne voit plus le bouton
+  // BALANCE UNE ERREUR QUAND J'ESSAIE DE JOINTHETRIBE, mais quand je recharge la page ça fonctionne
   joinTheTribe = () => {
     this.service
       .loggedin()
       .then(user => {
-        console.log("étape 1- joinTheTribe", user._id);
         return user._id;
       })
       .then(userId => {
@@ -70,15 +52,28 @@ class WorkspaceTribe extends Component {
           .then(tribeUsers => {
             this.setState(tribeUsers);
             this.setState({ userInTribe: true });
-            console.log(
-              "étape 2- this.state après que l'utilisateur ait cliqué sur join the tribe",
-              this.state
-            );
-            this.getWorkspaceTribe();
           })
           .catch(err => {
             console.log(err);
           });
+      })
+      .cacth(err => {
+        console.log(err);
+      });
+  };
+
+  isUserInTribe = () => {
+    this.service
+      .loggedin()
+      .then(user => {
+        this.setState({ user: user });
+        // console.log("this state user", this.state.user);
+        return user._id;
+      })
+      .then(userId => {
+        this.state.users.includes(userId)
+          ? this.setState({ userInTribe: true })
+          : this.setState({ userInTribe: false });
       })
       .catch(err => {
         console.log(err);
@@ -89,8 +84,9 @@ class WorkspaceTribe extends Component {
     return (
       <div>
         {/* Manque une condition : si l'utilisateur n'est pas connecté et qu'il clique sur "Join the tribe" il faut le rediriger vers le login */}
+        
         <div className="join-tribe-button">
-          {this.state.user && !this.state.userInTribe ? (
+          {!this.state.userInTribe && this.state.user ? (
             <div
               className="button"
               onClick={() => {
@@ -109,7 +105,7 @@ class WorkspaceTribe extends Component {
           )}
         </div>
 
-        {/* Render the TribeMemberCard once this.state.users is in the state */}
+        {/* Render the TribeMemberCard once this.state.users is true (asynchronous rendering) */}
         {this.state.users ? (
           <div>
             {this.state.users.map(userId => {

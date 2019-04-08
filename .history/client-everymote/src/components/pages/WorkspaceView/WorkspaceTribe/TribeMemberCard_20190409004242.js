@@ -28,7 +28,7 @@ export default class TribeMemberCard extends Component {
           <img
             src="https://media.licdn.com/dms/image/C4D03AQFnviHSXVIb3w/profile-displayphoto-shrink_100_100/0?e=1560384000&v=beta&t=2wRnl2FQ6dHP7Wgo_mjXoudismwjavrFKz-wBWX3ZM8"
             alt="Avatar"
-            className="avatar profile-photo"
+            class="avatar profile-photo"
           />
           <div className="profile-info">
             <h2>{this.state.fullname || this.state.fullName}</h2>
