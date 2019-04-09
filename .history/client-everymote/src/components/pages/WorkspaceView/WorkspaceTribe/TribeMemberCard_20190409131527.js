@@ -31,8 +31,8 @@ export default class TribeMemberCard extends Component {
             className="avatar profile-photo"
           /> */}
           <div className="profile-info">
-            <h2>{this.props.user.fullname || this.props.user.fullName}</h2>
-            <p>{this.props.user.occupation}</p>
+            <h2>{this.props.user.fullname || this.state.fullName}</h2>
+            <p>{this.state.occupation}</p>
           </div>
         </article>
       </div>

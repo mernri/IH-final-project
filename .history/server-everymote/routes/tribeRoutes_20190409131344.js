@@ -86,16 +86,15 @@ tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
 });
 
 // GET Route - find a specific user in a tribe
-// NE SERT PLUS A RIEN DEPUIS QUE J'AI FIXÉ LES POPULATE
-// tribeRoutes.get("/user/:id", (req, res, next) => {
-//   User.findById(req.params.id)
-//     .then(theUser => {
-//       res.json(theUser);
-//       console.log(theUser);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
+tribeRoutes.get("/user/:id", (req, res, next) => {
+  User.findById(req.params.id)
+    .then(theUser => {
+      res.json(theUser);
+      console.log(theUser);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
 module.exports = tribeRoutes;

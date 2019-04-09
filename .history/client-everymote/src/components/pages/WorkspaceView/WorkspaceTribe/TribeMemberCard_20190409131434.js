@@ -10,7 +10,7 @@ export default class TribeMemberCard extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.user);
+    this.getOneUser(this.props.user);
   }
 
   getOneUser = userId => {
@@ -31,8 +31,8 @@ export default class TribeMemberCard extends Component {
             className="avatar profile-photo"
           /> */}
           <div className="profile-info">
-            <h2>{this.props.user.fullname || this.props.user.fullName}</h2>
-            <p>{this.props.user.occupation}</p>
+            <h2>{this.state.fullname || this.state.fullName}</h2>
+            <p>{this.state.occupation}</p>
           </div>
         </article>
       </div>
