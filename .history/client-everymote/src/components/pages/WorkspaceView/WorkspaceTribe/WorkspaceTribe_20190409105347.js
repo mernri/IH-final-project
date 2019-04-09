@@ -13,12 +13,11 @@ class WorkspaceTribe extends Component {
 
   service = new AuthService();
 
-  componentWillMount() {
+  componentWillReceiveProps() {
     this.getWorkspaceTribe();
   }
 
   // Récupére les users de la tribe qui a pour workspace celui dont l'id est reçu en props
-  // LORSQUE JE SUPPRIME UN UTILISATEUR, IL NE DISPARAIT PAS DE LA TRIBE (CAR PAS DE POPULATE) => DONC LA TRIBE NE S'UPDATE PAS
   getWorkspaceTribe = async () => {
     await axios
       .get(

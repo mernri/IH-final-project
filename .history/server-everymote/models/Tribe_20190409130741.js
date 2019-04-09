@@ -6,7 +6,7 @@ const User = require("./User");
 
 const tribeSchema = new Schema(
   {
-    workspace: { type: Schema.Types.ObjectId, ref: "Workspace" },
+    workspace: { type: Schema.Types.ObjectId, ref: Workspace },
     users: [{ type: Schema.Types.ObjectId, ref: "User" }]
   }
 );
