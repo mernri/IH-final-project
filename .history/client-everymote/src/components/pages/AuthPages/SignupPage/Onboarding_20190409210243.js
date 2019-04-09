@@ -22,7 +22,7 @@ export default class Onboarding extends Component {
 
     this.service.upload(formData).then(response => {
       this.props.updateUser(response);
-      this.setState({ picture: response.picture });
+      this.setState({ picture: response });
     });
   };
 

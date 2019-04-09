@@ -22,7 +22,7 @@ export default class Onboarding extends Component {
 
     this.service.upload(formData).then(response => {
       this.props.updateUser(response);
-      this.setState({ picture: response.picture });
+      this.setState({ picture: response });
     });
   };
 
@@ -33,6 +33,9 @@ export default class Onboarding extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("this.state.fullname", this.state.fullname);
+    console.log("this.state.city", this.state.city);
+    console.log("this.state.occupation", this.state.occupation);
 
     this.service
       .edit(this.state.fullname, this.state.city, this.state.occupation)
@@ -58,29 +61,21 @@ export default class Onboarding extends Component {
 
               <form onSubmit={this.handleFormSubmit}>
                 {/* Profile Picture upload */}
-
-                {!this.state.picture ? (
-                  <label>
-                    <img
-                      className="avatar"
-                      src={
-                        "https://material.io/tools/icons/static/icons/baseline-person-24px.svg"
-                      }
-                      alt="profile"
-                    />
-                    <input
-                      type="file"
-                      name="picture"
-                      onChange={this.handleUpload}
-                    />
-                  </label>
-                ) : (
+                <label>
                   <img
                     className="avatar"
-                    src={this.state.picture}
+                    src={
+                      this.state.picture ||
+                      "https://material.io/tools/icons/static/icons/baseline-person-24px.svg"
+                    }
                     alt="profile"
                   />
-                )}
+                  <input
+                    type="file"
+                    name="picture"
+                    onChange={this.handleUpload}
+                  />
+                </label>
 
                 {/* Fullname FIELD */}
                 <div className="field">

@@ -22,7 +22,7 @@ export default class Onboarding extends Component {
 
     this.service.upload(formData).then(response => {
       this.props.updateUser(response);
-      this.setState({ picture: response.picture });
+      this.setState({ picture: response });
     });
   };
 
@@ -33,6 +33,9 @@ export default class Onboarding extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("this.state.fullname", this.state.fullname);
+    console.log("this.state.city", this.state.city);
+    console.log("this.state.occupation", this.state.occupation);
 
     this.service
       .edit(this.state.fullname, this.state.city, this.state.occupation)
@@ -59,7 +62,7 @@ export default class Onboarding extends Component {
               <form onSubmit={this.handleFormSubmit}>
                 {/* Profile Picture upload */}
 
-                {!this.state.picture ? (
+                {this.state.picture ? (
                   <label>
                     <img
                       className="avatar"
