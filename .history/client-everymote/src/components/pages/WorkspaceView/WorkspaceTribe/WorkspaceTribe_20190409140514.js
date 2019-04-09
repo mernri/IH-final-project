@@ -61,7 +61,7 @@ class WorkspaceTribe extends Component {
     this.service
       .loggedin()
       .then(user => {
-        return user;
+        return user._id;
       })
       .then(user => {
         axios
@@ -71,7 +71,6 @@ class WorkspaceTribe extends Component {
             }/tribe/${user._id}`
           )
           .then(tribeUsers => {
-            console.log("tribeUsers", tribeUsers)
             this.setState(tribeUsers);
             this.setState({ userInTribe: true });
             this.getWorkspaceTribe();

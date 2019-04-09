@@ -44,7 +44,7 @@ class WorkspaceTribe extends Component {
         this.setState({ user: user });
         console.log(user._id)        
         console.log(this.state.user._id)
-        console.log(this.state.users.map(user => { return user}).includes(user._id))
+        console.log(this.state.users.map(user => { return user._id}).includes(user._id))
         this.state.users.map(user => { return user._id}).includes(user._id)
           ? this.setState({ userInTribe: true })
           : this.setState({ userInTribe: false });
@@ -61,7 +61,7 @@ class WorkspaceTribe extends Component {
     this.service
       .loggedin()
       .then(user => {
-        return user;
+        return user._id;
       })
       .then(user => {
         axios
@@ -71,7 +71,6 @@ class WorkspaceTribe extends Component {
             }/tribe/${user._id}`
           )
           .then(tribeUsers => {
-            console.log("tribeUsers", tribeUsers)
             this.setState(tribeUsers);
             this.setState({ userInTribe: true });
             this.getWorkspaceTribe();

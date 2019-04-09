@@ -7,7 +7,6 @@ class WorkspaceTribe extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
       userInTribe: false
     };
   }
@@ -16,8 +15,8 @@ class WorkspaceTribe extends Component {
 
   componentWillMount() {
     this.getWorkspaceTribe().then(() => {
-      this.isUserInTribe();
-    });
+      console.log(this.state)
+    })
   }
 
   // Récupére les users de la tribe qui a pour workspace celui dont l'id est reçu en props
@@ -30,10 +29,12 @@ class WorkspaceTribe extends Component {
       .then(responseFromApi => {
         const theTribe = responseFromApi.data;
         this.setState(theTribe);
+        // console.log("the tribe properties", theTribe);
       })
       .catch(err => {
         console.log(err);
       });
+    await this.isUserInTribe();
   };
 
   // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
@@ -42,12 +43,11 @@ class WorkspaceTribe extends Component {
       .loggedin()
       .then(user => {
         this.setState({ user: user });
-        console.log(user._id)        
-        console.log(this.state.user._id)
-        console.log(this.state.users.map(user => { return user}).includes(user._id))
-        this.state.users.map(user => { return user._id}).includes(user._id)
+        this.state.users.includes(user._id)
           ? this.setState({ userInTribe: true })
           : this.setState({ userInTribe: false });
+        // console.log("the connected user properties", this.state.user);
+        // console.log("the state", this.state);
         return user._id;
       })
       .catch(err => {
@@ -57,11 +57,11 @@ class WorkspaceTribe extends Component {
 
   // Si l'utilisateur est connecté mais ne fais pas partie de la tribe => joinTheTribe : il rejoint la tribe et ne voit plus le bouton
   joinTheTribe = () => {
-    console.log("is user in tribe ?", this.state.userInTribe)
     this.service
       .loggedin()
       .then(user => {
-        return user;
+        console.log("étape 1- joinTheTribe", user._id);
+        return user._id;
       })
       .then(user => {
         axios
@@ -71,9 +71,12 @@ class WorkspaceTribe extends Component {
             }/tribe/${user._id}`
           )
           .then(tribeUsers => {
-            console.log("tribeUsers", tribeUsers)
             this.setState(tribeUsers);
             this.setState({ userInTribe: true });
+            console.log(
+              "étape 2- this.state après que l'utilisateur ait cliqué sur join the tribe",
+              this.state
+            );
             this.getWorkspaceTribe();
           })
           .catch(err => {

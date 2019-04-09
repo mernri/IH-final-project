@@ -61,7 +61,7 @@ class WorkspaceTribe extends Component {
     this.service
       .loggedin()
       .then(user => {
-        return user;
+        return user._id;
       })
       .then(user => {
         axios

@@ -9,7 +9,10 @@ export default class TribeMemberCard extends Component {
     this.state = {};
   }
 
-  
+  componentDidMount() {
+    // console.log(this.props.user);
+  }
+
   getOneUser = userId => {
     axios.get(`http://localhost:5000/api/user/${userId}`).then(userData => {
       // console.log("hello, i'm the a user in the tribe", userData.data);
