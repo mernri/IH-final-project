@@ -22,30 +22,25 @@ export default class Onboarding extends Component {
 
     this.service.upload(formData).then(response => {
       this.props.updateUser(response);
-      this.setState({picture: response})
     });
-
   };
 
   handleChange = event => {
     const { name, value } = event.target;
+    console.log({ name }, { value });
     this.setState({ [name]: value });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("this.state.fullname",this.state.fullname )
-    console.log("this.state.city",this.state.city )
-    console.log("this.state.occupation",this.state.occupation )
 
     this.service
       .edit(
         this.state.fullname,
-        this.state.city,
         this.state.occupation,
+        this.state.city
       )
       .then(response => {
-        console.log("response we send to update user", response)
         this.props.updateUser(response);
         this.props.history.push("/");
       });
@@ -119,7 +114,7 @@ export default class Onboarding extends Component {
                       name="occupation"
                       className="input"
                       type="text"
-                      placeholder="type your occupation"
+                      placeholder="type your name"
                       value= {this.state.occupation}
                       onChange={this.handleChange}
                     />

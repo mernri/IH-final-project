@@ -35,9 +35,10 @@ class AuthService {
     return this.service.post("/logout", {}).then(response => response.data);
   };
 
-  edit = (fullname, city, occupation) => {
+  edit = (fullname, picture, occupation, city) => {
     return this.service
       .post("/edit", {
+        picture,
         fullname,
         city,
         occupation

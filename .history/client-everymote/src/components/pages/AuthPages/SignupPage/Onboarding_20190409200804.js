@@ -21,10 +21,8 @@ export default class Onboarding extends Component {
     formData.append("photo", event.target.files[0]);
 
     this.service.upload(formData).then(response => {
-      this.props.updateUser(response);
       this.setState({picture: response})
     });
-
   };
 
   handleChange = event => {
@@ -34,12 +32,14 @@ export default class Onboarding extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("this.state.picture",this.state.picture )
     console.log("this.state.fullname",this.state.fullname )
     console.log("this.state.city",this.state.city )
     console.log("this.state.occupation",this.state.occupation )
 
     this.service
       .edit(
+        this.state.picture,
         this.state.fullname,
         this.state.city,
         this.state.occupation,
