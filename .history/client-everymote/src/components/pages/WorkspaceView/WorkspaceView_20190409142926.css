@@ -16,7 +16,7 @@
 .section .workspace-image {
   height: 60vh;
   object-fit: cover;  
-  object-position: 100% 75%; 
+  object-position: 100% 80%; 
 }
 
 .workspace-header {

@@ -38,6 +38,7 @@ tribeRoutes.get("/workspace/:id/tribe", (req, res, next) => {
         .exec()
         .then(theTribe => {
           res.json(theTribe);
+          console.log(theTribe);
         })
         .catch(err => {
           res.json(err);
@@ -63,9 +64,6 @@ tribeRoutes.get("/tribe/:id", (req, res, next) => {
 });
 
 // PUT route => to add a user in a tribe
-
-// vérifier que le userid existe 
-// devrait retourner un ok message plutôt que la tribe
 tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
   const workspaceId = req.params.id;
   const userId = req.params.userid;
@@ -75,8 +73,8 @@ tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
         { workspace: workspaceId },
         { $push: { users: userId } }
       )
-        .then(() => {
-          res.json("Ok");
+        .then(theTribe => {
+          res.json(theTribe);
         })
         .catch(err => {
           res.json(err);

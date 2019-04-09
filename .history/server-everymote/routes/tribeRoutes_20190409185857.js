@@ -75,8 +75,8 @@ tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
         { workspace: workspaceId },
         { $push: { users: userId } }
       )
-        .then(() => {
-          res.json("Ok");
+        .then(theTribe => {
+          res.json(theTribe);
         })
         .catch(err => {
           res.json(err);

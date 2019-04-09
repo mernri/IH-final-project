@@ -45,7 +45,8 @@ class WorkspaceTribe extends Component {
       .loggedin()
       .then(user => {
         this.setState({ user: user });
-        this.setState({ userInTribe: this.state.users.map(user => { return user._id}).includes(user._id) })        
+         this.setState({ userInTribe: this.state.users.map(user => { return user._id}).includes(user._id) })        
+         return user._id;
       })
       .catch(err => {
         console.log(err);
@@ -82,7 +83,6 @@ class WorkspaceTribe extends Component {
   };
 
   render() {
-    console.log(this.state.userInTribe)
     return (
       <div>
         {/* Manque une condition : si l'utilisateur n'est pas connecté et qu'il clique sur "Join the tribe" il faut le rediriger vers le login */}
