@@ -36,16 +36,16 @@ class WorkspaceTribe extends Component {
       });
   };
 
-
- // ATTENTION : NE FONCTIONNE PAS. ME DIT QUE THIS.STATE.USERINTRIBE = FALSE ALORS QUE C'EST TRUE
-// IL FAUT QUE J'ETEIGNE LE SERVEUR PUIS LE REDEMARRE PR QUE LE PROBLEME SOIT CORRIGE. N'ARRIVE PAS A SUPPRIMER UN USER D'UNE TRIBE DEPUIS MONGO
- // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
+  // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
   isUserInTribe = () => {
     this.service
       .loggedin()
       .then(user => {
         this.setState({ user: user });
-        this.state.users.map(user => { return user}).includes(user._id)
+        console.log(user._id)        
+        console.log(this.state.user._id)
+        console.log(this.state.users.map(user => { return user}).includes(user._id))
+        this.state.users.map(user => { return user._id}).includes(user._id)
          && this.setState({ userInTribe: true })        
          return user._id;
       })
@@ -56,6 +56,7 @@ class WorkspaceTribe extends Component {
 
   // Si l'utilisateur est connecté mais ne fais pas partie de la tribe => joinTheTribe : il rejoint la tribe et ne voit plus le bouton
   joinTheTribe = () => {
+    console.log("is user in tribe ?", this.state.userInTribe)
     this.service
       .loggedin()
       .then(user => {

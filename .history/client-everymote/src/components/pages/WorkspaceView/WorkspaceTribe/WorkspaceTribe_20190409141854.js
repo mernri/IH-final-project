@@ -38,8 +38,7 @@ class WorkspaceTribe extends Component {
 
 
  // ATTENTION : NE FONCTIONNE PAS. ME DIT QUE THIS.STATE.USERINTRIBE = FALSE ALORS QUE C'EST TRUE
-// IL FAUT QUE J'ETEIGNE LE SERVEUR PUIS LE REDEMARRE PR QUE LE PROBLEME SOIT CORRIGE. N'ARRIVE PAS A SUPPRIMER UN USER D'UNE TRIBE DEPUIS MONGO
- // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
+  // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
   isUserInTribe = () => {
     this.service
       .loggedin()
