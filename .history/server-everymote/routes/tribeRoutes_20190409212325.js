@@ -62,10 +62,27 @@ tribeRoutes.get("/tribe/:id", (req, res, next) => {
     });
 });
 
-// PUT route => to add a user in a tribe
+// DELETE route => to delete a specific task
+router.delete("/tasks/:id", (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: "Specified id is not valid" });
+    return;
+  }
 
-// vérifier que le userid existe 
-// devrait retourner un ok message plutôt que la tribe
+  Task.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.json({
+        message: `Task with ${req.params.id} is removed successfully.`
+      });
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+// PUT route => to add a user in a tribe
+// manque: vérifier que le userid existe 
+// devrait: retourner un ok message plutôt que la tribe
 tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
   const workspaceId = req.params.id;
   const userId = req.params.userid;
@@ -75,7 +92,7 @@ tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
         { workspace: workspaceId },
         { $push: { users: userId } }
       )
-        .then(theTribe => {
+        .then(() => {
           res.json("Ok");
         })
         .catch(err => {
