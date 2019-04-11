@@ -27,11 +27,8 @@
   background-color: white;
   border-radius: 5px;
   color: #2091eb;
-  padding: 3px 5px 3px 5px;
-}
-
-.profile-info .jointribe {
-    margin-top: 10px
+  padding: 2px 5px 2px 5px;
+  margin-top: 50px
 }
 
 .profile-content {

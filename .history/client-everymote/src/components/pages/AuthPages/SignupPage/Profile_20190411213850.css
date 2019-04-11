@@ -1,0 +1,40 @@
+.profile-card {
+  margin: 3vh 15vw 1vh 15vw;
+  padding: 3vh 2vw 3vh 2vw;
+  background-color: #2091EB;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.02);
+  display: flex;
+  color: white
+}
+
+.profile-card p {
+  color: white;
+}
+
+
+
+.profile-info {
+    margin-left: 20px;
+    margin-top: 5px;
+    width: auto;
+    text-align: left
+}
+.profile-info p {
+    width: auto;
+    margin: 0;
+}
+
+.profile-content {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.03);
+  margin: 2vh 15vw 10vh 15vw;
+  padding-top: 20vh;
+  padding-bottom: 5vh;
+}
+
+.body {
+  height: 100vh;
+}
