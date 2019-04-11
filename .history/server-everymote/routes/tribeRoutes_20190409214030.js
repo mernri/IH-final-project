@@ -48,20 +48,23 @@ tribeRoutes.get("/workspace/:id/tribe", (req, res, next) => {
     });
 });
 
-// // DELETE route => to delete the users of a specfic tribe NOT WORKING
-// tribeRoutes.delete("/tribe/:id/:userid", (req, res, next) => {
-//   Tribe.findById(req.params.id)
-//     .then(theTribe => {
-//       theTribe.users.findById(req.params.userid)
-//       .then(theUser => {
-//         res.json(theUser);
-//         console.log(theUser);
-//       })
-//       .catch(err => {
-//         res.json(err);
-//       });
-//     })
-// });
+// DELETE route => to retrieve the users of a specfic tribe
+tribeRoutes.delete("/tribe/:id/:userid", (req, res, next) => {
+  Tribe.findById(req.params.id)
+    .populate("users")    
+    .exec()
+    .then(theTribe => {
+      theTribe.users.findById(req.params.userid)
+      .then(theUser => {
+        res.json(theUser);
+        console.log(theUser);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+    })
+
+});
 
 // GET route => to retrieve the users of a specfic tribe
 tribeRoutes.get("/tribe/:id", (req, res, next) => {
@@ -77,8 +80,11 @@ tribeRoutes.get("/tribe/:id", (req, res, next) => {
     });
 });
 
+
+
+
 // PUT route => to add a user in a tribe
-// vérifier que le userid existe
+// vérifier que le userid existe 
 // devrait retourner un ok message plutôt que la tribe
 tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
   const workspaceId = req.params.id;
@@ -100,5 +106,6 @@ tribeRoutes.put("/workspace/:id/tribe/:userid", (req, res, next) => {
       res.json(err);
     });
 });
+
 
 module.exports = tribeRoutes;

@@ -40,7 +40,7 @@ class CityCard extends React.Component {
       <div className="card">
         <Link to={`/workspaces/${this.props.city}`}>
           <img className="cityPicture" src={this.props.picture} alt="" />
-          <div className="is-overlay city-card">
+          <div>
             <h3>{this.props.city}</h3>
             <img src={imgurl} alt="" />
             <p>{Math.trunc(this.state.temperature - 273.15)}°C</p>

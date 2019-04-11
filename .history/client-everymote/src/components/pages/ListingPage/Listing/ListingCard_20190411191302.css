@@ -7,16 +7,12 @@
 
 .image img {
   border-radius: 10px 10px 0px 0px;
-  height: 100%;
   width: 100%;
   z-index: -1;
-  object-fit: cover;
 }
 
-.image {
-  width: 100%;
-  object-fit: cover;
-  height: 100%;
+img {
+  width: 100%
 }
 
 .content {
@@ -24,9 +20,7 @@
   background-color: white;
   border-radius: 8px;
 }
-.card-price {
-  color: black
-}
+
 
 .card:hover {
   transform: scale(1.035, 1.035);

@@ -16,16 +16,14 @@
 .image {
   width: 100%;
   object-fit: cover;
-  height: 100%;
+
 }
+
 
 .content {
   margin-top: 3%;
   background-color: white;
   border-radius: 8px;
-}
-.card-price {
-  color: black
 }
 
 .card:hover {

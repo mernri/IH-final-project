@@ -30,9 +30,9 @@ p {
 } */
 
 
-.card:hover {
-  transform: scale(1.035, 1.035);
-  /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);*/
+.card:hover { */
+  /* transform: scale(1.035, 1.035); */
+  /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 
