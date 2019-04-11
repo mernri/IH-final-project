@@ -1,0 +1,20 @@
+.profile-card {
+  margin: 5vh 20vw 3vh 20vw;
+  padding-top: 3vh;
+  padding-bottom: 2vh;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+.profile-content {
+  background-color: white;
+  color: black;
+  margin: 5vh 20vw 3vh 20vw;
+  padding-top: 20vh;
+  padding-bottom: 5vh;
+}
+
+.body {
+    height: 100vh
+}

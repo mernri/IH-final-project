@@ -77,6 +77,7 @@ export default class Onboarding extends Component {
 
                 <form onSubmit={this.handleFormSubmit}>
                   {/* Profile Picture upload */}
+
                   {!this.state.picture ? (
                     <label>
                       <img

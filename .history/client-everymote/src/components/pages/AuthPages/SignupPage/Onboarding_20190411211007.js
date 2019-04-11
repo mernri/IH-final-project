@@ -66,7 +66,7 @@ export default class Onboarding extends Component {
     //   return <Redirect to="/workspaces" />;
     // }
 
-     return (
+    return (
       <div>
         {!this.state.isProfileComplete ? (
           <div className="hero-body">
@@ -77,6 +77,7 @@ export default class Onboarding extends Component {
 
                 <form onSubmit={this.handleFormSubmit}>
                   {/* Profile Picture upload */}
+
                   {!this.state.picture ? (
                     <label>
                       <img

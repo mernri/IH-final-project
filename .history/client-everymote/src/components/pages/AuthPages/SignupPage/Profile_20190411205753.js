@@ -5,8 +5,8 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <div className="profile-card">
-          <article>
+        <div>
+          <article className="profile-card">
             <img
               src={this.props.user.picture}
               alt="Avatar"
@@ -19,13 +19,7 @@ export default class Profile extends Component {
           </article>
         </div>
         <div className="profile-content">
-          coucou je suis le contenu de la classe profile-content
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          
+          <p> coucou </p>
         </div>
       </div>
     );
