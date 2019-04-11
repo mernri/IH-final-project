@@ -16,7 +16,6 @@ export default class Profile extends Component {
           <div className="profile-info">
             <h2>{this.props.user.fullname || this.props.user.fullName}</h2>
             <p>{this.props.user.occupation}</p>
-            <p> <a href="/workspaces"> > join a tribe </a></p>
           </div>
         </div>
         <div className="profile-content">

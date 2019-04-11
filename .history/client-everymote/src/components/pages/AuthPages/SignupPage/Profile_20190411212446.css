@@ -1,6 +1,7 @@
 .profile-card {
-  margin: 3vh 15vw 1vh 15vw;
-  padding: 3vh 2vw 3vh 2vw;
+  margin: 3vh 20vw 1vh 20vw;
+  padding-top: 3vh;
+  padding-bottom: 2vh;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.02);
@@ -8,21 +9,7 @@
 }
 
 .profile-card p {
-  color: black;
-}
-
-.profile-picture {
-
-}
-.profile-info {
-    margin-left: 20px;
-    margin-top: 5px;
-    width: auto;
-    text-align: left
-}
-.profile-info p {
-    width: auto;
-    margin: 0;
+ color: black
 }
 
 .profile-content {
@@ -30,7 +17,7 @@
   color: black;
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.03);
-  margin: 2vh 15vw 10vh 15vw;
+  margin: 2vh 10vw 10vh 10vw;
   padding-top: 20vh;
   padding-bottom: 5vh;
 }
