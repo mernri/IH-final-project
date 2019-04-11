@@ -56,6 +56,7 @@ export default class Onboarding extends Component {
         user: user,
         isProfileComplete: true
       });
+      console.log(user)
       return user.fullname && user.city;
     });
   };
@@ -153,7 +154,7 @@ export default class Onboarding extends Component {
             </div>
           </div>
         ) : (
-          <Profile user={this.state.user}/>
+          <Profile />
         )}
       </div>
     );

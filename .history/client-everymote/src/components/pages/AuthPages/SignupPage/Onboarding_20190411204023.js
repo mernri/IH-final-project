@@ -52,11 +52,11 @@ export default class Onboarding extends Component {
 
   isProfileComplete = () => {
     this.service.loggedin().then(user => {
-      this.setState({
-        user: user,
-        isProfileComplete: true
-      });
+      this.setState({ user: user})
       return user.fullname && user.city;
+    });
+    this.setState({
+      isProfileComplete: true
     });
   };
 
@@ -153,7 +153,7 @@ export default class Onboarding extends Component {
             </div>
           </div>
         ) : (
-          <Profile user={this.state.user}/>
+          <Profile/>
         )}
       </div>
     );

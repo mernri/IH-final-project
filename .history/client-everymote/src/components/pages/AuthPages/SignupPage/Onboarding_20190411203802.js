@@ -17,7 +17,7 @@ export default class Onboarding extends Component {
   }
 
   componentDidMount() {
-    this.isProfileComplete();
+    this.isProfileComplete()
   }
 
   service = new AuthService();
@@ -52,11 +52,10 @@ export default class Onboarding extends Component {
 
   isProfileComplete = () => {
     this.service.loggedin().then(user => {
-      this.setState({
-        user: user,
-        isProfileComplete: true
-      });
-      return user.fullname && user.city;
+      return (user.fullname && user.city);
+    });
+    this.setState({
+      isProfileComplete: true
     });
   };
 
@@ -153,7 +152,7 @@ export default class Onboarding extends Component {
             </div>
           </div>
         ) : (
-          <Profile user={this.state.user}/>
+         <div> coucou le monde !! </div>
         )}
       </div>
     );

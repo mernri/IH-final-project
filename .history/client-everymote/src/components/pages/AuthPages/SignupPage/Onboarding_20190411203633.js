@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../Authservices.js";
-import Profile from "./Profile.js";
+import Profile from "./Profile.js"
 import { Redirect } from "react-router-dom";
 
 export default class Onboarding extends Component {
@@ -14,10 +14,6 @@ export default class Onboarding extends Component {
       // redirectToListing: false,
       isProfileComplete: false
     };
-  }
-
-  componentDidMount() {
-    this.isProfileComplete();
   }
 
   service = new AuthService();
@@ -51,12 +47,13 @@ export default class Onboarding extends Component {
   };
 
   isProfileComplete = () => {
-    this.service.loggedin().then(user => {
-      this.setState({
-        user: user,
-        isProfileComplete: true
-      });
-      return user.fullname && user.city;
+    this.service
+      .loggedin()
+      .then(user => {
+        return (user.fullname && user.city);
+      })
+    this.setState({
+      isProfileComplete: true
     });
   };
 
@@ -153,7 +150,7 @@ export default class Onboarding extends Component {
             </div>
           </div>
         ) : (
-          <Profile user={this.state.user}/>
+          <Profile/>
         )}
       </div>
     );

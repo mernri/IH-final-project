@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 class CityCard extends React.Component {
   state = {
-    temps: "il fait si beau",
-    temperature: "tu peux même te baigner"
+    temps: "?",
+    temperature: "?"
   };
 
   componentDidMount() {
@@ -37,7 +37,37 @@ class CityCard extends React.Component {
   render() {
     const imgurl = `https://openweathermap.org/img/w/${this.state.temps}.png`;
     return (
-      <div className="card">
+      <div className="card" style={{height:"100%"}}>
+        {/* <div className="card is-shady" > */}
+          <div className="card-image" style={{height:"80%"}}>
+            <figure className="image is-5by3s">
+              <img src={this.props.pictures[0]} alt="Placeholder" />
+            </figure>
+          </div>
+
+          <div className="content">
+            <div className="media">
+              <div className="media-left" />
+              <div className="media-content">
+                <div className="columns">
+                  <p className="subtitle column is-two-thirds">
+                    <strong> {this.props.name} </strong>
+                  </p>
+                  <p className="column card-price"> €{this.props.monthlyPrice} /mo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        {/* </div> */}
+      </div>
+    );
+  }
+}
+export default CityCard;
+
+
+      {/* <div className="card">
         <Link to={`/workspaces/${this.props.city}`}>
           <img className="cityPicture" src={this.props.picture} alt="" />
           <div className="is-overlay city-card">
@@ -47,8 +77,4 @@ class CityCard extends React.Component {
             <p>{this.props.numberOfSpaces} Tribes</p>
           </div>
         </Link>
-      </div>
-    );
-  }
-}
-export default CityCard;
+      </div> */}

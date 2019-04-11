@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class CityCard extends React.Component {
   state = {
     temps: "il fait si beau",
-    temperature: "tu peux même te baigner"
+    temperature: "tu peux te baigner"
   };
 
   componentDidMount() {

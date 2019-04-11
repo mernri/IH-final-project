@@ -81,7 +81,6 @@ class WorkspaceTribe extends Component {
       });
   };
 
-
   render() {
     return (
       <div>

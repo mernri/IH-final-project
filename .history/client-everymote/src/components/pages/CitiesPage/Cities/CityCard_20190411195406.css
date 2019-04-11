@@ -19,7 +19,7 @@ p {
   margin: 0 0 20px 20px;
   letter-spacing: 0.5px;
 }
-
+/* 
 /* .cityPicture {
   height: auto;
   max-width: 100%;
@@ -28,7 +28,7 @@ p {
   z-index: -1;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 } */
-
+ */
 
 .card:hover {
   transform: scale(1.035, 1.035);
@@ -37,6 +37,6 @@ p {
 
 
 .city-card {
-  background:  rgba(0, 0, 0, 0.75);
+  background:  rgba(0, 0, 0, 0.5);
   /* transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); */
 }
