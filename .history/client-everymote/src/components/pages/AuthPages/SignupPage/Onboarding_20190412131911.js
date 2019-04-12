@@ -53,7 +53,7 @@ export default class Onboarding extends Component {
 
   isProfileComplete = () => {
     this.service.loggedin().then(user => {
-      if (user.fullname && user.city) {
+      if (user.fullname && user.city && user.occupation) {
         this.setState({
           user: user,
           isProfileComplete: true
