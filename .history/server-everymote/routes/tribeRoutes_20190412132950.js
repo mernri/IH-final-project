@@ -88,7 +88,7 @@ tribeRoutes.delete("/workspace/:id/tribe/:userid", (req, res, next) => {
         { $pull: { users: userId } }
       )
         .then(theTribe => {
-          res.json(theTribe);
+          res.json("Ok");
         })
         .catch(err => {
           res.json(err);

@@ -23,19 +23,23 @@ export default class TribeMemberCard extends Component {
     console.log(this.props.user);
     return (
       <div>
-        <div>
-          <article>
-            <img
-              src={this.props.user.picture}
-              alt="Avatar"
-              className="avatar profile-photo"
-            />
-            <div className="profile-info">
-              <h2>{this.props.user.fullname || this.props.user.fullName}</h2>
-              <p>{this.props.user.occupation}</p>
-            </div>
-          </article>
-        </div>
+        {this.pros.isUserInTribe ? (
+          <div> You're not in the tribe ! </div>
+        ) : (
+          <div>
+            <article>
+              <img
+                src={this.props.user.picture}
+                alt="Avatar"
+                className="avatar profile-photo"
+              />
+              <div className="profile-info">
+                <h2>{this.props.user.fullname || this.props.user.fullName}</h2>
+                <p>{this.props.user.occupation}</p>
+              </div>
+            </article>
+          </div>
+        )}
       </div>
     );
   }

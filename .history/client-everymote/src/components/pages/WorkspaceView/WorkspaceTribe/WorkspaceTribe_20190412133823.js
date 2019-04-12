@@ -135,7 +135,7 @@ class WorkspaceTribe extends Component {
             {this.state.users.map(user => {
               return (
                 <div key={user._id}>
-                  <TribeMemberCard user={user} />
+                  <TribeMemberCard user={user} isUserInTribe={this.state.isUserInTribe}/>
                 </div>
               );
             })}

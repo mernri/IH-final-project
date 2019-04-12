@@ -36,21 +36,16 @@ class WorkspaceTribe extends Component {
       });
   };
 
-  // ATTENTION : NE FONCTIONNE PAS. ME DIT QUE THIS.STATE.USERINTRIBE = FALSE ALORS QUE C'EST TRUE
-  // IL FAUT QUE J'ETEIGNE LE SERVEUR PUIS LE REDEMARRE PR QUE LE PROBLEME SOIT CORRIGE. N'ARRIVE PAS A SUPPRIMER UN USER D'UNE TRIBE DEPUIS MONGO
-  // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
+
+ // ATTENTION : NE FONCTIONNE PAS. ME DIT QUE THIS.STATE.USERINTRIBE = FALSE ALORS QUE C'EST TRUE
+// IL FAUT QUE J'ETEIGNE LE SERVEUR PUIS LE REDEMARRE PR QUE LE PROBLEME SOIT CORRIGE. N'ARRIVE PAS A SUPPRIMER UN USER D'UNE TRIBE DEPUIS MONGO
+ // Vérifie si l'utilisateur est dans la tribe pour décider s'il doit voir le bouton ou non
   isUserInTribe = () => {
     this.service
       .loggedin()
       .then(user => {
         this.setState({ user: user });
-        this.setState({
-          userInTribe: this.state.users
-            .map(user => {
-              return user._id;
-            })
-            .includes(user._id)
-        });
+        this.setState({ userInTribe: this.state.users.map(user => { return user._id}).includes(user._id) })        
       })
       .catch(err => {
         console.log(err);
@@ -72,7 +67,7 @@ class WorkspaceTribe extends Component {
             }/tribe/${user._id}`
           )
           .then(tribeUsers => {
-            console.log("tribeUsers", tribeUsers);
+            console.log("tribeUsers", tribeUsers)
             this.setState(tribeUsers);
             this.setState({ userInTribe: true });
             this.getWorkspaceTribe();
@@ -86,24 +81,20 @@ class WorkspaceTribe extends Component {
       });
   };
 
-  // Leave the tribe
   leaveTheTribe = () => {
-    this.state.userInTribe.then(() => {
-      const user = this.state.user._id;
-      axios
-        .delete(
-          `http://localhost:5000/api/workspace/${
-            this.props.workspaceId
-          }/tribe/${user._id}`
-        )
-        .then(theTribe => {
-          this.setState(theTribe);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    });
-  };
+    (this.state.userInTribe).then(() => {
+      const user = this.state.user._id
+      axios.delete(`http://localhost:5000/api/workspace/${
+        this.props.workspaceId
+      }/tribe/${user._id}`)
+      .then(theTribe => {
+        
+      })
+    }) 
+
+  
+  }
+
 
   render() {
     return (
@@ -129,7 +120,7 @@ class WorkspaceTribe extends Component {
           )}
         </div>
 
-        {/* Render the TribeMemberCards once this.state.users is in the state */}
+        {/* Render the TribeMemberCard once this.state.users is in the state */}
         {this.state.users ? (
           <div>
             {this.state.users.map(user => {

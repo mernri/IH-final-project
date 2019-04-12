@@ -86,7 +86,6 @@ class WorkspaceTribe extends Component {
       });
   };
 
-  // Leave the tribe
   leaveTheTribe = () => {
     this.state.userInTribe.then(() => {
       const user = this.state.user._id;

@@ -86,7 +86,6 @@ class WorkspaceTribe extends Component {
       });
   };
 
-  // Leave the tribe
   leaveTheTribe = () => {
     this.state.userInTribe.then(() => {
       const user = this.state.user._id;
@@ -129,7 +128,7 @@ class WorkspaceTribe extends Component {
           )}
         </div>
 
-        {/* Render the TribeMemberCards once this.state.users is in the state */}
+        {/* Render the TribeMemberCard once this.state.users is in the state */}
         {this.state.users ? (
           <div>
             {this.state.users.map(user => {

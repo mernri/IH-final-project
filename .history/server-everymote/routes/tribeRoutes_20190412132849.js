@@ -77,18 +77,20 @@ tribeRoutes.get("/tribe/:id", (req, res, next) => {
     });
 });
 
+
+
 // DELETE route => to add a user in a tribe
-tribeRoutes.delete("/workspace/:id/tribe/:userid", (req, res, next) => {
+tribeRoutes.pudt("/workspace/:id/tribe/:userid", (req, res, next) => {
   const workspaceId = req.params.id;
   const userId = req.params.userid;
   Workspace.findById(workspaceId)
     .then(workspaceId => {
       Tribe.findOneAndUpdate(
         { workspace: workspaceId },
-        { $pull: { users: userId } }
+        { $push: { users: userId } }
       )
         .then(theTribe => {
-          res.json(theTribe);
+          res.json("Ok");
         })
         .catch(err => {
           res.json(err);
@@ -98,6 +100,8 @@ tribeRoutes.delete("/workspace/:id/tribe/:userid", (req, res, next) => {
       res.json(err);
     });
 });
+
+
 
 // PUT route => to add a user in a tribe
 // vérifier que le userid existe
