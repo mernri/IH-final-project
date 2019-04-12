@@ -78,6 +78,7 @@ tribeRoutes.get("/tribe/:id", (req, res, next) => {
 });
 
 // DELETE route => to deleta a user from a tribe
+// This route works BUT IT DOE
 tribeRoutes.delete("/workspace/:id/tribe/:userid", (req, res, next) => {
   const workspaceId = req.params.id;
   const userId = req.params.userid;
@@ -88,7 +89,7 @@ tribeRoutes.delete("/workspace/:id/tribe/:userid", (req, res, next) => {
         { $pull: { users: userId } }
       )
         .then(theTribe => {
-          res.json("Ok");
+          res.json("OK");
         })
         .catch(err => {
           res.json(err);
