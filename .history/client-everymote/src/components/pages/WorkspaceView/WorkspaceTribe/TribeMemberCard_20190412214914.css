@@ -1,0 +1,50 @@
+article {
+  display: flex;
+  height: auto;
+  overflow: auto;
+  width: auto;
+  background-color: brown
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover
+}
+
+.useravatar {
+  width: auto
+}
+
+article p {
+  color: grey;
+  margin-bottom: 0px;
+}
+
+.userprofile-info {
+  display: block;
+  width: 50%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  background-color:yellow
+}
+
+.userprofile-info h2 {
+  margin-top: 0px;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  article .profile-info {
+    padding: 0 30px;
+  }
+}
