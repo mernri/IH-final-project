@@ -1,0 +1,38 @@
+.card {
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+  transition: 0.8s cubic-bezier(0, 0.2, 0.2, 1);
+  margin: 20px 10px;
+}
+
+.image img {
+  border-radius: 10px 10px 0px 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.content {
+  margin-top: 3%;
+  background-color: white;
+  border-radius: 8px;
+}
+.card-price {
+  color: black
+}
+
+.card:hover {
+  transform: scale(1.035, 1.035);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover img {
+  transform: translateY(-10px);
+}
