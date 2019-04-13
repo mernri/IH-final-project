@@ -29,15 +29,16 @@ class AuthService {
 
   jointribe = (tribeid, userid) => {
     return this.service
-      .post("/jointribe", { tribeid, userid })
+      .post("/jointribe", {tribeid, userid})
       .then(response => response.data);
   };
 
-  leavetribe = userid => {
+  leavetribe = (userid) => {
     return this.service
-      .post("/leavetribe", { userid })
+      .post("/leavetribe", {userid})
       .then(response => response.data);
   };
+
 
   loggedin = () => {
     return this.service.get("/loggedin").then(response => response.data);

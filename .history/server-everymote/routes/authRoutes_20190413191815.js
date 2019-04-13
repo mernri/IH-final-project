@@ -178,6 +178,7 @@ authRoutes.post("/jointribe", (req, res, next) => {
 
 // POST Route - Leave a TRIBE
 authRoutes.post("/leavetribe", (req, res, next) => {
+  const tribeId = req.body.tribeid;
   const userId = req.body.userid;
   // 1. Check user is logged in
   if (!req.isAuthenticated()) {
@@ -187,7 +188,7 @@ authRoutes.post("/leavetribe", (req, res, next) => {
     return;
   }
 
-  User.findOneAndUpdate({ _id: userId }, { $unset: { tribe: "" } })
+  User.findOneAndUpdate({ _id: userId }, {  $unset: {tribe: "" }})
     .then(theUser => {
       console.log(theUser);
       res.json(theUser);

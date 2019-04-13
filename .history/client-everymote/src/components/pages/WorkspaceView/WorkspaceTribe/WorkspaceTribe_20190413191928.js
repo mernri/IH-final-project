@@ -85,7 +85,7 @@ class WorkspaceTribe extends Component {
         .catch(err => {
           console.log(err);
         });
-
+        
       await this.service
         .leavetribe(this.props.user._id)
         .then(response => {
