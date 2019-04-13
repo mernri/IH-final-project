@@ -7,12 +7,13 @@ export default class TribeMemberCard extends Component {
 
 
   render() {
+    console.log(this.props.isUserInTribe())
     return (
       <div>
         <div className="user-card">
           <article>
             <div className="useravatar">
-              {(this.props.user._id === this.props.tribeMember._id) && (
+              {this.props.user && (
                 <img
                   src="https://material.io/tools/icons/static/icons/baseline-close-24px.svg"
                   alt=""

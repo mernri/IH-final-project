@@ -100,14 +100,14 @@ class WorkspaceTribe extends Component {
           )}
         </div>
         {/* Render the TribeMemberCards once this.state.users is in the state */}
-        {this.state.users ? (
+        {this.state.users && this.isUserInTribe() === true ? (
           <div>
             {this.state.users.map(tribeMember => {
               return (
                 <div key={tribeMember._id}>
                   <TribeMemberCard
                     tribeMember={tribeMember}
-                    isUserInTribe={this.isUserInTribe()}
+                    isUserInTribe={()=> {this.isUserInTribe()}}
                     user={this.props.user}
                     removeUser={this.leaveTheTribe}
                   />

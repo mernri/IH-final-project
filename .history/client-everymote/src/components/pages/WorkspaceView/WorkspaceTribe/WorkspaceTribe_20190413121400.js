@@ -107,7 +107,6 @@ class WorkspaceTribe extends Component {
                 <div key={tribeMember._id}>
                   <TribeMemberCard
                     tribeMember={tribeMember}
-                    isUserInTribe={this.isUserInTribe()}
                     user={this.props.user}
                     removeUser={this.leaveTheTribe}
                   />

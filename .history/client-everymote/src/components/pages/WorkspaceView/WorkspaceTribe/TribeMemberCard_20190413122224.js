@@ -12,7 +12,7 @@ export default class TribeMemberCard extends Component {
         <div className="user-card">
           <article>
             <div className="useravatar">
-              {(this.props.user._id === this.props.tribeMember._id) && (
+              {(this.props.user && this.props.isUserInTribe === true) && (
                 <img
                   src="https://material.io/tools/icons/static/icons/baseline-close-24px.svg"
                   alt=""
