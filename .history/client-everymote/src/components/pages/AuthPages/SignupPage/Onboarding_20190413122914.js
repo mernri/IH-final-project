@@ -52,12 +52,11 @@ export default class Onboarding extends Component {
   };
 
   isProfileComplete = () => {
-    if (this.props.user.fullname && this.props.user.city) {
-      this.setState({
-        user: this.props.user,
-        isProfileComplete: true
-      });
-    }
+      if (this.props.user.fullname && this.props.user.city) {
+        this.setState({
+          user: this.props.user,
+          isProfileComplete: true
+        });
   };
 
   render() {

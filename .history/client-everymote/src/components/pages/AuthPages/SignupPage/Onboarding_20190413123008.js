@@ -11,7 +11,6 @@ export default class Onboarding extends Component {
       fullname: "",
       city: "",
       occupation: "",
-      // redirectToListing: false,
       isProfileComplete: false,
       user: {}
     };

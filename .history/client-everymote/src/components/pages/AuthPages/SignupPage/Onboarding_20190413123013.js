@@ -11,7 +11,6 @@ export default class Onboarding extends Component {
       fullname: "",
       city: "",
       occupation: "",
-      // redirectToListing: false,
       isProfileComplete: false,
       user: {}
     };
@@ -61,10 +60,6 @@ export default class Onboarding extends Component {
   };
 
   render() {
-    // if (this.state.redirectToListing) {
-    //   return <Redirect to="/workspaces" />;
-    // }
-
     return (
       <div>
         {!this.state.isProfileComplete ? (

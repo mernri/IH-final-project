@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./TribeMemberCard.css";
 
 export default class TribeMemberCard extends Component {
