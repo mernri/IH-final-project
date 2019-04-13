@@ -50,7 +50,7 @@ export default class Profile extends Component {
             />
           </div>
           <div className="profile-info">
-            <h2>{this.props.user.fullname || this.props.user.fullName}</h2>
+            <h1>{this.props.user.fullname || this.props.user.fullName}</h1>
             <p>{this.props.user.occupation}</p>
             {this.state.tribename && (
               <p className="jointribe">

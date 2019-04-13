@@ -52,11 +52,9 @@ export default class Profile extends Component {
           <div className="profile-info">
             <h2>{this.props.user.fullname || this.props.user.fullName}</h2>
             <p>{this.props.user.occupation}</p>
-            {this.state.tribename && (
+            {this.getTribeName() && (
               <p className="jointribe">
-                {this.state.tribename || (
-                  <a href="/workspaces"> join a tribe </a>
-                )}
+                { this.state.tribename || <a href="/workspaces"> join a tribe </a>}
               </p>
             )}
           </div>

@@ -35,7 +35,7 @@ tribeRoutes.get("/workspace/:id/tribe", (req, res, next) => {
     .then(workspaceId => {
       Tribe.findOne({ workspace: workspaceId })
         .populate("users")
-        .populate("workspace")
+        // .populate("workspace")
         .exec()
         .then(theTribe => {
           res.json(theTribe);
