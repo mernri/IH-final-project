@@ -56,7 +56,7 @@ class ListingPage extends React.Component {
           this.setState({
             listOfWorkspaces: responseFromApi.data
           });
-          this.props.history.replace(`/workspaces/${city}`);
+          this.props.history.push(`/workspaces/${city}`);
         })
         .catch(error => console.log(error));
     } else if (this.props.match.params.city) {
@@ -74,6 +74,8 @@ class ListingPage extends React.Component {
               this.getWorkspaces();
             }
           );
+
+          // this.props.history.push(`/workspaces/${cityInURL}`);
         })
         .catch(error => console.log(error));
     } else {

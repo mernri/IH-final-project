@@ -74,6 +74,8 @@ class ListingPage extends React.Component {
               this.getWorkspaces();
             }
           );
+
+          this.props.history.psuh(`/workspaces/${cityInURL}`);
         })
         .catch(error => console.log(error));
     } else {

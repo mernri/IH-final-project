@@ -140,9 +140,9 @@ class WorkspaceView extends React.Component {
               </span>
             </div>
 
-            {/* <div className="workspace-map">              
+            <div className="workspace-map">              
               <WorkspaceMap address={this.getFullAddress()} /> 
-            </div> */}
+            </div>
           </section>
         </section>
       </div>

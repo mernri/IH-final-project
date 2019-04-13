@@ -15,7 +15,7 @@ export default class WorkspaceMap extends Component {
   }
 
   addressToGeoCoordinates = address => {
-    const APIKEY = "PbKMWdkq7KbuZum0QVaL8bCCeyYRQClC";
+    const APIKEY = "lIlwmyAyKX9cCMCpWgsLXGS5ZWvrNG0X";
     const url = `http://open.mapquestapi.com/geocoding/v1/address?key=${APIKEY}&location=${address}`;
     axios.get(url).then(
       function(response) {

@@ -38,5 +38,6 @@ p {
 
 .city-card {
   background:  rgba(0, 0, 0, 0.6);
+  position: absolute;
   /* transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); */
 }

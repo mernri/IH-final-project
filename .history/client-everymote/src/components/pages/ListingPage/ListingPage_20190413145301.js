@@ -74,6 +74,7 @@ class ListingPage extends React.Component {
               this.getWorkspaces();
             }
           );
+
         })
         .catch(error => console.log(error));
     } else {

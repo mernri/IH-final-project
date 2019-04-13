@@ -41,7 +41,7 @@ class WorkspaceView extends React.Component {
         {/* TOP PICTURE */}
         <section className="section workspace-photos">
           <figure className="image">
-            <img className="workspace-image" src={this.state.pictures} alt="" />
+            <img className="workspace-image"  src={this.state.pictures} alt="" />
           </figure>
         </section>
 
@@ -114,16 +114,12 @@ class WorkspaceView extends React.Component {
               <strong>Tribe</strong>
             </div>
             {/* check si j'ai l'id du workspace (pour trouver la tribe) et l'id du loggedin user (pour voir s'il fait partie de la tribe) */}
-            {this.state._id && this.props.user ? (
-              <WorkspaceTribe
-                workspaceId={this.state._id}
-                user={this.props.user}
-              />
-            ) : (
-              <div>
-                DÉSO, JE N'AI PAS L'ID DU WORKSPACE ET LE USER QUI EST LOGGEDIN
-              </div>
-            )}
+            {
+              (this.state._id &&  this.props.user) ?
+              <WorkspaceTribe workspaceId={this.state._id} user={this.props.user} />
+              :
+              <div> DÉSO, JE N'AI PAS L'ID DU WORKSPACE ET LE USER QUI EST LOGGEDIN</div>
+            }
           </section>
 
           {/* Location */}
@@ -140,9 +136,9 @@ class WorkspaceView extends React.Component {
               </span>
             </div>
 
-            {/* <div className="workspace-map">              
-              <WorkspaceMap address={this.getFullAddress()} /> 
-            </div> */}
+            <div className="workspace-map"> */}
+              {/* <WorkspaceMap address={this.getFullAddress()} /> */}
+            {/* </div>
           </section>
         </section>
       </div>

@@ -47,6 +47,7 @@ class ListingPage extends React.Component {
   };
 
   // 1/ vérifie si citySearched est dans le state. Si ce n'est pas le cas, vérifie si citySearched est dans l'url. Sinon renvoie tous les workspaces.
+
   getWorkspaces = () => {
     if (this.state.citySearched !== "") {
       const city = this.state.citySearched;
@@ -56,7 +57,7 @@ class ListingPage extends React.Component {
           this.setState({
             listOfWorkspaces: responseFromApi.data
           });
-          this.props.history.replace(`/workspaces/${city}`);
+          this.props.history.push(`/workspaces/${city}`);
         })
         .catch(error => console.log(error));
     } else if (this.props.match.params.city) {
@@ -74,6 +75,8 @@ class ListingPage extends React.Component {
               this.getWorkspaces();
             }
           );
+
+          this.props.history.push(`/workspaces/${cityInURL}`);
         })
         .catch(error => console.log(error));
     } else {

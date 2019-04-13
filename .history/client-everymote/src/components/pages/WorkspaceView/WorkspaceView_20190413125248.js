@@ -121,6 +121,7 @@ class WorkspaceView extends React.Component {
               />
             ) : (
               <div>
+                {" "}
                 DÉSO, JE N'AI PAS L'ID DU WORKSPACE ET LE USER QUI EST LOGGEDIN
               </div>
             )}
@@ -140,9 +141,11 @@ class WorkspaceView extends React.Component {
               </span>
             </div>
 
-            {/* <div className="workspace-map">              
-              <WorkspaceMap address={this.getFullAddress()} /> 
-            </div> */}
+            <div className="workspace-map">
+              {" "}
+              */}
+              <WorkspaceMap address={this.getFullAddress()} /> */}
+            </div>
           </section>
         </section>
       </div>
