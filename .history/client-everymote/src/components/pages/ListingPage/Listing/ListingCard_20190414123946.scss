@@ -2,7 +2,7 @@
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   transition: 0.8s cubic-bezier(0, 0.2, 0.2, 1);
-  margin: 40px 10px;
+  margin: 20px 10px;
 }
 
 .image img {
@@ -23,9 +23,7 @@
   padding-top: 3%;
   background-color: white;
   border-radius: 8px;
-  height: 20%;
 }
-
 .card-price {
   padding-right: 4vw;
   margin-left: auto;
@@ -34,13 +32,18 @@
 
 .name-price-line {
   display: flex;
-  height: 35%;
 }
 
 .tribe-avatars-line {
-  padding-right: 55%;
-  margin-bottom: 2px;
+  display: flex;
+  margin-left: 0
 }
+
+.tribe-avatars { 
+  padding-left: 2vw;
+  margin-right: auto;
+}
+
 
 .card:hover {
   transform: scale(1.035, 1.035);

@@ -1,7 +1,6 @@
 import React from "react";
 import "./ListingCard.scss";
 import axios from "axios";
-import ListingCardTribe from "./ListingCardTribe";
 
 class ListingCard extends React.Component {
   constructor(props) {
@@ -20,7 +19,6 @@ class ListingCard extends React.Component {
         const theTribe = responseFromApi.data;
         this.setState(theTribe);
         console.log(this.state.users);
-        console.log(this.state.users[0]);
       })
       .catch(err => {
         console.log(err);
@@ -44,12 +42,10 @@ class ListingCard extends React.Component {
             <p className="card-price"> €{this.props.monthlyPrice} /mo</p>
           </div>
           <div className="tribe-avatars-line">
-            {this.state.users ? (
-              <div >
-              <ListingCardTribe tribeMembers={this.state.users} />
-              </div>
+            {this.state.users.length > 0 ? (
+              <span className="tribe-avatars">{this.state.users.length}</span>
             ) : (
-              <div className="tribe-avatars"> no users yet </div>
+              <div> no users yet </div>
             )}
           </div>
         </div>

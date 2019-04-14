@@ -23,9 +23,7 @@
   padding-top: 3%;
   background-color: white;
   border-radius: 8px;
-  height: 20%;
 }
-
 .card-price {
   padding-right: 4vw;
   margin-left: auto;
@@ -34,12 +32,11 @@
 
 .name-price-line {
   display: flex;
-  height: 35%;
 }
 
-.tribe-avatars-line {
-  padding-right: 55%;
-  margin-bottom: 2px;
+.tribe-avatars { 
+  padding-left: 2vw;
+  width: auto;
 }
 
 .card:hover {

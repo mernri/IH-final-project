@@ -45,7 +45,7 @@ class ListingCard extends React.Component {
           </div>
           <div className="tribe-avatars-line">
             {this.state.users ? (
-              <div >
+              <div className="tribe-avatars">
               <ListingCardTribe tribeMembers={this.state.users} />
               </div>
             ) : (

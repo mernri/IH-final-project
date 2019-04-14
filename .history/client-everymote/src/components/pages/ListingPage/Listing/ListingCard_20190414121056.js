@@ -1,7 +1,6 @@
 import React from "react";
 import "./ListingCard.scss";
 import axios from "axios";
-import ListingCardTribe from "./ListingCardTribe";
 
 class ListingCard extends React.Component {
   constructor(props) {
@@ -45,9 +44,7 @@ class ListingCard extends React.Component {
           </div>
           <div className="tribe-avatars-line">
             {this.state.users ? (
-              <div >
-              <ListingCardTribe tribeMembers={this.state.users} />
-              </div>
+              <div className="tribe-avatars">{this.state.users.length}</div>
             ) : (
               <div className="tribe-avatars"> no users yet </div>
             )}

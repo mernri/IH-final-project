@@ -3,6 +3,7 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   transition: 0.8s cubic-bezier(0, 0.2, 0.2, 1);
   margin: 40px 10px;
+  height: 100%
 }
 
 .image img {
@@ -23,7 +24,7 @@
   padding-top: 3%;
   background-color: white;
   border-radius: 8px;
-  height: 20%;
+  height: 50%
 }
 
 .card-price {
@@ -34,10 +35,10 @@
 
 .name-price-line {
   display: flex;
-  height: 35%;
+  height: 7%;
 }
 
-.tribe-avatars-line {
+.tribe-avatars-line { 
   padding-right: 55%;
   margin-bottom: 2px;
 }
