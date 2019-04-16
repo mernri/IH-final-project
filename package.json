@@ -8,7 +8,7 @@
     "dev-windows": "nodemon ./bin/www",
     "build": "cd client && npm install && npm run build"
   },
-  "engine": {
+  "engines": {
     "node": "11.10.0"
   },
   "dependencies": {
