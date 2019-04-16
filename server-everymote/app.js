@@ -49,8 +49,7 @@ app.use(
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
-app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+//app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 hbs.registerHelper("ifUndefined", (value, options) => {
   if (arguments.length < 2)
@@ -94,6 +93,17 @@ app.use("/api", require("./routes/workspaceRoutes"));
 
 app.use("/api", require("./routes/tribeRoutes"));
 
+// AFTER nos routes
+//
 
+app.use(express.static(path.join(__dirname, "client/build")));
+// 404 => serve React SPA
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 module.exports = app;
